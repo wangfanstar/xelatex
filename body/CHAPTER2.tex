@@ -1,0 +1,93 @@
+\bookmarksetup{bold,color=grass}
+\chapter{绘图  Asymptote}
+\bookmarksetup{bold=false,color={}}
+\thispagestyle{fancy}
+
+~\\[9cm]
+\begin{flushright}
+\kai\xiaosi
+\textcolor[rgb]{0.00,0.50,0.00}{
+所谓一流的才智\\
+就是能够在心中怀有两种相互对立思维的同时\\
+又能保持正常运作的能力\\
+- - F.Z.Fitzgeraid\footnote{F.z.菲茨杰拉德：美国作家}}
+\end{flushright}
+\clearpage
+
+优点：可画真 3D 图，在PDF中查看真 3D 是一种享受，\textcolor[rgb]{0.00,0.00,1.00}{可单独输出各种格式（png，eps）的文件\footnote{方便转换到 word 文档}}；用 emacs 编辑可即时显示很爽。
+
+%%%%%%%%%%%%%%%% 语法特点 %%%%%%%%%%%%%%%%%%%%%%
+\section{Asymptote使用备注}
+
+Asymptote 的编程命令与 C 和 C++ 一样，
+以分号结束，中间的空白和换行不计。
+注释符号为
+//
+和
+/*
+$\textellipsis$
+*/
+
+命令参数\\
+\begin{Verbatim}[formatcom=\color{grass},frame=single,numbers=left]
+//代码编译输出,默认输出eps格式，png 格式有的不是矢量图。
+asy *.asy
+asy -f pdf *.asy
+asy -f png *.asy
+asy -f eps *.asy
+\end{Verbatim}
+
+\begin{Verbatim}[formatcom=\color{grass},frame=single]
+//可以在代码中加入选项设置代码，减少命令行命令
+settings.outformat="pdf";
+settings.tex="pdflatex";
+setting.render=4;
+//rend=4使生成的3D图形可被任意PDF阅读器查看封面
+\end{Verbatim}
+
+尽量不用中文，或只在注释中用中文，中文前后用逃逸字符框住，这样可以直接在 tex 文件中用 \verb|\lstinputlisting{文件路径}|来引用代码。
+
+因为 PDFLATEX 编译后经常会出现将上面与下面截掉一小部分的情况，建议在绘制之前确定好高度，
+在图的左侧开始处绘制出一条同底色的略大于原图高度的线条，防止截去正图中的部分。见\ref{code_automata}
+
+\section{配置文件}
+\begin{itemize}
+
+  \item 使用 EMACS 编辑器，将 Asymptote 加入到.emacs 中，用 C-c C-c 就可以直接查看 EPS 编译后的文件了。
+\scriptsize
+\lstset{%extendedchars=false,% 解决中文跨页出错的问题；对 xetex 无用
+basicstyle={\ttfamily},
+numbersep=5pt}
+\begin{lstlisting}[language={Lisp}]
+;;asy`绘图设置`
+(add-to-list 'load-path "C:/Program Files/Asymptote")
+;;(add-to-list 'load-path "/usr/local/share/asymptote");;linux`路径设置`
+(autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
+(autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
+(autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
+(add-to-list 'auto-mode-alist '("\\.asy$" . asy-mode))
+\end{lstlisting}
+\xiaosi
+
+  \item 在 \verb$C:\Documents and Settings\Administrator\.asy$ 里新建 config.asy 文件，把应用到的软件路径加入进去：
+\scriptsize
+\begin{lstlisting}
+import settings;
+gs="D:\Program Files\gs\gs9.05\bin\gswin32c.exe";
+psviewer="D:\Program Files\Ghostgum\gsview\gsview32.exe";
+pdfviewer="D:\Program Files\Adobe\Acrobat 9.0\Acrobat\Acrobat.exe";
+python="D:\python26\python.exe";
+\end{lstlisting}
+\xiaosi
+
+  \item 把 \verb|c:\Program Files\Asymptote|里的 asycolors.sty ，asymptote.sty，ocg.sty 和下载的 animate.sty，animfp.sty，movie15.sty 放到 TEX 路径 \verb$c:\ChinaTeX\texmf\tex\latex$ 新建一个 Asymptote 的文件夹，然后进入 DOS 环境，用 texhash 命令更新一下 tex 的宏包。将自定义宏包simplenode.asy 放在  \verb|c:\Program Files\Asymptote|里面。
+
+  \item 在代码前加入 settings.tex="pdflatex"; 这样 EMACS 就调用 pdflatex 进行编译，生成 PDF 文件，否则默认生成 EPS 文件。
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%% 绘图命令 %%%%%%%%%%%%%%%%%%%%%%
+\include{body/asy_command}
+
+%%%%%%%%%%%%%%%% 绘图命令 %%%%%%%%%%%%%%%%%%%%%%
+\include{body/asy_example}

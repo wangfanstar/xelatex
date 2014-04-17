@@ -1,0 +1,324 @@
+\contentsline {chapter}{版本修改记录}{I}{chapter*.1}
+\contentsline {chapter}{摘\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}要}{III}{chapter*.2}
+\contentsline {chapter}{\leavevmode {\color {blue}目\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}录}}{IV}{section*.3}
+\contentsline {chapter}{\leavevmode {\color {blue}图目录}}{XV}{section*.5}
+\contentsline {chapter}{\leavevmode {\color {blue}表目录}}{XVII}{section*.7}
+\contentsline {chapter}{\numberline {1}软件安装配置}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}安装所需软件}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}安装新宏包方法}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}mac 系统安装后设置}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}winedt使用技巧}{6}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}编译方法}{6}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}winedt 6, 7 设置快捷键}{7}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}winedt 6 自动加载 gbk2uni}{8}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}注册提示框}{8}{subsection.1.4.4}
+\contentsline {subsection}{\numberline {1.4.5}winedt 打开 utf-8 文件}{9}{subsection.1.4.5}
+\contentsline {section}{\numberline {1.5}ASY 安装配置}{9}{section.1.5}
+\contentsline {chapter}{\numberline {2}\LaTeX 设计备忘}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}封面格式}{11}{section.2.1}
+\contentsline {section}{\numberline {2.2}多栏排版}{12}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}onecolumn,twocolumn 选项}{12}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}flushend，cuted 平衡双栏，调整双栏宏包}{12}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}multicol 多栏排版宏包}{13}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}版式设计}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}常用文档类别 book article}{14}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}标题格式设计 caption2宏包}{14}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}多目录格式设计 minitoc宏包}{15}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}页边距设计 geometry宏包}{15}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}空页面，页眉页脚}{17}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.6}自定义页眉页脚}{17}{subsection.2.3.6}
+\contentsline {subsection}{\numberline {2.3.7}格式切换}{17}{subsection.2.3.7}
+\contentsline {subsection}{\numberline {2.3.8}文本格式shapepar}{18}{subsection.2.3.8}
+\contentsline {section}{\numberline {2.4}字体形式}{20}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}复制中文，符号。 ccmap Times 宏包}{20}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}PDFLaTeX 中的字体设置 zhmCJK 宏包}{20}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}XeLaTeX 中的字体设置}{21}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}数字形式}{22}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}英文字体}{22}{subsection.2.4.5}
+\contentsline {subsection}{\numberline {2.4.6}颜色}{22}{subsection.2.4.6}
+\contentsline {section}{\numberline {2.5}代码抄录，加入外部文件}{24}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}listings 宏包}{24}{subsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.1.1}listings 宏包设置文件注意事项}{25}{subsubsection.2.5.1.1}
+\contentsline {subsubsection}{\numberline {2.5.1.2}listings 高亮示例}{25}{subsubsection.2.5.1.2}
+\contentsline {subsection}{\numberline {2.5.2}fancyvrb 宏包}{28}{subsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.2.1}自定义 Verbatim 环境}{28}{subsubsection.2.5.2.1}
+\contentsline {subsection}{\numberline {2.5.3}sverb 宏包}{30}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}表格设计}{31}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}表格概述}{31}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}三线表格 booktab宏包}{31}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}跨行表格 multirow宏包 }{32}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}跨列表格 cmidrule multicolumn }{32}{subsection.2.6.4}
+\contentsline {subsection}{\numberline {2.6.5}斜线表格 diagbox}{33}{subsection.2.6.5}
+\contentsline {subsection}{\numberline {2.6.6}彩色表格 colortbl}{34}{subsection.2.6.6}
+\contentsline {subsection}{\numberline {2.6.7}自定义宽度表格 tabularx }{36}{subsection.2.6.7}
+\contentsline {subsection}{\numberline {2.6.8}长表格}{36}{subsection.2.6.8}
+\contentsline {subsection}{\numberline {2.6.9}小数点对齐 dcolumn}{41}{subsection.2.6.9}
+\contentsline {subsection}{\numberline {2.6.10}整体缩放表格}{42}{subsection.2.6.10}
+\contentsline {subsection}{\numberline {2.6.11}高级表格设置 tabu longtabu}{43}{subsection.2.6.11}
+\contentsline {subsection}{\numberline {2.6.12}表格内换行，更改对齐方式，填充序号 makecell}{44}{subsection.2.6.12}
+\contentsline {section}{\numberline {2.7}图形}{45}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}插图宏包 graphicx宏包}{45}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}并排摆放，一个标题}{45}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}并排摆放，各有标题}{46}{subsection.2.7.3}
+\contentsline {subsection}{\numberline {2.7.4}图文绕排 picinpar宏包}{48}{subsection.2.7.4}
+\contentsline {subsection}{\numberline {2.7.5}背景水印图片宏包 wallpaper xwatermark}{48}{subsection.2.7.5}
+\contentsline {section}{\numberline {2.8}加入PDF,pdfpages宏包}{49}{section.2.8}
+\contentsline {section}{\numberline {2.9}环境}{50}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}自定义环境}{50}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}默认环境}{50}{subsection.2.9.2}
+\contentsline {subsection}{\numberline {2.9.3}改变环境标号}{51}{subsection.2.9.3}
+\contentsline {subsubsection}{\numberline {2.9.3.1}使用 \LaTeX 命令}{51}{subsubsection.2.9.3.1}
+\contentsline {subsubsection}{\numberline {2.9.3.2}使用 enumerate 宏包}{52}{subsubsection.2.9.3.2}
+\contentsline {section}{\numberline {2.10}参考文献}{54}{section.2.10}
+\contentsline {section}{\numberline {2.11}超链接}{55}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}选项配置}{55}{subsection.2.11.1}
+\contentsline {subsection}{\numberline {2.11.2}文本超链接}{62}{subsection.2.11.2}
+\contentsline {subsection}{\numberline {2.11.3}EMAIL 超链接}{62}{subsection.2.11.3}
+\contentsline {subsection}{\numberline {2.11.4}网址超链接}{62}{subsection.2.11.4}
+\contentsline {subsection}{\numberline {2.11.5}直接打开链接文件}{63}{subsection.2.11.5}
+\contentsline {subsection}{\numberline {2.11.6}图表超链接}{63}{subsection.2.11.6}
+\contentsline {subsection}{\numberline {2.11.7}公式超链接}{64}{subsection.2.11.7}
+\contentsline {subsection}{\numberline {2.11.8}文献目录超链接}{64}{subsection.2.11.8}
+\contentsline {subsection}{\numberline {2.11.9}定理引理推论中文环境超链接}{64}{subsection.2.11.9}
+\contentsline {subsection}{\numberline {2.11.10}章节的引用}{64}{subsection.2.11.10}
+\contentsline {subsection}{\numberline {2.11.11}注释超链接}{64}{subsection.2.11.11}
+\contentsline {subsection}{\numberline {2.11.12}PDF 属性设置}{65}{subsection.2.11.12}
+\contentsline {section}{\numberline {2.12}下划线}{66}{section.2.12}
+\contentsline {subsection}{\numberline {2.12.1}ulem 宏包}{66}{subsection.2.12.1}
+\contentsline {subsection}{\numberline {2.12.2}扩展符号线段 makebox}{66}{subsection.2.12.2}
+\contentsline {subsection}{\numberline {2.12.3}线段盒子}{67}{subsection.2.12.3}
+\contentsline {section}{\numberline {2.13}脚注边注设计}{68}{section.2.13}
+\contentsline {subsection}{\numberline {2.13.1}脚注编号 footnote}{68}{subsection.2.13.1}
+\contentsline {subsubsection}{\numberline {2.13.1.1}使用方法}{68}{subsubsection.2.13.1.1}
+\contentsline {subsubsection}{\numberline {2.13.1.2}调整脚注序号}{68}{subsubsection.2.13.1.2}
+\contentsline {subsubsection}{\numberline {2.13.1.3}调整脚注字体}{68}{subsubsection.2.13.1.3}
+\contentsline {subsubsection}{\numberline {2.13.1.4}小页环境 minipage 中的脚注}{68}{subsubsection.2.13.1.4}
+\contentsline {subsubsection}{\numberline {2.13.1.5}表格中的脚注}{68}{subsubsection.2.13.1.5}
+\contentsline {subsection}{\numberline {2.13.2}尾注 endnotes}{69}{subsection.2.13.2}
+\contentsline {subsection}{\numberline {2.13.3}边注 marginpar}{70}{subsection.2.13.3}
+\contentsline {section}{\numberline {2.14}盒子设计}{71}{section.2.14}
+\contentsline {subsection}{\numberline {2.14.1}盒子命令集}{71}{subsection.2.14.1}
+\contentsline {subsection}{\numberline {2.14.2}多行文本，parbox,minipage}{71}{subsection.2.14.2}
+\contentsline {subsection}{\numberline {2.14.3}外框，背景色，framed，shade}{72}{subsection.2.14.3}
+\contentsline {subsection}{\numberline {2.14.4}彩色圆框,tcolorbox,mdframed}{73}{subsection.2.14.4}
+\contentsline {subsubsection}{\numberline {2.14.4.1}Colored boxes}{73}{subsubsection.2.14.4.1}
+\contentsline {subsubsection}{\numberline {2.14.4.2}\LaTeX -Examples}{73}{subsubsection.2.14.4.2}
+\contentsline {subsubsection}{\numberline {2.14.4.3}Theorems}{74}{subsubsection.2.14.4.3}
+\contentsline {subsection}{\numberline {2.14.5}旋转任意对象}{74}{subsection.2.14.5}
+\contentsline {subsection}{\numberline {2.14.6}缩放任意对象}{75}{subsection.2.14.6}
+\contentsline {subsection}{\numberline {2.14.7}镜像任意对象}{76}{subsection.2.14.7}
+\contentsline {section}{\numberline {2.15}行号}{77}{section.2.15}
+\contentsline {section}{\numberline {2.16}swf，影音，附件宏包}{78}{section.2.16}
+\contentsline {subsection}{\numberline {2.16.1}animate 宏包}{78}{subsection.2.16.1}
+\contentsline {subsection}{\numberline {2.16.2}MOV15 宏包}{78}{subsection.2.16.2}
+\contentsline {subsection}{\numberline {2.16.3}attachfile2 宏包}{79}{subsection.2.16.3}
+\contentsline {section}{\numberline {2.17}Latex 图形绘制宏包}{81}{section.2.17}
+\contentsline {subsection}{\numberline {2.17.1}树状结构图 dirtree}{81}{subsection.2.17.1}
+\contentsline {subsubsection}{\numberline {2.17.1.1}dirtree 代码}{81}{subsubsection.2.17.1.1}
+\contentsline {subsubsection}{\numberline {2.17.1.2}dirtree 参数设计}{82}{subsubsection.2.17.1.2}
+\contentsline {subsection}{\numberline {2.17.2}栈的绘制 drawstack}{84}{subsection.2.17.2}
+\contentsline {subsubsection}{\numberline {2.17.2.1}Minimalistic example}{84}{subsubsection.2.17.2.1}
+\contentsline {subsubsection}{\numberline {2.17.2.2}Grouping cells into stack frames}{84}{subsubsection.2.17.2.2}
+\contentsline {subsubsection}{\numberline {2.17.2.3}Stack and Base pointers}{85}{subsubsection.2.17.2.3}
+\contentsline {subsubsection}{\numberline {2.17.2.4}Padding}{85}{subsubsection.2.17.2.4}
+\contentsline {subsubsection}{\numberline {2.17.2.5}Below/Above stack pointer}{86}{subsubsection.2.17.2.5}
+\contentsline {subsubsection}{\numberline {2.17.2.6}Highlighting some cell}{86}{subsubsection.2.17.2.6}
+\contentsline {subsubsection}{\numberline {2.17.2.7}Using tikzpicture instead of drawstack}{86}{subsubsection.2.17.2.7}
+\contentsline {subsubsection}{\numberline {2.17.2.8}Changing style}{87}{subsubsection.2.17.2.8}
+\contentsline {subsubsection}{\numberline {2.17.2.9}Example: Computing Factorial}{87}{subsubsection.2.17.2.9}
+\contentsline {subsection}{\numberline {2.17.3}柱状图 bardiag}{87}{subsection.2.17.3}
+\contentsline {subsubsection}{\numberline {2.17.3.1}bardiag 代码}{88}{subsubsection.2.17.3.1}
+\contentsline {subsubsection}{\numberline {2.17.3.2}bardiag 参数设计}{89}{subsubsection.2.17.3.2}
+\contentsline {section}{\numberline {2.18}公式}{90}{section.2.18}
+\contentsline {subsection}{\numberline {2.18.1}单行公式}{90}{subsection.2.18.1}
+\contentsline {subsection}{\numberline {2.18.2}多行公式}{90}{subsection.2.18.2}
+\contentsline {subsection}{\numberline {2.18.3}公式对齐}{91}{subsection.2.18.3}
+\contentsline {subsection}{\numberline {2.18.4}大小自动调整括号}{91}{subsection.2.18.4}
+\contentsline {subsection}{\numberline {2.18.5}公式内加文本}{91}{subsection.2.18.5}
+\contentsline {subsection}{\numberline {2.18.6}公式自动编号}{92}{subsection.2.18.6}
+\contentsline {section}{\numberline {2.19}符号}{93}{section.2.19}
+\contentsline {subsection}{\numberline {2.19.1}符号冲突}{93}{subsection.2.19.1}
+\contentsline {subsection}{\numberline {2.19.2}常用科技符号}{94}{subsection.2.19.2}
+\contentsline {section}{\numberline {2.20}索引}{95}{section.2.20}
+\contentsline {subsection}{\numberline {2.20.1}默认宏包 makeidx}{95}{subsection.2.20.1}
+\contentsline {subsection}{\numberline {2.20.2}xelatex 索引高级宏包 xeindex}{95}{subsection.2.20.2}
+\contentsline {section}{\numberline {2.21}长度设置}{96}{section.2.21}
+\contentsline {subsection}{\numberline {2.21.1}长度单位}{96}{subsection.2.21.1}
+\contentsline {subsection}{\numberline {2.21.2}长度的设置}{96}{subsection.2.21.2}
+\contentsline {section}{\numberline {2.22}页码、标号等计数器}{98}{section.2.22}
+\contentsline {subsection}{\numberline {2.22.1}计数器}{98}{subsection.2.22.1}
+\contentsline {subsection}{\numberline {2.22.2}最后页调用 LastPage}{98}{subsection.2.22.2}
+\contentsline {subsection}{\numberline {2.22.3}指定页码调用 label}{98}{subsection.2.22.3}
+\contentsline {subsection}{\numberline {2.22.4}页码重新设置格式}{99}{subsection.2.22.4}
+\contentsline {subsection}{\numberline {2.22.5}图号表号设置}{99}{subsection.2.22.5}
+\contentsline {section}{\numberline {2.23}书签设置}{100}{section.2.23}
+\contentsline {section}{\numberline {2.24}PDF 注释}{101}{section.2.24}
+\contentsline {section}{\numberline {2.25}自定义命令}{102}{section.2.25}
+\contentsline {subsection}{\numberline {2.25.1}新建命令 newcommand def}{102}{subsection.2.25.1}
+\contentsline {subsection}{\numberline {2.25.2}修改命令 renewcommand}{102}{subsection.2.25.2}
+\contentsline {subsection}{\numberline {2.25.3}自定义盒子 newsavebox}{102}{subsection.2.25.3}
+\contentsline {section}{\numberline {2.26}编译技巧}{103}{section.2.26}
+\contentsline {subsection}{\numberline {2.26.1}注释一段文字}{103}{subsection.2.26.1}
+\contentsline {subsection}{\numberline {2.26.2}编译当前一小段}{103}{subsection.2.26.2}
+\contentsline {subsection}{\numberline {2.26.3}只编译几个章节}{103}{subsection.2.26.3}
+\contentsline {subsection}{\numberline {2.26.4}删除辅助文件}{104}{subsection.2.26.4}
+\contentsline {chapter}{\numberline {3}绘图 pgf/tikz/pgfplot}{106}{chapter.3}
+\contentsline {section}{\numberline {3.1}tikz 使用方法}{107}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}调用宏包}{107}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}调用环境}{107}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}tikzset 绘图预定义}{107}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}tikz 基本绘图命令}{108}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}绘图环境和绘图命令}{108}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}绘制路径}{109}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}绘制结点和标注 node coordinate}{109}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}输出 pdf,png,eps单独格式图片}{109}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1} pdf 图形全部预览 preview}{109}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}xelatex 设置单独输出 pdf}{109}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}调用宏包及设置}{110}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}external 宏包兼容性设置}{110}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}插入外部图片}{110}{section.3.4}
+\contentsline {section}{\numberline {3.5}结点样式 shapes decoration patterns shadows fadings backgrounds}{111}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}shapes 形状}{111}{subsection.3.5.1}
+\contentsline {section}{\numberline {3.6}结点关系 chains matrix tree automata fit}{111}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}chains 链状图}{111}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}matrix 矩阵图}{112}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}tree qtree树状图}{112}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}automata 状态机}{113}{subsection.3.6.4}
+\contentsline {subsection}{\numberline {3.6.5}pgf 流程图}{114}{subsection.3.6.5}
+\contentsline {subsection}{\numberline {3.6.6}pgfplot 坐标图}{116}{subsection.3.6.6}
+\contentsline {section}{\numberline {3.7}pgf 日历图}{117}{section.3.7}
+\contentsline {section}{\numberline {3.8}pgf spy 局部放大}{121}{section.3.8}
+\contentsline {section}{\numberline {3.9}动画设计}{121}{section.3.9}
+\contentsline {section}{\numberline {3.10}边注便笺}{123}{section.3.10}
+\contentsline {section}{\numberline {3.11}tikz-timing 时序图}{125}{section.3.11}
+\contentsline {section}{\numberline {3.12}circuitikz 电路图}{137}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}绘制命令参数}{137}{subsection.3.12.1}
+\contentsline {subsection}{\numberline {3.12.2}逻辑门绘制}{138}{subsection.3.12.2}
+\contentsline {subsection}{\numberline {3.12.3}元器件：电阻、电感、电容、电池、变压器}{138}{subsection.3.12.3}
+\contentsline {subsection}{\numberline {3.12.4}标注}{140}{subsection.3.12.4}
+\contentsline {subsection}{\numberline {3.12.5}电流}{141}{subsection.3.12.5}
+\contentsline {subsection}{\numberline {3.12.6}电压}{142}{subsection.3.12.6}
+\contentsline {subsubsection}{\numberline {3.12.6.1}European style}{142}{subsubsection.3.12.6.1}
+\contentsline {subsubsection}{\numberline {3.12.6.2}American style}{143}{subsubsection.3.12.6.2}
+\contentsline {subsection}{\numberline {3.12.7}结点}{143}{subsection.3.12.7}
+\contentsline {subsection}{\numberline {3.12.8}特殊器件}{144}{subsection.3.12.8}
+\contentsline {subsection}{\numberline {3.12.9}集成 }{146}{subsection.3.12.9}
+\contentsline {subsection}{\numberline {3.12.10}镜像}{147}{subsection.3.12.10}
+\contentsline {subsection}{\numberline {3.12.11}电路组合图}{148}{subsection.3.12.11}
+\contentsline {subsection}{\numberline {3.12.12}元器件连接点}{148}{subsection.3.12.12}
+\contentsline {chapter}{\numberline {4}绘图 Asymptote}{149}{chapter.4}
+\contentsline {section}{\numberline {4.1}Asymptote使用备注}{150}{section.4.1}
+\contentsline {section}{\numberline {4.2}配置文件}{150}{section.4.2}
+\contentsline {section}{\numberline {4.3}绘图代码参考}{152}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}基本命令}{153}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}画笔设置}{153}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}点的绘制}{155}{subsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.1}空心点，实心点}{155}{subsubsection.4.3.3.1}
+\contentsline {subsubsection}{\numberline {4.3.3.2}网络格点}{155}{subsubsection.4.3.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3.3}比例分点，中点}{156}{subsubsection.4.3.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.4}交点}{156}{subsubsection.4.3.3.4}
+\contentsline {subsection}{\numberline {4.3.4}标注}{157}{subsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.4.1}string 类型}{157}{subsubsection.4.3.4.1}
+\contentsline {subsubsection}{\numberline {4.3.4.2}点上的标注}{157}{subsubsection.4.3.4.2}
+\contentsline {subsubsection}{\numberline {4.3.4.3}坐标轴标注}{158}{subsubsection.4.3.4.3}
+\contentsline {subsubsection}{\numberline {4.3.4.4}箭头标注}{158}{subsubsection.4.3.4.4}
+\contentsline {subsubsection}{\numberline {4.3.4.5}中文标注}{158}{subsubsection.4.3.4.5}
+\contentsline {subsection}{\numberline {4.3.5}面图形的绘制}{159}{subsection.4.3.5}
+\contentsline {subsubsection}{\numberline {4.3.5.1}单位圆，单位矩形}{159}{subsubsection.4.3.5.1}
+\contentsline {subsubsection}{\numberline {4.3.5.2}封闭曲面}{159}{subsubsection.4.3.5.2}
+\contentsline {subsection}{\numberline {4.3.6}图形变换}{161}{subsection.4.3.6}
+\contentsline {subsubsection}{\numberline {4.3.6.1}平移，放缩，旋转}{161}{subsubsection.4.3.6.1}
+\contentsline {subsubsection}{\numberline {4.3.6.2}填充,裁剪}{161}{subsubsection.4.3.6.2}
+\contentsline {subsection}{\numberline {4.3.7}导入外部文件}{162}{subsection.4.3.7}
+\contentsline {subsubsection}{\numberline {4.3.7.1}导入自定义宏包}{162}{subsubsection.4.3.7.1}
+\contentsline {subsubsection}{\numberline {4.3.7.2}导入外部数据}{162}{subsubsection.4.3.7.2}
+\contentsline {subsubsection}{\numberline {4.3.7.3}导入外部图片}{162}{subsubsection.4.3.7.3}
+\contentsline {section}{\numberline {4.4}一些图形模板}{163}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}流程图}{163}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}状态机}{165}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}源代码}{165}{subsubsection.4.4.2.1}
+\contentsline {subsection}{\numberline {4.4.3}时序图}{167}{subsection.4.4.3}
+\contentsline {chapter}{\numberline {5}幻灯片制作}{169}{chapter.5}
+\contentsline {section}{\numberline {5.1}BEAMER 模板}{170}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}目录显示}{170}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}创建帧}{170}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}创建与结束}{170}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}颜色设置}{170}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}主题设置}{170}{subsubsection.5.1.2.3}
+\contentsline {subsubsection}{\numberline {5.1.2.4}加入时钟}{172}{subsubsection.5.1.2.4}
+\contentsline {subsection}{\numberline {5.1.3}block 文本模块}{172}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}定理类}{172}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}文本框}{172}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.3.3}文本盒子}{173}{subsubsection.5.1.3.3}
+\contentsline {subsubsection}{\numberline {5.1.3.4}列表}{173}{subsubsection.5.1.3.4}
+\contentsline {subsection}{\numberline {5.1.4}分栏显示}{173}{subsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.4.1}minipage 环境实现多栏}{174}{subsubsection.5.1.4.1}
+\contentsline {subsubsection}{\numberline {5.1.4.2}columns 环境实现多栏}{174}{subsubsection.5.1.4.2}
+\contentsline {subsection}{\numberline {5.1.5}导航板设置}{175}{subsection.5.1.5}
+\contentsline {subsubsection}{\numberline {5.1.5.1}sidebar 参数设置}{175}{subsubsection.5.1.5.1}
+\contentsline {subsubsection}{\numberline {5.1.5.2}对应的目录导航有颜色显示}{175}{subsubsection.5.1.5.2}
+\contentsline {subsubsection}{\numberline {5.1.5.3}导航板logo设置}{175}{subsubsection.5.1.5.3}
+\contentsline {subsection}{\numberline {5.1.6}时间设置}{175}{subsection.5.1.6}
+\contentsline {subsection}{\numberline {5.1.7}加入附件}{176}{subsection.5.1.7}
+\contentsline {subsection}{\numberline {5.1.8}遮盖，逐步显示}{177}{subsection.5.1.8}
+\contentsline {subsubsection}{\numberline {5.1.8.1}遮盖命令}{177}{subsubsection.5.1.8.1}
+\contentsline {subsubsection}{\numberline {5.1.8.2}表格逐列显示}{178}{subsubsection.5.1.8.2}
+\contentsline {subsubsection}{\numberline {5.1.8.3}列表逐项显示}{178}{subsubsection.5.1.8.3}
+\contentsline {subsubsection}{\numberline {5.1.8.4}内容逐项变化}{180}{subsubsection.5.1.8.4}
+\contentsline {subsubsection}{\numberline {5.1.8.5}列表逐项高亮变色}{181}{subsubsection.5.1.8.5}
+\contentsline {subsection}{\numberline {5.1.9}代码抄录 semiverbatim lstlisting}{184}{subsection.5.1.9}
+\contentsline {subsection}{\numberline {5.1.10}切换颜色}{184}{subsection.5.1.10}
+\contentsline {subsubsection}{\numberline {5.1.10.1}定义新颜色}{184}{subsubsection.5.1.10.1}
+\contentsline {subsubsection}{\numberline {5.1.10.2}改变 alert 颜色}{185}{subsubsection.5.1.10.2}
+\contentsline {subsubsection}{\numberline {5.1.10.3}改变 background 颜色}{185}{subsubsection.5.1.10.3}
+\contentsline {subsubsection}{\numberline {5.1.10.4}改变 structure 颜色}{185}{subsubsection.5.1.10.4}
+\contentsline {subsection}{\numberline {5.1.11}带进度条的幻灯片}{186}{subsection.5.1.11}
+\contentsline {subsection}{\numberline {5.1.12}note 添加笔记}{187}{subsection.5.1.12}
+\contentsline {section}{\numberline {5.2}pdfscreen 模板}{188}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}模板选项}{188}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}导言中必需出现的命令}{188}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {6}一些问题}{189}{chapter.6}
+\contentsline {section}{\numberline {6.1}文档问题}{190}{section.6.1}
+\contentsline {subsection}{$\bullet $\nobreakspace {}合并图表目录}{190}{section.6.1}
+\contentsline {subsection}{$\bullet $\nobreakspace {}目录链接不正确}{190}{Item.88}
+\contentsline {subsection}{$\bullet $\nobreakspace {}表格内换行}{190}{lstnumber.-187.8}
+\contentsline {subsection}{$\bullet $\nobreakspace {}PDF 标签乱码}{190}{Item.90}
+\contentsline {subsection}{$\bullet $\nobreakspace {}图片一直放在文字后}{190}{Item.91}
+\contentsline {subsection}{$\bullet $\nobreakspace {}图片强制就地放置}{190}{Item.92}
+\contentsline {subsection}{$\bullet $\nobreakspace {}latex 公式到 word}{190}{Item.93}
+\contentsline {subsection}{字体颜色不均}{190}{Item.94}
+\contentsline {subsection}{$\bullet $\nobreakspace {}box 环境内的抄录环境}{191}{Item.95}
+\contentsline {subsection}{$\bullet $\nobreakspace {}PDF 属性中加入作者和文章信息}{191}{Item.96}
+\contentsline {subsection}{$\bullet $\nobreakspace {}总页码计数器}{191}{Item.97}
+\contentsline {subsection}{$\bullet $\nobreakspace {}章节页加页眉}{191}{Item.98}
+\contentsline {subsection}{$\bullet $\nobreakspace {}目录页加页眉 tocloft}{191}{lstnumber.-188.3}
+\contentsline {subsection}{$\bullet $\nobreakspace {}目录章节首页加页眉 titletoc}{192}{Item.100}
+\contentsline {subsection}{$\bullet $\nobreakspace {}将文献引用改为上标格式}{192}{Item.101}
+\contentsline {subsection}{$\bullet $\nobreakspace {}附录的节号 section 不对}{192}{Item.102}
+\contentsline {subsection}{$\bullet $\nobreakspace {}表格编译 label 出错}{193}{Item.103}
+\contentsline {subsection}{$\bullet $\nobreakspace {}hyperref 没有超链接}{193}{Item.104}
+\contentsline {subsection}{$\bullet $\nobreakspace {}命令作用范围到了后面的表格}{193}{Item.105}
+\contentsline {subsection}{$\bullet $\nobreakspace {}抄录环境中代码过长}{193}{Item.106}
+\contentsline {subsection}{$\bullet $\nobreakspace {}新加宏包后出现no room for ... 的错误}{193}{Item.107}
+\contentsline {subsection}{$\bullet $\nobreakspace {}winedt 局部编译后不自动弹出PDF,且乱码}{193}{Item.108}
+\contentsline {subsection}{$\bullet $\nobreakspace {}xelatex 编译utf-8格式出错}{193}{Item.109}
+\contentsline {subsection}{$\bullet $\nobreakspace {}no room for a new write}{193}{Item.110}
+\contentsline {section}{\numberline {6.2}幻灯片问题}{194}{section.6.2}
+\contentsline {section}{\numberline {6.3}ASY pgf绘图问题}{195}{section.6.3}
+\contentsline {subsection}{$\bullet $\nobreakspace {}asy 中文标签不好用}{195}{section.6.3}
+\contentsline {subsection}{$\bullet $\nobreakspace {}xelatex 绘图不能显示效果，pdflatex可以}{195}{Item.113}
+\contentsline {subsection}{$\bullet $\nobreakspace {}pgf 导出单独PDF出错}{195}{lstnumber.-190.1}
+\contentsline {chapter}{参考文献}{196}{chapter*.10}
+\contentsline {chapter}{附\hskip 2em\relax 录}{197}{chapter*.11}
+\contentsline {section}{\numberline {1}常见参数}{197}{section.7.1}
+\contentsline {subsection}{\numberline {1.1}位置参数}{197}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {1.2}表格参数}{197}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {1.3}居中环境}{198}{subsection.7.1.3}
+\contentsline {section}{\numberline {2}$*$的区别}{199}{section.7.2}
+\contentsline {section}{\numberline {3}listing 宏包可高亮关键字的程序语言}{199}{section.7.3}
+\contentsline {section}{\numberline {4}常用符号}{201}{section.7.4}
+\contentsline {section}{\numberline {5}beamer 常用设置命令}{201}{section.7.5}
+\contentsline {subsection}{\numberline {5.1}设置样式、颜色、字体}{201}{subsection.7.5.1}
+\contentsline {chapter}{一些 \LaTeX 参考手册}{203}{chapter*.12}
+\contentsline {chapter}{\leavevmode {\color {blue}索引}}{204}{section*.13}
+\contentsfinish

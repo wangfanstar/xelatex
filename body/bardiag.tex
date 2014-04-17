@@ -1,0 +1,35 @@
+\section{bardiag 柱状图}
+\index{宏包!bardiag}
+\index{命令!\verb$\bardiag$}
+\index{命令!\verb$\betweenticks$}
+\subsection{bardiag 代码}
+\renewcommand{\betweenticks}{50}
+\bardiagrambegin{9.5}{200}{2cm}{1}{2}{1cm}{0.05cm}
+\drawlevellines
+\baritem{1998}{120}{green}
+\baritem{1999}{123}{red}
+\baritem{2000}{147}{yellow}
+\baritem{2001}{176}{green}
+\baritem{2002}{132}{red}
+\bardiagramend{{\large Year}}{{\large Income}}
+
+\lstset{language={[LaTeX]TeX}}
+\begin{lstlisting}
+\renewcommand{\betweenticks}{50}
+\bardiagrambegin{9.5}{200}{2cm}{1}{2}{1cm}{0.05cm}
+\drawlevellines
+\baritem{1998}{120}{green}
+\baritem{1999}{123}{red}
+\baritem{2000}{147}{yellow}
+\baritem{2001}{176}{green}
+\baritem{2002}{132}{red}
+\bardiagramend{{\large Year}}{{\large Income}}
+\end{lstlisting}
+
+\subsection{bardiag 参数设计}
+\begin{figure}[H]
+  \centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=14cm]{bardiag_set}\\
+  \caption{bardiag 参数设计}\label{bardiag_set}
+\end{figure}

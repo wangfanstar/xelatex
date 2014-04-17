@@ -1,0 +1,30 @@
+\section{参考文献}
+\index{命令!\verb$\bibiographystyle{}$}
+\index{命令!\verb$\bibitem$}
+\index{命令!\verb$\bibliography{}$}
+常见的引用格式 bibliographystyle\{格式\} 有下面4种\\
+
+
+\begin{tabular}{ll}
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  plain & 文献按字母顺序列出 author year  title 这三种字母顺序比较 \\
+  unsrt & 引用顺序列出\\
+  abbrv & 同 plain 但 firstname,month,title,journal 变成缩写\\
+  alpha & 引用处用作者年份代替数字 \\
+
+\end{tabular}
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\bibliographystyle{plain}
+\bibliography{reference/REF}
+
+\begin{thebibliography}{99} %`99为最多引用文献数目`
+\setlength{\parskip}{0pt}  %`段落之间的竖直距离`
+
+\bibitem[`指定标号`]{`引用标签`} 251289-001  Intel Low Pin Count~~[S]
+\bibitem[]{} PCI Local Bus Specification Revision 3.0~~[S]
+
+\end{thebibliography}
+\thispagestyle{fancy} \fancyhead[R]{\song\wuhao `参考文献`}
+\addcontentsline{toc}{chapter}{`参考文献`}        %`加入参考文献到目录`
+\end{lstlisting}

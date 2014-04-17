@@ -1,0 +1,13 @@
+﻿\section{PDF 注释}
+
+\index{宏包!pdfcomment}
+\index{命令!\verb$\pdffreetextcomment$}
+\index{命令!\verb$\pdftooltip$}
+可以对PDF中加入注释。但PDF的注释可以拖动，影响版式，推荐只使用pdftooltip这种不影响排版格式的注释。
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+  \usepackage{pdfcomment}
+  \pdftooltip[mathstyle]{ 原文 }{ 注释内容 } % mathstyle,disable 可选项
+\end{lstlisting}
+
+\pdftooltip{ 原文 }{ 注释内容 }

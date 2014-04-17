@@ -1,0 +1,49 @@
+%\subsection{线的绘制}
+%
+%\subsubsection{实线，虚线}
+%代码如下：\\
+%
+%  \lstinputlisting{body/asycode/lines.asy}
+%
+%  \begin{description}
+%    \item[solid] 可以省略, 表示画实线;
+%    \item[dashed ]  画虚线
+%    \item[dashdotted] 画点划线
+%    \item[dotted ]  画实心点线
+%  \end{description}
+
+%\subsubsection{箭头线}
+%代码如下：\\
+%
+%  \lstinputlisting{body/asycode/arrows.asy}
+%
+%
+% \begin{description}
+%    \item[Arrow,EndArrow] 效果一样, 都是在路径的末端添加箭头;
+%    \item[BeginArrow] 在路径的开头加箭头
+%    \item[Arrows] 在路径的头尾都加上箭头
+%    \item[MidArrow]  在路径的中间添加箭头
+%  \end{description}
+%
+%\subsubsection{曲线，函数曲线}
+%调用 graph 函数，返回类型为 path(guide) 的路径，调用代码格式为：\\
+%\begin{center}
+%\fcolorbox{white}{lightgreen}{\parbox{12cm}{
+%real f(real x)\{return y=x\^{}2;\};\\
+%//real x 声明函数自变量 x 是实数型,\\
+%//f 前面的 real 声明函数 f 也是一个实数型.\\
+%guide graph(real f(real), real a, real b,interpolate join=operator - -);\\
+%//描述函数曲线
+%  }}
+%\end{center}
+%
+%
+%其中：\begin{description}
+%        \item[曲线的函数] real f(real x){return y=x}
+%        \item[变量范围] a,b
+%        \item[画笔线型] 折线：operator - - ；曲线：operator ..
+%      \end{description}
+%
+%  \lstinputlisting{body/asycode/graph_line.asy}\\
+%
+%\clearpage

@@ -1,0 +1,276 @@
+\section{盒子设计}
+\subsection{盒子命令集}
+
+如表\ref{box_command}所示：\\
+
+\begin{table}[htbp]
+\centering
+\caption{盒子对应命令} \label{box_command}
+\rowcolors{2}{lightgray}{white}
+
+\begin{tabularx}{14cm}{lXX}
+  \toprule
+  盒子种类 & 对应命令 & 参数含义 \\
+  \midrule
+  无框盒子 & \verb|\mbox{文本}| &   \\
+  可调参数无框盒子 & \verb|\makebox[宽度][位置]{文本}| & 先宽度后位置， l,r,s,缺省（c） 左、中、右、撑满四种位置\\
+  有框盒子 & \verb|\fbox{文本}| &   \\
+  可调参数有框盒子 &\verb|\fbox[宽度][位置]{文本}| &  \\
+  盒子复用 & \parbox{6cm}{\verb|\newsavebox{盒子名}|\\\verb|\sbox{盒子名}{文本}|\\\verb|\usebox{盒子名}|}
+    & 新建盒子名，以新建盒子名保存盒子，复用盒子  \\
+  多行文本盒子 & \verb|\parbox[位置]{宽度}{文本}| &   \\
+% 可抄录多行文本盒子 &  &  \\
+%   &  &  \\
+%   &  &  \\
+  \bottomrule
+\end{tabularx}
+\end{table}
+
+
+\subsection{多行文本，parbox,minipage}
+\index{命令!\verb$\begin{minipage}$}
+\index{命令!\verb$\parbox$}
+
+\begin{shaded}
+  \begin{Verbatim}
+    \parbox[位置]{宽度}{内容}
+    位置有 b t 两种，盒子内文本基线与外面基线平齐
+    \begin{minipage}[位置]{宽度}
+        ...
+    \end{minipage}
+  \end{Verbatim}
+\end{shaded}
+minipage 盒子里可使用抄录环境 verbatim，parbox 不行。用法如下
+\begin{enumerate}
+  \item 盒子，表格里的多行内容添加，
+  \item 图文混排，图形旁边多行文本的添加，两个子图，表格并排放置
+\end{enumerate}
+
+\subsection{外框，背景色，framed，shade}
+\index{命令!\verb$\begin{shaded}$}
+\index{命令!\verb$\begin{framed}$}
+\index{宏包!framed}
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\usepackage{framed}
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{document}
+\begin{shaded}
+`文本背景色效果`
+`支持跨页，多行。`
+\begin{equation}
+  \int_a^b f(x) dx
+\end{equation}
+\end{shaded}
+\begin{framed}
+`文本框效果`
+\begin{equation}
+  \int_a^b f(x) dx
+\end{equation}
+\end{framed}
+\end{document}
+\end{lstlisting}
+
+对应效果如下\textcolor[rgb]{1.00,0.00,0.00}{\footnote{注意，framed 宏包与 fancybox 宏包冲突}}：\\
+文本背景色效果
+支持跨页，多行。
+\begin{equation}
+  \int_a^b f(x) dx
+\end{equation}
+
+\begin{shaded}
+文本背景色效果\\
+支持跨页，多行。
+\begin{equation}
+  \int_a^b f(x) dx
+\end{equation}
+\end{shaded}
+
+\begin{framed}
+文本框效果\\
+支持跨页\\
+多行文本公式\\
+框线厚可调\\
+\begin{equation}
+  \int_a^b f(x) dx
+\end{equation}
+\end{framed}
+
+%\subsection{圆角阴影盒子 fancybox}
+%\index{命令!\verb$\ovalbox$}
+%\index{命令!\verb$\Ovalbox$}
+%\index{命令!\verb$\shadowbox$}
+%\index{命令!\verb$\doublebox$}
+%\index{宏包!fancybox}
+%
+%
+%注意与 framed 宏包冲突，代码：
+%\begin{shaded}
+%  \begin{Verbatim}
+%    \ovalbox{圆角盒子}
+%    \Ovalbox{粗圆角盒子}
+%    \shadowbox{阴影角盒子}
+%    \doublebox{双边框盒子}
+%  \end{Verbatim}
+%\end{shaded}
+%效果如下所示：\\
+%    \ovalbox{圆角盒子}
+%    \Ovalbox{粗圆角盒子}
+%    \shadowbox{阴影角盒子}
+%    \doublebox{双边框盒子}
+
+
+
+\subsection{彩色圆框,tcolorbox,mdframed}
+
+\subsubsection{Colored boxes}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+  My box.
+\end{tcolorbox}
+
+\begin{tcolorbox}[skin=bicolor,colback=blue!5,colframe=blue!75!black,title=My title]
+  My box with my title.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5,colframe=green!75!black]
+  Upper part of my box.
+  \tcblower
+  Lower part of my box.
+\end{tcolorbox}
+
+\begin{tcolorbox}[skin=bicolor,colback=yellow!5,colframe=yellow!75!black,title=My title]
+  I can do this also with a title.
+  \tcblower
+  Lower part of my box.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=yellow!10,colframe=red!75!black,lowerbox=invisible,
+  savelowerto=\jobname_ex.tex]
+  Now, we play hide and seek. Where is the lower part?
+  \tcblower
+  I'm invisible until you find me.
+\end{tcolorbox}
+
+\begin{tcolorbox}[skin=bicolor,colback=yellow!10,colframe=red!75!black,title=Here I am]
+  \input{\jobname_ex.tex}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!50,colframe=blue!25!black,coltext=yellow,
+    fontupper=\Large\bfseries,arc=6mm,boxrule=2mm,boxsep=5mm]
+  Funny settings.
+\end{tcolorbox}
+
+
+\subsubsection{\LaTeX-Examples}
+
+\begin{tcblisting}{colback=red!5,colframe=red!75!black}
+This is a \LaTeX\ example:
+$\displaystyle\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}$.
+\end{tcblisting}
+
+
+\subsubsection{Theorems}
+
+\newcounter{mytheorem}[section]
+\def\themytheorem{\thesection.\arabic{mytheorem}}
+
+\tcbmaketheorem{theo}{Theorem}{skin=bicolor,fonttitle=\bfseries\upshape, fontupper=\slshape,
+     arc=0mm, colback=blue!5,colframe=blue!75!black}{mytheorem}{theorem}
+
+\begin{theo}{Summation of Numbers}{summation}
+  For all natural number $n$ it holds:\\[2mm]
+  $\displaystyle\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}$.
+\end{theo}
+
+We have given Theorem \ref{theorem:summation} on page \pageref{theorem:summation}.
+\subsection{旋转任意对象}
+\index{命令!\verb$\rotatebox$}
+\begin{shaded}
+  \begin{Verbatim}
+    \rotatebox[origin=,x=,y=,units=]{角度}{对象}
+\begin{center}
+\rotatebox{90}{
+    \begin{tabular}{|l|l|}
+      \hline
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      1 & 旋转表格 \\\hline
+      表格 & 旋转 \\\hline
+      \hline
+    \end{tabular}}
+\end{center}
+  \end{Verbatim}
+\end{shaded}
+
+参数含义如下：\\
+\begin{description}
+  \item[origin ：]旋转基准点；
+  \item[x,y ：]旋转点到基准点的位移；
+  \item[units ：] 旋转角度单位，units=-360 表示为顺时针，单位为度；units=6.283185，表示逆时针，单位为弧度。
+\end{description}
+\begin{center}
+\rotatebox{90}{
+    \begin{tabular}{|l|l|}
+      \hline
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      1 & 旋转表格 \\\hline
+      表格 & 旋转 \\\hline
+        \end{tabular}}
+\end{center}
+
+\subsection{缩放任意对象}
+\index{命令!\verb$\scalebox$}
+\index{命令!\verb$\width$}
+\index{命令!\verb$\height$}
+\index{命令!\verb$\totalheight$}
+\index{命令!\verb$\depth$}
+\begin{itemize}
+  \item 尺寸测量命令有\verb$\width$，\verb$\height$，\verb$\totalheight$，\verb$\depth$。
+  \item 如果高度或宽度用 ！ 号来表示，对象保持原高度不变进行缩放。
+\end{itemize}
+
+
+\begin{shaded}
+  \begin{Verbatim}
+    \scalebox{水平缩放系数}[垂直缩放系数]{对象}
+    \resizebox{宽度}{高度}{对象}
+    \resizebox*{宽度}{总高度}{对象}
+\begin{center}
+\scalebox{5}[1]{缩} \scalebox{2}[4]{放}\\
+\resizebox{5\width}{\height}{缩}
+\resizebox{2\width}{4\height}{放}
+\end{center}
+  \end{Verbatim}
+\end{shaded}
+效果如下：
+\begin{shaded}
+\begin{center}
+ \scalebox{5}[1]{缩} \scalebox{2}[4]{放}\\
+\resizebox{5\width}{\height}{缩}
+\resizebox{2\width}{4\height}{放}
+\end{center}
+\end{shaded}
+
+\subsection{镜像任意对象}
+\index{命令!\verb$\reflectbox$}
+
+\begin{shaded}
+  \begin{Verbatim}
+    \reflectbox{对象}
+    相当于
+    \scalebox{-1}{1}{对象}
+    \begin{center}
+      镜像 \reflectbox{\color[gray]{0.6}{镜像}}
+    \end{center}
+  \end{Verbatim}
+\end{shaded}
+
+效果如下:
+\begin{shaded}
+    \begin{center}
+      镜像 \reflectbox{\color[gray]{0.6}{镜像}}
+    \end{center}
+\end{shaded}
+
+

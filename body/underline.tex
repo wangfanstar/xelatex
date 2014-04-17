@@ -1,0 +1,145 @@
+\section{下划线}
+\subsection{ulem 宏包}
+\index{命令!\verb$\uline$}
+\index{命令!\verb$\uuline$}
+\index{命令!\verb$\uwave$}
+\index{命令!\verb$\sout$}
+\index{命令!\verb$\xout$}
+\index{宏包!ulem}
+
+使用方式，因为 ulem 宏包重新定义了加粗 $\backslash$emph
+命令，为避免加粗定义被取消，用[normalem]选项来加入宏包。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+ \usepackage[normalem]{ulem}%`加入宏包`
+ \uline{text} %`下划单线`
+ \uuline{text}%`双横线`
+ \uwave{text}%`波浪线`
+ \sout{text}%`中间删除线`
+ \xout{text}%`斜线阴影状`
+\end{lstlisting}
+
+\fbox{ \uline{text}  \uuline{text} \uwave{text} \sout{text}
+\xout{text}}
+
+%\subsection{CJKfntef 宏包}
+%\index{命令!\verb$\CJKunderline$}
+%\index{命令!\verb$\CJKunderdot$}
+%\index{命令!\verb$\CJKunderwave$}
+%\index{命令!\verb$\CJKunderdbline$}
+%\index{命令!\verb$\CJKsout$}
+%\index{命令!\verb$\CJKxout$}
+%\index{宏包!CJKntef}
+%
+%下划线可换行，可与 color
+%宏包嵌套，CJKunderline的一个用途是利用全角空格产生可自动分行的空下划线，可用于填空题。：
+%\begin{enumerate}
+%    \item 分散对齐
+%    \item 加点
+%    \item 下划线
+%\end{enumerate}
+%
+%\begin{lstlisting}[language={[LaTeX]TeX}]
+% \usepackage{CJKfntef}%`加入宏包`
+% \CJKunderline{`文 本`} %`下划单线`
+% \CJKunderline*{`文 本`}
+% \CJKunderdot{`文 本`} %`下划点`
+% \CJKunderwave*{`文 本`}
+% \CJKunderwave*{`文 本`}
+% \CJKunderdblline{`文 本`}
+% \CJKunderdblline*{`文 本`}
+% \CJKsout{`文 本`}
+% \CJKsout*{`文 本`}
+% \CJKxout{`文 本`}
+% \CJKxout*{`文 本`}
+% \begin{CJKfilltwosides}{40mm}
+%`两端分散对齐`\\
+%`分散对齐`\\
+%`汉字加点`\\
+%\end{CJKfilltwosides}
+%\end{lstlisting}
+%
+%\index{命令!\verb$\begin{CJKfilltwosides}$}
+%
+%效果如下：\\
+% \CJKunderline{文 本}
+% \CJKunderline*{文 本}
+% \CJKunderdot{文 本}
+% \CJKunderwave*{文 本}
+% \CJKunderwave*{文 本}
+% \CJKunderdblline{文 本}
+% \CJKunderdblline*{文 本}
+% \CJKsout{文 本}
+% \CJKsout*{文 本}
+% \CJKxout{文 本}
+% \CJKxout*{文 本}\\
+%\begin{CJKfilltwosides}{40mm}
+%两端分散对齐\\
+%分散对齐\\
+%汉字加点\\
+%\end{CJKfilltwosides}
+
+
+\subsection{扩展符号线段 makebox}
+
+\index{命令!\verb$\makebox$}
+\index{命令!\verb$\dotfill$}
+\index{命令!\verb$\hrulefill$}
+\index{命令!\verb$\downbracefill$}
+\index{命令!\verb$\upbracefill$}
+\index{命令!\verb$\leftarrowfill$}
+\index{命令!\verb$\rightarrowfill$}
+\index{命令!\verb$\fbox$}
+\index{命令!\verb$\shortstack$}
+\index{命令!\verb$\noindent$}
+
+\begin{shaded}
+  \begin{Verbatim}
+  \noindent
+    \makebox[6cm]{\dotfill}\\
+    \makebox[6cm]{\hrulefill}\\
+    \makebox[6cm]{\downbracefill}\\
+    \makebox[6cm]{\upbracefill}\\
+    \makebox[6cm]{\leftarrowfill}\\
+    \fbox{\shortstack{左边\\文本}}
+    \rightarrowfill
+    \fbox{\shortstack{右边\\文本}}
+  \end{Verbatim}
+\end{shaded}
+
+效果如下：
+
+  \noindent
+    \makebox[6cm]{\dotfill}\\
+    \makebox[6cm]{\hrulefill}\\
+    \makebox[6cm]{\downbracefill}\\
+    \makebox[6cm]{\upbracefill}\\
+    \makebox[6cm]{\leftarrowfill}\\
+    \fbox{\shortstack{左边\\文本}}
+    \rightarrowfill
+    \fbox{\shortstack{右边\\文本}}
+
+
+\subsection{线段盒子}
+
+\index{命令!\verb$\hrule$}
+\index{命令!\verb$\framebox$}
+
+主要参数有一条粗线的长度，宽度及与当前行基线的位置\\
+
+\begin{shaded}
+  \begin{Verbatim}
+  \rule[垂直位移]{宽度}{高度}
+    粗线\rule{6mm}{3mm}水平\\
+    粗线\rule[1mm]{6mm}{3mm}水平\\
+    \parbox{30mm}{Did you know \par \rule[4mm]{37mm}{1.6pt}}\\
+    \framebox{\rule{9cm}{1pt}\rule{1pt}{5mm}}\\
+    \framebox{\rule{9cm}{0pt}\rule{0pt}{5mm}}
+  \end{Verbatim}
+\end{shaded}
+
+\noindent
+    粗线\rule{6mm}{3mm}水平\\
+    粗线\rule[1mm]{6mm}{3mm}水平\\
+    \parbox{30mm}{Did you know?\par \rule[4mm]{37mm}{1.6pt}}\\
+    \framebox{\rule{9cm}{1pt}\rule{1pt}{5mm}}\\
+    \framebox{\rule{9cm}{0pt}\rule{0pt}{5mm}} %起支撑作用

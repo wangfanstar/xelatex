@@ -1,0 +1,8 @@
+在TEX文件中加入其他文件
+
+\usepackage{verbatim}
+\verbatiminput{wangfan.txt}
+
+或者 
+\usepackage{sverb}
+\verbinput{verb.txt}

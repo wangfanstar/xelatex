@@ -1,0 +1,280 @@
+\section{代码抄录，加入外部文件}
+\subsection{listings 宏包}
+
+\index{宏包!listings}
+\index{环境!lstlisting}
+代码的粘贴复制主要是采用 listings
+的宏包，具体用法参考宏包手册，以下是在 latex 中的用法样例：
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+
+`以下放在导言区` \lstset{numbers=left,numbersep=5pt,
+numberstyle=\tiny\rmfamily\itshape\mdseries,
+%`行号显示在代码左边，行号字体为tiny,斜体，中等加粗，行号距程序 5pt，`
+basicstyle=\small\kai\upshape\mdseries,
+%`代码的字号楷体，small，中等加粗`
+backgroundcolor=\color{lightgray},
+%`背景为灰色`
+keywordstyle=\color{blue!70}\bfseries,
+%`关键字高亮加粗`
+stringstyle=\ttfamily\itshape,
+%`打字机字体`
+showstringspaces=false,
+%`不显示空格标记`
+commentstyle=\color{red!50!green!50!blue!50}, frame=lines,
+%`框住代码`
+rulesepcolor=\color{red!20!green!20!blue!20},
+%`框线条颜色`
+escapeinside=**,
+%`逃逸符号自己设定符号将~*~改为自己定的符号`
+xleftmargin=2em,xrightmargin=2em,
+%`左右边距`
+aboveskip=1em}
+%`上下距离`
+\end{lstlisting}
+
+以下在正文
+\verb$\begin{lstlisting}[language={[LaTeX]TeX}]$
+此处粘贴代码
+\verb$\end{lstlisting}$
+以下为导入外部文件代码
+\verb$\lstinputlisting{body/asycode/Clip.asy}$
+效果如下：
+\lstinputlisting{body/asycode/Clip.asy}
+
+
+\subsubsection{listings 宏包设置文件注意事项}
+\begin{enumerate}
+  \item 外部导入文件
+  \begin{latexcmd}
+    \lstinputlisting{外部文本文件路径}
+  \end{latexcmd}
+
+  \item 新建 lstlisting 环境
+   \begin{latexcmd}
+    \lstdefinelanguage{Asymptote}{参数设置...}
+    \lstalias{asy}{Asymptote}% 定义别名
+    \end{latexcmd}
+
+
+  \item 在 PDF 中显示的 \verb|`| 和 $'$ 复制到 WORD 中会变成 ` 和 ’ 。
+  \item 中文必须用逃逸符号框起来
+ % \item 代码太长可以在代码前用 \verb|\tiny \scriptsize \footnotesize| 在代码后再用\verb|\normalsize \xiaosi|等命令恢复
+\end{enumerate}
+
+\subsubsection{listings 高亮示例}
+
+不加[]，为导言区的默认语言选项设置，加[]后，语言和其他选项可重新定义。附录中有可高亮的语言列表，也可以自定语言。
+如本文定义的 ASY 语言。
+
+\begin{enumerate}
+
+\item \LaTeX 语言
+\begin{lstlisting}[language={[LaTeX]TeX}]
+
+\usepackage{listings}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{lstlisting}[language={[x86masm]Assembler}]
+\begin{lstlisting}[language={C}]
+\begin{lstlisting}[language={C++}]
+\begin{lstlisting}[language={VHDL}]
+\begin{lstlisting}[language={Verilog}]
+
+\end{lstlisting}
+  \item C 语言
+\begin{lstlisting}[language={C++}]
+for i:=maxintto 0
+    do
+         begin
+         { do nothing }
+          end;
+Write('Caseinsensitive');
+WritE('Pascal keywords.');
+\end{lstlisting}
+  \item 汇编语言
+\begin{lstlisting}[language={[x86masm]Assembler}]
+ORG 00H
+
+START:MOV A,#0FFH    ;`赋初值;`
+      CLR C
+      MOV R2,#8
+
+LOOP1:RRC A           ; `带进位右移;`
+     MOV P1,A
+     CALL DELAY
+     DJNZ R2,LOOP1
+     MOV R2,#7
+
+LOOP2:RLC A          ; `带进位左移;`
+      MOV P1,A
+      CALL DELAY
+      DJNZ R2,LOOP2
+      JMP START
+
+DELAY:MOV R3,#20     ;`延时0.2秒`
+D1:   MOV R4,#20
+D2:   MOV R5,#248
+\end{lstlisting}
+  \item ASY 语言
+\begin{lstlisting}
+//`背景网格`
+for (int i = 0; i <= 8; ++i) {
+  real x = i * cm;
+  //`横线`
+  draw((0,x)--(8cm,x));
+  //`竖线`
+  draw((x,0)--(x,8cm));
+}
+\end{lstlisting}
+
+  \item Verilog 语言，注意逃逸字符不能和语言中的字符一样。
+\begin{lstlisting}[language={Verilog},escapeinside=&&,basicstyle={\ttfamily}]
+input [2:0] sel;
+input b_in, cy;
+input [7:0] acc, ram, op2, des;
+
+output eq;
+reg eq;
+
+always @(sel or b_in or cy or acc or ram or op2 or des)
+begin
+  case (sel)
+    `CSS_AZ : eq = (acc == 8'h00);
+    `CSS_AR : eq = (acc == ram);
+    `CSS_AC : eq = (acc == op2);
+    `CSS_CR : eq = (op2 == ram);
+    `CSS_DES : eq = (des == 8'h00);
+    `CSS_CY : eq = cy;
+    `CSS_BIT : eq = b_in;
+    default: eq = 1'bx;
+  endcase
+end
+
+endmodule
+\end{lstlisting}
+
+\end{enumerate}
+
+也可以在环境前加上 lstset 命令
+\begin{cmd}
+\lstset{language={[LaTeX]TeX}}
+\begin{lstlisting}
+\newcommand{}
+\XeLaTeX 代码
+\end{lstlisting}
+\end{cmd}
+
+效果如下：
+
+\lstset{language={[LaTeX]TeX}}
+\begin{lstlisting}
+\newcommand{}
+\XeLaTeX 代码
+\end{lstlisting}
+
+
+
+\subsection{fancyvrb 宏包}
+
+\index{宏包!fancyvrb}
+\index{环境!Verbatim}
+
+这个宏包功能比 listing 宏包要弱，没有高亮关键字，但在 PDF 中复制比较好，且支持中文。
+这个宏包的环境，生成的代码在 PDF 中可以直接复制粘贴，不会出现多出很多空格的情况，就是参数设置每次都要写多一点。
+listing 有彩色高亮等功能，但生成到 PDF 中直接复制的代码格式需调整。
+所以用于讲解代码用 listing 宏包，需要粘贴复制就用 verbatim 宏包。
+
+fancyvrb 为改进的 verbatim 宏包，可以设置抄录的各种格式，还可在脚注等环境中插入。
+verb 抄录命令注：单行，不能换行，符号为不是*和空格，
+且文本中没有出现的任一符号，通常用 \$ $|$ " 这些无方向字符。
+抄录环境和抄录中的重音号\verb|`|和单引号\fbox{$'$}显示为英文的单引号\fbox{`}和单引号\fbox{'}
+带*号的代码中空格将以$\sqcup$ 显示出来。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+
+`系统抄录环境`
+\begin{verbatim}
+`文本`
+\end{verbatim}
+\begin{verbatim*}
+`文本`
+\end{verbatim*}
+
+`fancyvrb抄录环境`
+\begin{Verbatim}[`参数1=`,`参数2=`]
+`文本`
+\end{Verbatim}
+
+`抄录命令 `
+\verb`符号  文本  符号`
+\verb*`符号  文本  符号`
+\end{lstlisting}
+
+\begin{verbatim}
+\begin{Verbatim}[formatcom=\color{grass},frame=single,numbers=left]
+字体颜色，外框，行号
+\end{Verbatim}
+\end{verbatim}
+
+\subsubsection{自定义 Verbatim 环境}
+参考 VIM 7.2 手册的 LATEX 代码，在文档开始前，引导区内写下如下代码
+\begin{shaded}
+  \begin{Verbatim}[fontsize=\tiny]
+\DefineVerbatimEnvironment{VimVBshcmd}{Verbatim}
+  {gobble=0,rulecolor=\color{black},formatcom=\color{blue},samepage=true,numbers=none,numbersep=0mm,
+  frame=single,framerule=0.1pt,label=shell command,fontsize=\small}
+\DefineVerbatimEnvironment{latexcmd}{Verbatim}
+  {gobble=0,rulecolor=\color{black},formatcom=\color{blue},samepage=true,numbers=none,numbersep=0mm,
+   frame=single,framerule=0.1pt,label=\LaTeX \quad 命令 ,fontsize=\small}
+  \begin{VimVBshcmd}
+[/home/someuser/src]$ ctags *
+\end{VimVBshcmd}
+\begin{latexcmd}
+  \begin{Verbatim}[fontsize=\small]
+\end{latexcmd}
+
+\end{Verbatim}
+\end{shaded}
+
+\begin{VimVBshcmd}
+[/home/someuser/src]$ ctags *
+\end{VimVBshcmd}
+
+\begin{latexcmd}
+  \begin{Verbatim}[fontsize=\small]
+\end{latexcmd}
+除了在引导区，还可在文档内用\verb|\fvset| 命令来定义环境。
+\begin{latexcmd}
+\fvset{frame=single,numbers=left,numbersep=3pt}
+\VerbatimInput{figures/frf.asy}
+\end{latexcmd}
+ 效果如下：
+\fvset{frame=single,numbers=left,numbersep=3pt}
+\VerbatimInput{figures/frf.asy}
+\fvset{frame=single,numbers=none,numbersep=3pt}
+
+如果内容超出了边界，可将 xleftmargin 和 xrightmargin 设为负值来修正。
+
+
+\scriptsize
+\begin{shaded}
+\begin{verbatim}
+\begin{cmd}[label=修改MACTEX字体文件命令,xrightmargin=-0.5cm]
+sudo vim /usr/local/texlive/2012/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def
+\end{cmd}
+\end{verbatim}
+\end{shaded}
+\normalsize
+\begin{cmd}[label=修改MACTEX字体文件命令]
+sudo vim /usr/local/texlive/2012/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def
+\end{cmd}
+\begin{cmd}[label=修改MACTEX字体文件命令,xrightmargin=-0.5cm]
+sudo vim /usr/local/texlive/2012/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def
+\end{cmd}
+
+\subsection{sverb 宏包}
+\index{宏包!sverb}
+\index{命令!\verb$\verbinput$}
+
+用sverb宏包可加入外部文件。\\
+\fbox{\parbox{12cm}{
+\verbinput{body/wangfan.txt}}}

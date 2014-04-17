@@ -1,0 +1,42 @@
+\section{ASY pgf绘图问题}
+
+\newcounter{buzhou_asy} %不同环境计数器的名称也必需不同
+\begin{list}
+{\bfseries\sffamily 问题\,\arabic{buzhou_asy}:\hfill}
+{\setlength{\parsep}{\parskip}
+ \setlength{\itemsep}{0ex plus0.1ex}
+ \setlength{\labelwidth}{4em}
+ \setlength{\labelsep}{0.2em}
+ \setlength{\leftmargin}{6.2em}
+ \setlength{\rightmargin}{2em}
+ \usecounter{buzhou_asy} \setcounter{buzhou_asy}{0}
+ \upshape
+}
+
+\addcontentsline{toc}{subsection}{$\bullet$~asy 中文标签不好用}
+\item \color{red} asy 标签不显示中文 \\ \normalcolor
+用 pdflatex 代替 \XeLaTeX 编译 有的 texpath 中文命令用 xelatex 不行，用 pdflatex 好使
+
+
+
+\addcontentsline{toc}{subsection}{$\bullet$~xelatex 绘图不能显示效果，pdflatex可以}
+\item
+\color{red}
+xelatex 绘图不能显示效果，因为xdvipdfmx 驱动程序不太好，调用dvipdfmx即可\\
+\normalcolor
+在\verb|\usepackage{pgf}|前加上这句
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\def\pgfsysdriver{pgfsys-dvipdfmx.def}
+%使用 dvipdfmx 的引擎，原 xdvipdfmx 生成图形有的有错误。
+\end{lstlisting}
+或者用以下代码调用dvipdfmx，不如上面的好用，会有些问题
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\documentclass[dvipdfmx]{article}
+\end{lstlisting}
+
+\addcontentsline{toc}{subsection}{$\bullet$~pgf 导出单独PDF出错}
+
+\item \color{red} pgf 导出单独PDF出错 \\ \normalcolor
+可能是用 xelatex 但调用了 dvipdfmx 的引擎，删除\verb|\def\pgfsysdriver{pgfsys-dvipdfmx.def}|
+
+\end{list}

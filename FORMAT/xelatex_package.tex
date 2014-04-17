@@ -1,0 +1,180 @@
+
+\usepackage{ctex}
+%%\usepackage{ctexcap} % 需要将 ctexcap.sty 里与 ctex 宏包重复的部分注释，即不用加载相同包
+\usepackage{relsize}                 % 调整公式字体大小：\mathsmaller, \mathlarger
+%\usepackage{times}
+%\usepackage{fontspec,xunicode,xltxtra} % XeLaTeX相关字体字库 xunicode会被ctex或fontspec自动载入
+\usepackage{fontspec,xltxtra}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{etex}  % 解决宏包 no room for 。。。的错误
+
+%%%%%%%%%%% 版本修改记录宏包 %%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[nochapter]{vhistory}
+
+\usepackage{morewrites} %解决 no room for \write 的错误
+\usepackage{caption2}                               % 按标准, 去掉图表号后面的:
+\usepackage{lipsum}   % To generate test text 产生测试文本
+
+%%%%%%%%%%%%%% 颜色 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[table,dvipsnames,svgnames]{xcolor}
+\usepackage{xxcolor}
+
+%%%%%%%%%%%%%% PGF绘图宏包 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{FORMAT/detail/pgf.tex}
+
+
+
+
+%%%%%%%%%%%% 合并PDF文档 与tikz extern 冲突%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{pdfpages}
+
+%%%%%%%%%%%% 图表标题格式包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage[Euler]{upgreek}
+\usepackage{amsmath,amsfonts,amssymb} %
+\usepackage{latexsym,bm}        %公式符号
+\usepackage[misc,electronic,clock]{ifsym} %电气符号
+%\usepackage{dingbat} % \checkmark 与 ams 冲突
+\usepackage[Omega,upmu]{gensymb}
+\usepackage{wasysym}
+%\usepackage{marvosym}  % \letter 与 ifsym 冲突
+
+%%%%%%%%%%%%%%%%    插图  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}       %插图宏包
+\usepackage{wallpaper}    %绘图文绕排宏包，页面背景宏包，
+\usepackage{picinpar} %
+
+%%%%%%%%%%%%%% 彩色表格，表格线条 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tabu}
+\usepackage{booktabs,colortbl,diagbox,longtable,multirow,tabularx,dcolumn}                         %表格粗线,斜线,彩色表格,长表格
+%%%%%%%%%%%%% 页版面，边距设置 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[top=2.54cm,bottom=2.54cm,left=2.15cm,right=2.5cm,includehead,includefoot]{geometry}
+%上下2.54，左右2
+%%%%%%%%%%% 中文书签中文复制 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks=no,
+            citecolor=blue,
+            linkcolor=blue,
+            anchorcolor=green,
+            urlcolor=blue,
+%% 与attachfile2冲突           pdfauthor={wangfan},%作者
+%%            pdfkeywords={latex},%关键词
+%%            pdfsubject={latex},%主题
+%%            pdftitle={handbook of latex},%标题
+            CJKbookmarks=true,
+            pdfborder={0 0 0},
+            bookmarksnumbered=true,
+            bookmarksopen=false,
+            xetex,
+            ]{hyperref}
+%\usepackage{ccmap}               % 使生成的PDF文件支持复制等，对pdflatex
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titletoc}           %目录格式包
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%标题中文化
+\usepackage[bf,small,raggedright,indentafter,pagestyles]{titlesec}
+        %其中bf设置章节标题的字体为黑体，这也是默认值，可以略去。
+        %此外，还可以设 为rm(罗马体), sf(无衬线体), tt(打字机体), md(中等黑度),
+        %up(直立体), it(意大利斜体), sl(机械斜体), sc(小体大写字母)。
+        %small设置标题字体的尺寸，还可设为big(默认), medium, tiny。
+        %center使标题居中，还可以设为raggedleft(居左，默认), raggedright(居右)。
+        %indentafter相当于宏包indentfirst的作用，使标题下面的第一个段落正常缩进。
+        %pagestyles是申明后面要自定义页面样式。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%\usepackage{tocloft}
+
+\usepackage{fancyhdr}       %自定义页眉页脚
+
+%%%%%%%%%%%% 抄录环境 %%%%%%%%%%%%%
+\usepackage{fancyvrb,sverb}
+%
+\input{FORMAT/detail/asysyntax.tex} %listings语法高亮设置
+
+
+%%%%%%%%%%%%%% 页码宏包 （与动画宏包冲突）%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lastpage}
+%\usepackage{fancybox} %与framed宏包冲突
+
+%%%%%%%%%%%% 盒子环境 %%%%%%%%%%%%%
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage[listings,theorems,skins]{tcolorbox}
+\tcbset{noparskip}
+%%%%%%%%%%%%% ASY绘图宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{asymptote}
+
+%%%%%%%%%%%%% SHAPE宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{shapepar}
+
+%%%%%%%%%%%%% 图片放置宏包 不放在文字前面 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{flafter,float}
+
+%%%%%%%%%%%%% 下划线宏包 %%%%%%%%%%%%%%%%%%%%%%
+ \usepackage[normalem]{ulem}%`加入宏包`
+ \usepackage{CJKfntef} %汉字下划线宏包
+
+
+
+%%%%%%%%%%%%% 动画宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{animate} % 与 tikz 部分宏包冲突
+
+%%%%%%%%%%%% 行号宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage[left]{lineno} %与 tikz 宏包冲突
+
+%%%%%%%%%%%%% 视频宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{movie15} % 与 tikz 部分宏包冲突
+
+%
+%%%%%%%%%%%%% 时间宏包 %%%%%%%%%%%%%%%%%%%%%%
+%%%\usepackage{tdclock}  与 pdfcomment 冲突
+
+
+%%%%%%%%%%%%% 短列表宏包 %%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{shortlst}
+%
+%%%%%%%%%%%%% 列表编号宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+
+
+
+%%%%%%%%%%%% 脚注尾注宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{threeparttable,endnotes}
+
+%%%%%%%%%%%% 索引表 %%%%%%%%%%%%%%%
+\usepackage{makeidx}\makeindex
+
+%%%%%%%%%%% 索引宏包 %%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{xesearch}
+%\usepackage{xeindex}\makeindex
+
+
+%%%%%%%%%%%% 引用包 %%%%%%%%%%%%%%%
+\usepackage{cite}  %实现[1-4]方式引用多个参考文献
+
+%%%%%%%%%%%% 双栏排版宏包 %%%%%%%%%%%%%%%
+\usepackage{flushend,cuted}
+\usepackage{multicol} %多栏排版
+%
+%%%%%%%%%%%%%% 生成HTML宏包 %%%%%%%%%%%%%%%%%%%%%%
+%%\usepackage{html,epsf}
+
+
+%%%%%%%%%%% 附件宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{attachfile2}
+
+%%%%%%%%%%% 目录结构图宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{dirtree}
+
+%%%%%%%%%%% 柱状图宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{bardiag}
+
+\usepackage{drawstack}
+%%%%%%%%%%% 书签宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage[open,openlevel=0,atend]{bookmark}
+
+
+
+%%%%%%%%%%% pdf 注释宏包 %%%%%%%%%%%%%%%%%%%%%%
+\usepackage[subject={tex},author={wangfan},dvipdfmx,version=1]{pdfcomment}

@@ -1,0 +1,651 @@
+\section{表格设计}
+
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\thetable `表名:原为 table 1，后改为汉字“ 表 1.1 ”` \tablename
+`表名内容:对应 caption 后的内容`
+\end{lstlisting}
+表格在 latex
+中的应用主要是三线表格，斜线表格，长表格，合并表格，彩色表格，固定列宽自适应表格。分别要用到以下宏包。
+
+\subsection{表格概述}
+
+
+\fcolorbox{white}{lightyellow} {
+\parbox{12cm}{
+\begin{enumerate}
+  \item 三线命令：toprule midrule bottomrule cmidrule\{m-n\}
+  \item 斜线命令：backslashbox\{\}  slashbox\{\}
+  \item 彩色命令：columncolor rowcolor cellcolor
+  \item 自适应宽度命令：P\{长度\} X
+  \item 合并行列命令：multicolumn\{2\}\{c\}\{内容\} multirow\{3\}\{*\}\{$\backslash$centering 爽\}
+  \item 长表格命令：endfirsthead endhead endfoot endlastfoot $\backslash$hline$\backslash$hline 表示加粗
+\end{enumerate}
+} }
+
+
+\subsection{三线表格 booktab宏包}
+\index{命令!\verb$\begin{table}$}
+\index{宏包!booktab}
+
+\begin{lstlisting}
+\begin{table}[ht]
+  \centering
+  \caption{表格类型}\label{table_style}
+  \begin{tabular}{lll}
+    \toprule
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    表格类型 & 所用宏包 & 对应命令\\
+    \midrule
+    三线表格 & booktabs  & toprule,midrule,bottomrule \\
+    斜线表格 & slashbox \\
+    彩色表格 & colortbl \\
+    自适应表格 & tabularx\\
+    合并行列表格 & multirow \\
+    长表格& longtable \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\end{lstlisting}
+\begin{table}[ht]
+  \centering
+  \caption{表格类型}\label{table_style}
+  \begin{tabular}{lll}
+    \toprule
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    表格类型 & 所用宏包 & 对应命令\\
+    \midrule
+    三线表格 & booktabs  & toprule,midrule,bottomrule \\
+    斜线表格 & slashbox \\
+    彩色表格 & colortbl \\
+    自适应表格 & tabularx\\
+    合并行列表格 & multirow \\
+    长表格& longtable \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{跨行表格 multirow宏包 }
+\index{宏包!multirow}
+\index{命令!\verb$\multirow$}
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+ Windows & MikTeX & TeXnicCenter &
+ \multirow{3}{*}{\centering  `爽`}\\
+\end{lstlisting}
+
+\begin{latexcmd}[label= 跨行表格命令]
+\multirow{所跨行数}[补偿]{数据宽度}[位移量]{数据}
+数据宽度用 * 号表示数据的自然宽度，可不加花括号
+位移量正表示上移，负表示下移
+\end{latexcmd}
+
+\begin{table}[htbp]
+\caption{跨行表格} \centering
+\begin{tabular}{lllc}
+\toprule
+
+操作系统 & 发行版 & 编辑器 & 用户体验\\
+
+\midrule Windows & MikTeX & TeXnicCenter&
+\multirow{3}{*}{\centering 爽}\\
+
+Unix/Linux&TeXLive&Emacs\\
+
+MacOS&MacTeX&TeXShop\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{跨列表格 cmidrule multicolumn }
+
+\index{命令!\verb$\toprule$}
+\index{命令!\verb$\midrule$}
+\index{命令!\verb$\bottomrule$}
+\index{命令!\verb$\cmidrule$}
+\index{命令!\verb$\multicolumn$}
+
+cmidrule 为 booktabs 宏包用来划跨列横线 multicolumn 用于跨列内容，也可用来设置不同行不同的对齐方式。
+
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+&\multicolumn{2}{c}{`常用工具`}\\
+\end{lstlisting}
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\toprule
+ & \multicolumn{2}{c}{`常用工具`}\\
+\cmidrule{2-3}
+`操作系统` & `发行版` & `编辑器` \\
+\end{lstlisting}
+
+
+\begin{table}[htbp]
+\caption{跨行列表格} \centering
+\begin{tabular}{lll}
+\toprule
+&\multicolumn{2}{c}{常用工具}\\
+\cmidrule{2-3}
+操作系统 & 发行版 & 编辑器 \\
+\midrule
+Windows &  MikTeX & TeXnicCenter\\
+Unix/Linux & TeXLive & Emacs\\
+MacOS & MacTeX & TeXShop\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{cmd}
+\begin{table}[htbp]
+\caption{跨行列表格} \centering
+\begin{tabular}{lll}
+\toprule
+&\multicolumn{2}{c}{常用工具}\\
+\cmidrule{2-3}
+操作系统 & 发行版 & 编辑器 \\
+\midrule
+Windows &  MikTeX & TeXnicCenter\\
+Unix/Linux & TeXLive & Emacs\\
+MacOS & MacTeX & TeXShop\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{cmd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{斜线表格 diagbox}
+\index{宏包!diagbox}
+\index{命令!\verb$\backslashbox$}
+
+原先 slashbox 宏包被 diagbox 宏包替代，并且 diagbox 可实现更高级的功能。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\backslashbox{`内容1`}{`内容2`} %`1在左，2在右`
+\slashbox{`内容1`}{`内容2`}
+\end{lstlisting}
+
+\begin{table}[ht]
+  \centering
+  \caption{表格斜线}\label{slant}
+  \begin{tabular}{|l|l|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    \backslashbox{内容1}{内容2} & \slashbox{内容1}{内容2} \\
+    \hline
+     &    \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{cmd}
+  \begin{table}[ht]
+  \centering
+  \caption{表格斜线}\label{slant}
+  \begin{tabular}{|l|l|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    \backslashbox{内容1}{内容2} & \slashbox{内容1}{内容2} \\
+    \hline
+     &    \\
+    \hline
+  \end{tabular}
+\end{table}
+\end{cmd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{彩色表格 colortbl}
+
+\index{命令!\verb$\rowcolor$}
+\index{命令!\verb$\columncolor$}
+\index{命令!\verb$\cellcolor$}
+\index{宏包!colortbl}
+
+彩色表格需要使用colortbl宏包提供的一些命令：$\backslash$columncolor、
+$\backslash$rowcolor、$\backslash$cellcolor等。
+
+\begin{table}[htbp]
+\caption{彩色表格} \centering
+%%%%%%%%%%%%%% [0cm][0cm]表明向左右各扩展多少距离
+\begin{tabular}{>{\columncolor{lightgray}[0cm][0cm]}lll}
+\toprule
+操作系统 & 发行版 &\cellcolor{lightgray} 编辑器 \\
+\midrule
+Windows&MikTeX&TeXnicCenter\\
+\rowcolor{lightgray}
+Unix/Linux&TeXLive & Emacs\\
+MacOS&MacTeX&TeXShop\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{cmd}
+  \begin{table}[htbp]
+\caption{彩色表格} \centering
+%%%%%%%%%%%%%% [0cm][0cm]表明向左右各扩展多少距离
+\begin{tabular}{>{\columncolor{lightgray}[0cm][0cm]}lll}
+\toprule
+操作系统 & 发行版 &\cellcolor{lightgray} 编辑器 \\
+\midrule
+Windows&MikTeX&TeXnicCenter\\
+\rowcolor{lightgray}
+Unix/Linux&TeXLive & Emacs\\
+MacOS&MacTeX&TeXShop\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{cmd}
+
+
+%%%
+\index{命令!\verb$\rowcolors$}
+
+下面这行代码用于设置不同的行颜色不同，命令为可作用于每一行的命令，如$\backslash$hline 经常忽略，
+行号为从第几行开始着色，一般从第一开始，颜色选项为空则不加颜色。这行代码必须加在表格环境 table，由 xcolor 宏包配合使用。\\
+\color{grass}
+\verb(\rowcolors[命令]{行号}{奇数行颜色}{偶数行颜色}(\\
+\color{black}
+
+需要在添加 xcolor 宏包时加入 table 选项：
+\begin{Verbatim}[formatcom=\color{grass},frame=single]
+\usepackage[table]{xcolor}%加入宏包
+\rowcolors[\hline]{1}{lightblue}{whiteblue}
+
+代码样例：
+\begin{table}[htbp]
+\caption{轮换颜色表格} \centering
+\rowcolors[\hline]{1}{lightblue}{whiteblue}
+
+\begin{tabular}{lll}
+操作系统 & 发行版 & 编辑器 \\
+Windows&MikTeX&TeXnicCenter\\
+Unix/Linux&TeXLive & Emacs\\
+MacOS&MacTeX&TeXShop\\
+\end{tabular}
+\end{table}
+\end{Verbatim}
+
+
+\begin{table}[htbp]
+\caption{轮换颜色表格} \centering
+\rowcolors[\hline]{1}{lightblue}{whiteblue}
+%%%%%%%%%%%%%% [0cm][0cm]表明向左右各扩展多少距离
+\begin{tabular}{lll}
+操作系统 & 发行版 & 编辑器 \\
+Windows&MikTeX&TeXnicCenter\\
+Unix/Linux&TeXLive & Emacs\\
+MacOS&MacTeX&TeXShop\\
+\end{tabular}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{自定义宽度表格 tabularx }
+
+\index{宏包!tabularx}
+
+若想控制整个表格的宽度可以使用 tabularx 宏包，X
+参数表示某栏可以自动折行。也可以用p\{长度\}来手动折行\\
+\begin{Verbatim}
+\begin{table}[htbp]
+\caption{控制表格宽度} \centering
+\begin{tabularx}{350pt}{lXlX}
+\toprule 李白 &
+平林漠漠烟如织，寒山一带伤心碧。暝色入高楼，有人楼上愁。
+玉梯空伫立，宿鸟归飞急。何处是归程，长亭更短亭。& 泰戈尔 &
+夏天的飞鸟，飞到我的窗前唱歌，又飞去了。秋天的黄叶，它
+们没有什么可唱，只叹息一声，飞落在那里。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{Verbatim}
+
+\begin{table}[htbp]
+\caption{控制表格宽度} \centering
+%%%%%%%%%%%%%% x表示这一列根据总长度自动折行 %%%%%%%%%%%%%%%%%%%%
+\begin{tabularx}{350pt}{lXlX}
+\toprule 李白 &
+平林漠漠烟如织，寒山一带伤心碧。暝色入高楼，有人楼上愁。
+玉梯空伫立，宿鸟归飞急。何处是归程，长亭更短亭。& 泰戈尔 &
+夏天的飞鸟，飞到我的窗前唱歌，又飞去了。秋天的黄叶，它
+们没有什么可唱，只叹息一声，飞落在那里。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{长表格}
+
+
+\index{宏包!longtable}
+长表格 longtable 宏包，主要设计表头，续页表头，表尾，未页表尾这些部分。\\
+\color{grass}
+
+参考代码如下：
+
+\begin{latexcmd}[label=\LaTeX 长表格代码]
+\rowcolors{1}{lightgray}{}
+\begin{longtable}[H]{p{3cm}p{8cm}c}
+\caption{标题1} \label{strap_sb710} \\
+\toprule \multicolumn{1}{c}{\textbf{信号名称 }} &  %居中
+\multicolumn{1}{l}{\textbf{说明}} & %居左
+\multicolumn{1}{c}{\textbf{备注 }} \\ \midrule %居中
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\kai \thetable{}标题1 -~- 接上页}} \\
+\toprule \multicolumn{1}{c}{\textbf{信号名称}} &  %居中
+\multicolumn{1}{l}{\textbf{说明 }} & %居左
+\multicolumn{1}{c}{\textbf{备注}} \\ \midrule  %居中
+\endhead
+
+ \multicolumn{3}{r}{{\kai 接下页}} \\ \bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+\end{longtable}
+
+\end{latexcmd}
+
+\begin{shaded}
+\begin{Verbatim}
+\begin{longtable}{|l|l|l|}
+\caption{长表格} \label{grid_mlmmh} \\
+
+\hline \multicolumn{1}{|c|}{\textbf{表头 1 }} &
+\multicolumn{1}{c|}{\textbf{表头 2 }} &
+\multicolumn{1}{c|}{\textbf{表头 3 }} \\ \hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\kai  \thetable{} -~- 接上页}} \\
+\hline \multicolumn{1}{|c|}{\textbf{表头 1 }} &
+\multicolumn{1}{c|}{\textbf{表头 2 }} &
+\multicolumn{1}{c|}{\textbf{表头 3 }} \\ \hline
+\endhead
+
+\hline  \multicolumn{3}{|r|}{{\kai 接下页}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+
+0 & (1, 11, 13725) &...\\%表内容
+......
+\end{longtable}
+\end{Verbatim}
+\end{shaded}
+\normalcolor
+
+\begin{center}
+\begin{longtable}{|l|l|l|}
+\caption{长表格} \label{grid_mlmmh} \\
+
+\hline \multicolumn{1}{|c|}{\textbf{表头 1 }} &
+\multicolumn{1}{c|}{\textbf{表头 2 }} &
+\multicolumn{1}{c|}{\textbf{表头 3 }} \\ \hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\kai  \thetable{} -~- 接上页}} \\
+\hline \multicolumn{1}{|c|}{\textbf{表头 1 }} &
+\multicolumn{1}{c|}{\textbf{表头 2 }} &
+\multicolumn{1}{c|}{\textbf{表头 3 }} \\ \hline
+\endhead
+
+\hline  \multicolumn{3}{|r|}{{\kai 接下页}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+0 & (1, 11, 13725) & (1, 12, 10980), (1, 13, 8235), (2, 2, 0), (3, 1, 0) \\
+2745 & (1, 12, 10980) & (1, 13, 8235), (2, 2, 0), (2, 3, 0), (3, 1, 0) \\
+5490 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+8235 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+10980 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+13725 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+16470 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+19215 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+21960 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+24705 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+27450 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+30195 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+32940 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+35685 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+38430 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+41175 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+43920 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+46665 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+49410 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+52155 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+54900 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+57645 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+60390 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+63135 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+65880 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+68625 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+71370 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+74115 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+76860 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+79605 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+82350 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+85095 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+87840 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+90585 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+93330 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+96075 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+98820 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+101565 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+104310 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+107055 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+109800 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+112545 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+115290 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+118035 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+120780 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+123525 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+126270 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+129015 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+131760 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+134505 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+137250 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+139995 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+142740 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+145485 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+148230 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+150975 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+153720 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+156465 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+159210 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+161955 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+\end{longtable}
+\end{center}
+
+如果续页不用表头，也可以直接将原 table 环境改成 longtable 环境即可
+\begin{longtable}[htbp]{|l|l|l|}
+\caption{长表格2} \label{grid_mlmmh} \\
+\hline
+表头 1 & 表头 2 & 表头 3\\
+\hline
+115290 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+118035 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+120780 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+123525 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+126270 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+129015 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+131760 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+134505 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+137250 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+139995 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+142740 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+145485 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+148230 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
+150975 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+153720 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+156465 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+159210 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+161955 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+150975 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+153720 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+156465 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+159210 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+161955 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+\hline
+\end{longtable}
+
+
+\subsection{小数点对齐 dcolumn}
+
+\index{宏包!dcolumn}
+\index{命令!D{}{}{}}
+
+在 tabular 和 array 环境下定义了列格式选项：
+\begin{shaded}
+  \begin{Verbatim}
+D{输入符号}{输出符号}{小数位数}
+\begin{tabular}{|D{.}{,}{2}|D{.}{.}{5}|D{.}{.}{-1}|}\hline
+10.33  & 10.33   & 10.33 \\
+1000   & 1000    & 1000  \\
+5.1    & 5.1     & 5.1   \\
+3.14159& 3.14159 & 3.14159 \\\hline
+\end{tabular}
+可用 \newcolumntype 简化 D 命令
+  \end{Verbatim}
+\end{shaded}
+\textcolor[rgb]{0.50,0.00,1.00}{
+注意:
+\begin{enumerate}
+  \item 如果小数位数不足将溢出。
+  \item 小数点对齐会自动转为公式模式，如有文本用$\backslash$text\{\}形式。
+\end{enumerate}}
+~\\
+\begin{tabular}{|D{.}{,}{2}|D{.}{.}{5}|D{.}{.}{-1}|}\hline
+10.33  & 10.33   & 10.33 \\
+1000   & 1000    & 1000  \\
+5.1    & 5.1     & 5.1   \\
+3.14159& 3.14159 & 3.14159 \\\hline
+\end{tabular}
+
+\begin{shaded}
+  \begin{Verbatim}
+\usepackage{dcolumn}
+
+%在导言区或表格前加下列命令
+\newcolumntype{,}{D{.}{,}{5}}
+ %“，”小数点输入，逗号输出，小数位数最多5位
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+%d{小数位数}，输入输出都为.  小数位数自己设定
+\newcolumntype{.}{D{.}{.}{-1}}
+%“.” 输入输出小数点，小数位数为任意值。
+
+\begin{tabular}{|,|d{5}|.|}\hline
+10.33   & 10.33   & 10.33 \\
+1000    & 1000    & 1000  \\
+5.1     & 5.1     & 5.1   \\
+3.14159 & 3.14159 & 3.14159 \\\hline
+\end{tabular}
+  \end{Verbatim}
+\end{shaded}
+
+
+\begin{tabular}{|,|d{5}|.|}\hline
+10.33   & 10.33   & 10.33 \\
+1000    & 1000    & 1000  \\
+5.1     & 5.1     & 5.1   \\
+3.14159 & 3.14159 & 3.14159 \\\hline
+\end{tabular}
+
+
+\subsection{整体缩放表格}
+
+
+\index{命令!\verb$\scalebox$}
+
+需插图宏包 graphicx，命令如下：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+      \scalebox{`水平缩放系数`}[`垂直缩放系数`]{`表格`}
+\end{lstlisting}
+
+\begin{shaded}
+  \begin{Verbatim}
+\begin{table}[htbp]
+  \centering
+  \caption{缩放表格}\label{table_scale}
+  \scalebox{1.25}[0.8]{
+  \begin{tabular}{lll}
+    \toprule
+    表格类型 & 所用宏包 & 对应命令\\
+    \midrule
+    三线表格 & booktabs  & toprule,midrule,bottomrule \\
+    斜线表格 & slashbox \\
+    彩色表格 & colortbl \\
+    自适应表格 & tabularx\\
+    合并行列表格 & multirow \\
+    长表格& longtable \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table}
+  \end{Verbatim}
+\end{shaded}
+
+\begin{table}[htbp]
+  \centering
+  \caption{缩放表格}\label{table_scale}
+  \begin{tabular}{lll}
+    \toprule
+    表格类型 & 所用宏包 & 对应命令\\
+    \midrule
+    三线表格 & booktabs  & toprule,midrule,bottomrule \\
+    斜线表格 & slashbox \\
+    彩色表格 & colortbl \\
+    自适应表格 & tabularx\\
+    合并行列表格 & multirow \\
+    长表格& longtable \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{缩放表格}\label{table_scale}
+  \scalebox{1.25}[0.8]{
+  \begin{tabular}{lll}
+    \toprule
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    表格类型 & 所用宏包 & 对应命令\\
+    \midrule
+    三线表格 & booktabs  & toprule,midrule,bottomrule \\
+    斜线表格 & slashbox \\
+    彩色表格 & colortbl \\
+    自适应表格 & tabularx\\
+    合并行列表格 & multirow \\
+    长表格& longtable \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table}
+
+\subsection{高级表格设置 tabu longtabu}
+\index{宏包!tabu}
+tabu 宏包可以在表格里实现 verbatim 环境和数学公式，定制表格线型等各种高级功能。
+参考 \ref{texref}
+\subsection{表格内换行，更改对齐方式，填充序号 makecell}
+\index{宏包!makecell}
+\index{命令!\verb$\makecell$}
+\index{命令!\verb$\thead$}
+\index{命令!\verb$\rothead$}
+
+ 在正常的表格环境内，每个格的对齐方式是预先定义好的，而且不能用换行符。通过使用 makecell 宏包可以方便地在表格内部进行换行，更改对齐方式，表格内序号填充，斜线表格等操作。
+

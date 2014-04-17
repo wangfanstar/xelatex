@@ -1,0 +1,150 @@
+% !TEX program = xelatex
+% !Mode:: "TeX:UTF-8"
+%%%%%%%%%%%%%%%%%%%%%      说  明      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%            本文为 xelatex 的模板  texlive 2012 + xelatex
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\documentclass[11pt,openany,a4paper,oneside]{book}  % 11pt约五号字体，openright每章从右边（奇数页）开始，A4 纸张，双面打印，
+
+
+%%%%%%%%%%%%%%%%%%%%导引区%%%%%%%%%%%%%%%%%%%
+
+%
+%
+\input{format/xelatex_package}          % 加入导引区 宏包
+\input{format/xelatex_format}  % 加入导引区 各种格式
+%\includeonly{...}
+%%%%%%%%%%%%%%%% 文章开始 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%% 签名 wangfan
+\newsavebox{\wf}
+\savebox{\wf}{
+\begin{tikzpicture}[blue,rounded corners]
+\draw (0.2,1.2)..controls(0.8,1.8) and +(-90:0.6)..(0.4,0.8)..controls+(60:0.3)..(0.4,0.2)..controls+(60:1.5)..(0.8,0.2)
+..controls+(45:1.5)..(0.82,0.65);
+\draw [fill=blue] (0.82,0.65) circle(2pt);
+\end{tikzpicture}
+}
+
+\newsavebox{\wfgray}
+\savebox{\wfgray}{
+\begin{tikzpicture}[lightgray,rounded corners]
+\draw (0.2,1.2)..controls(0.8,1.8) and +(-90:0.6)..(0.4,0.8)..controls+(60:0.3)..(0.4,0.2)..controls+(60:1.5)..(0.8,0.2)
+..controls+(45:1.5)..(0.82,0.65);
+\draw [fill=lightgray] (0.82,0.65) circle(2pt);
+\end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%% PDF 属性 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+  pdfkeywords={latex,pgf,asy,beamer},%关键词
+  pdfsubject={latex},%主题
+  pdfauthor={王凡},%作者
+  pdftitle={xelatex 笔记},%标题
+  pdfcreator={Texlive2012}}
+%%%%%%%%%%%%%%%%%%%%%%%%% 标题封面 %%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{preface/TITLE}         %封面
+\includepdf{title.pdf}
+
+\fancyhf{}
+\title{\textbf{\yihao \textcolor[rgb]{0.75,0.75,0.75}{\usebox{\wfgray} \XeLaTeX 笔记}}}
+\author{\kai 王凡 \\\itshape wangfanstar@163.com}
+\date{\fs\itshape Version\_{} \textcolor[rgb]{0.00,0.50,0.75}{\today}}
+\maketitle
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%  摘要 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{format/frontmatter}%中文化
+\clearpage
+
+\include{preface/CHANGE}         %修改记录
+\include{preface/ZAIYAO}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%  目录  %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%\makeatletter  %tocloft宏包用，但如图表条目太多会使图表目录不能分页
+%%%\renewcommand{\tocloftpagestyle}[1]{\def\@cftpagestyle{\pagestyle{#1}}}
+%%%\makeatother
+%%%\tocloftpagestyle{fancy}
+
+
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{blue}{目~~~~录}}
+
+\fancyhead[R]{\song\wuhao 目录}
+\tableofcontents
+\thispagestyle{fancy}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{blue}{图目录}}
+\fancyhead[R]{\song\wuhao 图目录}
+\listoffigures
+\thispagestyle{fancy}
+
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{blue}{表目录}}
+\fancyhead[R]{\song\wuhao 表目录}
+\listoftables
+\label{page_menu}
+\clearpage
+\phantomsection
+
+\input{format/mainmatter}
+
+%%%%%%%%%%%%%%%  章节  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+\include{body/SOFT}            %软件及配置
+%
+\input{body/CHAPTER1}       %LATEX文档设计
+\clearpage
+\input{body/CHAPTER5}       %pgf绘图设计
+\clearpage
+\input{body/CHAPTER2}       %ASY绘图设计
+\clearpage
+\input{body/CHAPTER4}       %幻灯片设计
+\clearpage
+\input{body/CHAPTER3}       %问题
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 参考文献 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{FORMAT/BACKMATTER}
+
+\bookmarksetup{bold,color=grass}
+\include{reference/REF}                         %参考文献
+\bookmarksetup{bold=false,color={}}
+
+\setcounter{section}{0}
+\include{appendix/APPENDIX}%附录
+
+\include{appendix/ZHIXIE}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 索引 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancyhead[R]{\song\wuhao 索引}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{blue}{索引}}
+\printindex  %生成索引
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

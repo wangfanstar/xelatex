@@ -1,0 +1,63 @@
+\section{绘图代码参考}
+
+
+
+   注意：在图中的标签一个字母约为 1cm$\times$ 1cm
+大小，要注意标签和图形尺寸大小的配合.
+
+如果用在 tex 文件中，直接在工程图片目录下，asy 源文件上加 settings.tex="pdflatex"; \textcolor[rgb]{1.00,0.00,0.00}{文件中的中文用逃逸字符框住\footnote{否则 tex 文件编译报错}}，用 
+emacs 编译，在 tex 文件中直接加 \verb|\lstinputlisting{源文件名.asy}|，和 \verb$\includegraphics{源文件名}$，即可在修改源代码的同时不改动 TEX 文件。
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{基本命令}
+
+画图时用到的主要有：\textcolor[rgb]{0.00,0.50,0.25}{draw,fill,label,clip,add,shift,rotate }及其扩展命令。
+\begin{table}[H]
+  \caption{ASY 基本命令}\label{basic_command}
+  \begin{tabularx}{14cm}{llp{3cm}}
+    \toprule
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    功能 & 代码 & 注释 \\
+    \midrule
+    画笔 & defaultpen(fontsize(100)+linewidth(1pt)+gray(0.5)); & 可自定义 pen 字体大小，线粗大小，绘制颜色 \\
+    \rowcolor{lightgray}
+    点 & pair x=(1cm，1cm) & 点的坐标 pair(对型) \\
+    %线 &  &  \\
+    路径 & ((2cm)，(1cm))- -((1cm)，(1cm)) & - -直线，.. 曲线 \\
+     \rowcolor{lightgray}
+    绘制 & draw((x,0)--(x,8cm)， helpline); & draw(路径，画笔类型) \\
+    宏包 & import math & 引入绘制特殊图画的函数包 \\
+     \rowcolor{lightgray}
+    旋转 & rotate(90,d)*b & 点 b 绕 d 逆时针旋转 90 度得到的点\\
+    交点 & extension(a,b,c,d) &  ab 线段与 cd 线段的交点\\
+    \rowcolor{lightgray}
+    距离 & abs（o - a） &  o 点到 a 点的距离\\
+    圆的路径 & circle（o，10cm） &  o 点为圆心，10 cm为半径的圆\\
+    \rowcolor{lightgray}
+    标签 & label（“字符串”，点，方向） &  字符串如为中文程序前面须加 CJK 的调用命令\\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+
+%%%%%%%%% 画笔设置 %%%%%%%%%%%%%%%%%%%
+\input{body/asy_pen}
+
+%%%%%%%%% 点的绘制 %%%%%%%%%%%%%%%%%%%%
+\input{body/asy_point}
+%
+%%%%%%%%% 线的绘制 %%%%%%%%%%%%%%%%%%%%
+\input{body/asy_line}
+
+%%%%%%%%% 标注 %%%%%%%%%%%%%%%%%%%%
+\input{body/asy_text}
+
+%%%%%%%%% 图形面的绘制 %%%%%%%%%%%%%%%%%%%%
+\input{body/asy_surface}
+
+%%%%%%%%% 图形变换 %%%%%%%%%%%%%%%%%%%%
+\input{body/asy_change}
+
+%%%%%%%%% 导入数据 %%%%%%%%%%%%%%%%%%%%
+\input{body/asy_import}

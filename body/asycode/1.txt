@@ -1,0 +1,1 @@
+sc create svnservice binpath= "/"D:/Program Files/CollabNet/Subversion Serversvnserve.exe/" --service -r D:/SVN" displayname= "SVNService" depend= Tcpip start= auto

@@ -1,0 +1,342 @@
+
+\section{文档问题}
+\newcounter{buzhou_latex} %不同环境计数器的名称也必需不同
+\begin{list}
+{\bfseries\sffamily 问题\,\arabic{buzhou_latex}:\hfill}
+{\setlength{\parsep}{\parskip}
+ \setlength{\itemsep}{0ex plus0.1ex}
+ \setlength{\labelwidth}{4em}
+ \setlength{\labelsep}{0.2em}
+ \setlength{\leftmargin}{6.2em}
+ \setlength{\rightmargin}{2em}
+ \usecounter{buzhou_latex} \setcounter{buzhou_latex}{0}
+ \upshape
+}
+
+%\addcontentsline{toc}{subsection}{\qquad$\bigstar$ 问题列表}
+
+\addcontentsline{toc}{subsection}{$\bullet$~合并图表目录}
+\item
+\color{red}
+图表目录合并\\
+\normalcolor
+
+用宏包 tocloft
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~目录链接不正确}
+
+\item
+\color{red}
+标签页链接不正确\\
+\normalcolor
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\clearpage
+\phantomsection
+\tableofcontents
+
+\clearpage
+\phantomsection
+\listoffigures
+\listoftables
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~表格内换行}
+\item
+\color{red}
+表格内换行，box 内换行\\
+\normalcolor
+
+$\backslash$par 命令或\verb|\makecell|命令（需 makecell 宏包）或
+\textcolor[rgb]{0.00,0.00,0.63}{使用$\backslash$parbox[t(bsc)默认是 c]\{长度\}\{可使用换行符\}}\\
+t(bsc)默认是 c ,可缺省。
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~PDF 标签乱码}
+\item
+\color{red}
+PDF 标签乱码\\
+\normalcolor
+
+重新点 set main file 的图标，重新编译两次\footnote{仅对《 LATEX 入门与提高 第二版》光盘中附赠的 winedt 软件有效，
+其他版本的 winedt 在执行完 2 遍 pdflatex 后，再执行 gbk2uni 不带后缀的文件名，再执行一遍 paflatex。}。
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{$\bullet$~图片一直放在文字后}
+\item
+\color{red}
+图片不放在文字前面\\
+\normalcolor
+
+ 在宏包里使用 flafter 宏包即可
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~图片强制就地放置}
+\item
+\color{red}
+图片就地放置\\
+\normalcolor
+
+
+        加载 float 宏包，使用\verb$\begin{figure}[H]$命令，\verb$\begin{figure}[h]$中 h 为建议就地放置，H 为命令就地放置。
+        H 只能单独使用，不能和其他参数 htbp 混合，否则失去作用。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~latex 公式到 word}
+\item
+\color{red}
+公式复制到 word 中\\
+\normalcolor
+
+
+        可先直接复制到 mathtype6.0 ，自动转换成 word 格式
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{字体颜色不均}
+\item
+\color{red}
+用pdflatex生成的字体粗细不一\\
+\normalcolor
+
+ 字体支持不太好，改用 \LaTeX + dvitopdf 或改用 XeLaTeX （须改设置，utf-8格式，Xecjk 宏包等），
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\addcontentsline{toc}{subsection}{$\bullet$~box 环境内的抄录环境}
+\item
+\color{red}
+box 环境内不用用摘录环境\\
+\normalcolor
+
+        用 minipage 环境，verbinput 导入外部文件。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~PDF 属性中加入作者和文章信息}
+
+\item
+\color{red}
+在 pdf 属性中加入作者和标题信息。\\
+\normalcolor
+
+        使用 hyperref 宏包，在可选项中加入(放在document文档中可以有中文，若在导言区有中文\XeLaTeX 下可能有问题)：\\
+        \fcolorbox{white}{lightgreen}{
+        \parbox{10cm}{
+          pdfauthor=\{\},\%作者\\
+          pdfkeywords=\{latex\},\%关键词\\
+          pdfsubject=\{late beamer asymptote\},\%主题\\
+          pdftitle=\{handbook of latex\},\%标题\\
+        }}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\addcontentsline{toc}{subsection}{$\bullet$~总页码计数器}
+\item
+\color{red}
+页码后标上总页码对比\\
+\normalcolor
+
+使用 lastpage 宏包，用\verb|\pageref{LastPage}|显示总页码
+\textcolor[rgb]{1.00,0.00,0.00}{注意此宏包与 movie15 animate 动画影音宏包有冲突。会导致动画和视频不能正常显示}
+\begin{shaded}
+\begin{Verbatim}
+\usepackage{lastpage}
+\pageref{LastPage}
+\fancyfoot{\thepage/\pageref{LastPage}}
+\end{Verbatim}
+\end{shaded}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~章节页加页眉}
+\item
+\color{red}
+章节页加页眉\\
+\normalcolor
+
+
+在此页加入命令
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\thispagestyle{fancy}
+\fancyhead[R]{\song\wuhao `右页眉内容`}
+\fancyhead[L]{\song\wuhao `左页眉内容`}
+\end{lstlisting}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~目录页加页眉 tocloft}
+\item
+\color{red}
+目录上加页眉 tocloft 宏包，和 titletoc 并用会导致图表目录不能分页\\
+\normalcolor
+
+        tocloft 宏包的 在\verb$\tableofcontents$前面加\verb$\tocloftpagestyle{fancy}$，%
+        后面加\verb$\thispagestyle{fancy}$默认是 plain，在目录的第一页加上页眉，%
+        后\verb$\thispagestyle{fancy}$是在最后一页加页眉。在前面加下述命令，可使目录第一页至最后一页前都加上页眉
+
+\begin{shaded}
+\begin{Verbatim}
+\makeatletter
+\renewcommand{\tocloftpagestyle}[1]
+{\def\@cftpagestyle{\pagestyle{#1}}}
+\makeatother
+\end{Verbatim}
+\end{shaded}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~目录章节首页加页眉 titletoc}
+
+\item
+\color{red}
+用 titletoc 宏包，在目录页、章节页加上页眉，可重定义 fancypagestyle\{plain\} 的格式\\
+\normalcolor
+\begin{shaded}
+\begin{Verbatim}
+\fancypagestyle{plain}{\pagestyle{fancy}
+\end{Verbatim}
+\end{shaded}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{subsection}{$\bullet$~将文献引用改为上标格式}
+
+\item
+\color{red}
+引用文献是\verb|\cite{...}|命令，要实现上标有三种方法\\
+\normalcolor
+\begin{shaded}
+\begin{Verbatim}
+一、
+\newcommand{\upcite}[1]
+{\texsuperscript{\textsuperscript{\cite{#1}}}}
+二、
+\newcommand{\upcite}[1]%
+{$^{\mbox{\scriptsize\cite{#1}}}$}
+三、
+\makeatletter
+\def\@cite#1#2%
+{\textsuperscript{'{#1\if@tempswa,#2\fi}]}}
+\makeatother
+\end{Verbatim}
+\end{shaded}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{$\bullet$~附录的节号 section 不对}
+\item
+\color{red}
+附录的 section 节号不对\\
+\normalcolor
+\begin{shaded}
+\begin{Verbatim}
+\setcounter{section}{1}
+\end{Verbatim}
+\end{shaded}
+
+\addcontentsline{toc}{subsection}{$\bullet$~表格编译 label 出错}
+\item
+\color{red}
+编译时表格的 label 后出错\\
+\normalcolor
+
+table 表格的 label 后不能加\verb|\\|，longtable 表格和图形环境的
+label 可以加。
+
+\addcontentsline{toc}{subsection}{$\bullet$~hyperref 没有超链接}
+\item
+\color{red}
+以前模板的目录没有超链接属性\\
+\normalcolor
+
+注意超链接的参数选项设置，有的选项没有设成宏包规定的值则会出错。 pdfborder=\{0 0 0\} 为无边框。 不能写成 no 或 false 。
+
+
+
+\addcontentsline{toc}{subsection}{$\bullet$~命令作用范围到了后面的表格}
+\item
+\color{red}
+\verb|\rowcolors| 命令作用范围到了后面的表格\\
+\normalcolor
+
+\verb|\rowcolors|必须放在环境中限制其范围，如果外没有表格环境可以在其作用范围前后加上 \{ 和 \} 来实现范围设定。
+
+
+\addcontentsline{toc}{subsection}{$\bullet$~抄录环境中代码过长}
+\item
+\color{red}
+代码过长，超出了页边范围\\
+\normalcolor
+
+1.手动换行
+
+2.用\verb|\footnotesize|等这种原有的 LATEX 字体大小写定义将字体改小，用自定义的 WUHAO 等字体命令会不起作用。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{$\bullet$~新加宏包后出现no room for ... 的错误}
+\item
+\color{red}
+宏包冲突，出现 no room for ... \\
+\normalcolor
+
+ 使用 etex 宏包 \verb|\usepackage{etex}|
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{$\bullet$~winedt 局部编译后不自动弹出PDF,且乱码}
+\item
+\color{red}
+winedt7 局部编译后不自动弹出PDF,且乱码，因为编码方式为GBK所致，调用的是zhmCJK的GBK编译宏包，或用 winedt6\\
+\normalcolor
+
+ 局部编译一整个 xx.tex 的源文件，或者转换文件为 UTF8 的编码方式。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{$\bullet$~xelatex 编译utf-8格式出错}
+\item
+\color{red}
+原GBK格式另存为UTF-8格式后用xelatex还是会有错误\\
+\normalcolor
+
+ 新建一个文件，再保存为UTF-8格式就可以了，我也不知道为什么。
+
+\addcontentsline{toc}{subsection}{$\bullet$~no room for a new write}
+\item
+\color{red}
+加入新宏包 tcolorbox 等会出现编译错误 no room for a new write\\
+\normalcolor
+
+ 加载宏包 \verb|\usepackage{morewrites}|来解决。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{list}

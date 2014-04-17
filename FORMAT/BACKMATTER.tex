@@ -1,0 +1,14 @@
+
+
+\backmatter
+%%%%%%%%%%%%%%%  正文后附录的格式  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\addtocounter{chapter}{1}   %防止书签中超链接的图表错误
+\setcounter{table}{0}
+\setcounter{figure}{0}        %图表计数器清0
+\renewcommand*{\thesection}{\arabic{section}}
+\renewcommand*{\thesubsection}{\thesection.\arabic{subsection}} %节计数器清除章号
+\renewcommand\thefigure{图 \arabic{figure}~~~}      %将图号1.1改成1
+\renewcommand\thetable{表 \arabic{table}~~~}
+\titleformat{\chapter}[hang]{\centering\LARGE\bfseries}{\chaptername}{1em}{}

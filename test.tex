@@ -1,0 +1,88 @@
+% !TEX program = xelatex
+% !Mode:: "TeX:UTF-8"
+%%%%%%%%%%%%%%%%%%%%%      说  明      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%            本文为 xelatex 的模板  texlive 2011 + xelatex
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\documentclass[11pt,openany,a4paper,oneside]{book}  % 11pt约五号字体，openright每章从右边（奇数页）开始，A4 纸张，双面打印，
+\usepackage{ctex}
+\usepackage{xxcolor}
+\usepackage{tikz}
+\usetikzlibrary{
+  arrows,
+  calc,
+  fit,
+  patterns,
+  plotmarks,
+  shapes.geometric,
+  shapes.misc,
+  shapes.symbols,
+  shapes.arrows,
+  shapes.callouts,
+  shapes.multipart,
+  shapes.gates.logic.US,
+  shapes.gates.logic.IEC,
+  circuits.logic.US,
+  circuits.logic.IEC,
+  circuits.logic.CDH,
+%  circuits.ee.IEC,
+  datavisualization,
+  datavisualization.formats.functions,
+  er,
+  automata,
+  backgrounds,
+  chains,
+  topaths,
+  trees,
+  petri,
+  mindmap,
+  matrix,
+  calendar,
+  folding,
+  fadings,
+  shadings,
+  spy,
+  through,
+  turtle,
+  positioning,
+  scopes,
+  decorations.fractals,
+  decorations.shapes,
+  decorations.text,
+  decorations.pathmorphing,
+  decorations.pathreplacing,
+  decorations.footprints,
+  decorations.markings,
+  shadows,
+  lindenmayersystems,
+  intersections,
+  fixedpointarithmetic,
+  fpu,
+%  svg.path,
+  external,
+}
+%\tikzset{external/system call={xelatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}
+\tikzexternalize[prefix=figures/] %生成外部文件
+%%%%%%%%%%%%%%%% 文章开始 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%\tikzsetnextfilename{trees}
+\begin{tikzpicture}
+[edge from parent fork down,
+every node/.style={fill=red!30,rounded corners},
+edge from parent/.style={red,-o,thick,draw}]
+\node {root}
+child {node {left}}
+child {node {right}
+child {node {child}}
+child {node {child}}
+};
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

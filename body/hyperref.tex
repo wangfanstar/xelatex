@@ -1,0 +1,477 @@
+\section{超链接}
+\subsection{选项配置}
+\textcolor[rgb]{0.50,0.00,0.50}{ 颜色的应用：} \newline 1.
+红色(Red)用来作为内部的链接 \newline 2.
+红紫色(Magenta)用来作为web或者email地址的链接。 \newline 3.
+蓝色(有时候是绿色，还有少数是红色)用来标示强调的词或者说明性的词。
+\newline
+\textcolor[rgb]{0.50,0.00,0.50}{书签(Bookmarks) }\newline 1.
+Options：选择hyperref的四个位置: \newline (a) 全局: $\backslash
+$documentclass[. . . ] \newline (b) 用宏包: $\backslash
+$usepackage[. . . ] \newline (c) 配置文件: 用$\backslash
+$hypersetup配置hyperref.cfg \newline (d) 在宏包之后: $\backslash
+$hypersetup{\{}. . . {\}} \newline 2. 影响书签的选项 \newline (a)
+bookmarks:使得书签有效(缺省为true).如果宏包已经装载，那么这个选项不能应用。
+\newline
+(b) bookmarksnumbered: 把节的标号放入标签(缺省:false)。 \newline (c)
+bookmarksopen: 打开书、签树(缺省: false). \newline (d)
+bookmarksopenlevel:书签打开的层数(缺省: maxdimen). \newline
+
+\textcolor[rgb]{0.50,0.00,0.50}{ hyperref的设置} \newline
+1.应用如下设置超链接的颜色是相同的 \newline $\backslash
+$documentclass[11pt]{\{}article{\}} \newline $\backslash
+$usepackage{\{}color{\}} \newline $\backslash $ifx$\backslash
+$pdfoutput$\backslash $undefined \newline $\backslash
+$usepackage[dvips]{\{}graphicx{\}} \newline $\backslash
+$usepackage[dvipdf, \newline pdfstartview=FitH, CJKbookmarks=true,
+bookmarksnumbered=true, \newline bookmarksopen=true,
+colorlinks=false, colorlinks=black, \newline pdfborder=100,
+citecolor=black ]{\{}hyperref{\}} \newline $\backslash
+$AtBeginDvi{\{}$\backslash $special{\{}pdf:tounicode
+GBK-EUC-UCS2{\}}{\}} {\%} GBK -> Unicode \newline $\backslash $else
+\newline $\backslash $usepackage[dvipdf, \newline pdfstartview=FitH,
+CJKbookmarks=true, bookmarksnumbered=true, \newline
+bookmarksopen=true, colorlinks=true, citecolor=black
+]{\{}hyperref{\}}
+\newline
+$\backslash $usepackage[pdftex]{\{}graphicx{\}} \newline $\backslash
+$fi \newline 2.应用如下设置超链接的颜色不同的 \newline $\backslash
+$ifx$\backslash $pdfoutput$\backslash $undefined \newline
+$\backslash $usepackage[CJKbookmarks=true,dvipdfm, \newline
+pdfstartview=FitH,{\%}开始时候页面的大小，是正常的页面，即100{\%}，注释掉的话页面大小为50{\%}
+\newline
+]{\{}hyperref{\}} $\backslash $else \newline $\backslash
+$usepackage[CJKbookmarks=true,pdftex, \newline
+pdfstartview=FitH,{\%}开始时候页面的大小，是正常的页面，即100{\%}，注释掉的话页面大小为50{\%}
+]{\{}hyperref{\}}
+
+$\backslash $fi \newline
+这里仅仅说明了hyperref的设置，可以照旧应用其他宏包(如CJK)。但是注意hyperref应该放在所有宏包的最后。
+\newline
+
+hyperref 的选项设置如\ref{hyperref_config}所示。
+
+\begin{center}
+\rowcolors{2}{}{lightgray}
+\begin{longtable}[H]{p{3.2cm}p{3cm}p{3cm}p{3cm}}
+\caption{hyperref 参数选项设置} \label{hyperref_config} \\
+\toprule \multicolumn{1}{c}{\textbf{选项}} &
+\multicolumn{1}{c}{\textbf{作用 }} &
+\multicolumn{1}{l}{\textbf{参数 }}  &
+\multicolumn{1}{c}{\textbf{说明 }}\\ \midrule
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\centering \kai\thetable{}hyperref 参数选项设置-~- 接上页}} \\
+\toprule \multicolumn{1}{c}{\textbf{选项}} &
+\multicolumn{1}{c}{\textbf{作用 }} &
+\multicolumn{1}{l}{\textbf{参数 }}  &
+\multicolumn{1}{c}{\textbf{说明 }}\\ \midrule
+\endhead
+\multicolumn{4}{r}{{\kai 接下页}} \\ \bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+a4paper & 使用A4纸张 && \\
+a5paper & 使用A5纸张 && \\
+anchorcolor &链接锚文本颜色 & black &默认值\\
+b5paper &使用B5纸张&& \\
+backref &反向引用&false &默认值\\
+baseurl &基本URL &empty &默认值\\
+bookmarks &生成书签&true &默认值\\
+bookmarksnumbered &书签中章节编号&true &默认值\\
+bookmarksopen &书签目录展开&true &默认值\\
+bookmarksopenlevel &书签目录层次&
+\verb|\maxdimen| &默认值，最高1或2或3... 可选值\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+bookmarkstype
+&
+书签目录类型
+&
+toc\par
+lof\par
+lot
+&
+章节目录，默认\par
+图形目录 \par
+表格目录
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+breaklinks  &允许链接断行 &false& 默认值\\
+citebordercolor &引用标记边框颜色&{0 1 0}& 默认值\\
+citecolor &引用标记颜色&green& 默认值\\
+colorlinks &彩色链接&true &默认值\\
+CJKbookmarks &中文书签&true &默认值\\
+debug & log诊断信息打印&false& 默认值\\
+draft & 超文本选项失效&false& 默认值\\
+dvipdf &使用dvipdf驱动&&\\
+dvipdfm &使用dvipdf驱动&&\\
+dvips &使用dvips驱动&&\\
+dvipsone &使用dvipsone驱动&&\\
+dviwindo &使用dviwindo驱动&&\\
+encap &设置超索引符号&&\\
+executivepaper &7.25in×10.5in纸&&\\
+extension &设置文件扩展名
+&
+dvi\par
+ps、pdf
+&
+默认值\par
+... 可选值
+\\
+filebordercolor &文件链接边框颜色&{0 .5 .5}& 默认值\\
+filecolor &文件链接颜色&cyan &默认值\\
+final& 超文本选项生效&true &默认值\\
+frenchlinks &链接字体为小型大写&false& 默认值\\
+hyperfigures &图形链接&false &默认值\\
+hyperindex &索引链接&true &默认\\
+hypertex &hypertex驱动&&\\
+hypertexnames &用推测名称链接&true &默认值\\
+implicit &内部定义&true &默认值\\
+
+latex2html &latex2html驱动&&\\
+legalpaper &8.5in×14in纸张&&\\
+letterpaper &8.5in×11in纸张&&\\
+linkbordercolor &内部链边框接颜色&{1 0 0} &默认值\\
+linkcolor &内部链接颜色&red &默认值\\
+linktocpage &目录页码链接&false& 默认值\\
+menubordercolor &菜单链接框颜色&{1 0 0} &默认值\\
+menucolor& 菜单链接颜色&red &默认值\\
+naturalnames &使用编译名&false &默认值\\
+nesting & 允许链接嵌套&false& 默认值\\
+pageanchor &每页增设页锚&true& 默认值\\
+pagebackref &反向引用页码&false &默认值\\
+pagebordercolor &页链接框颜色&{1 1 0} &默认值\\
+pagecolor &页链接颜色&red &默认值\\
+
+pdfauthor &作者&&\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfborder
+&
+链接边框
+&
+{0 0 0} \par
+{0 0 1}
+&
+默认值，无框 \par
+可选值，有框
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfborderstyle
+&
+连接边框样式
+&
+{/S/U} \par
+{/S/D/D[3 2]/W 1}
+&
+下划线\par
+虚线框\\
+
+pdfcenterwindow &在屏幕上居中窗口&true& 默认值\\
+pdfcreator& 应用程序(需用命令\verb|\hypersetup|设置)&
+LaTeX with hy-perref
+package &默认值\\
+
+pdfdirection &
+方向设定
+&
+L2R\par
+R2L
+&
+由左至右\par
+由右至左\\
+pdfdisplaydoctitle &显示文件标题&true &默认值\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfduplex &双面打印
+&
+Simplex \par
+DuplexFlipShort-Edge \par
+DuplexFlipLong-Edge
+&
+单面 \par
+双面短边装订 \par
+双面长边装订\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfescapeform &容错&false &默认值\\
+
+
+pdffitwindow &调整窗口&false &默认值\\
+pdfhighlight &点击链接时显示
+&
+/I \par
+/N \par
+/O \par
+/P
+&
+翻转，默认值 \par
+外观不变 \par
+出现黑色边框 \par
+出现黑色半框\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+pdfkeywords &关键字&&\\
+pdflang &PDF标识符&&\\
+pdfmenubar &显示菜单栏&true &默认值\\
+pdfnewwindow &生成新窗口&false &默认值\\
+pdfnumcopies &打印份数 1 或 2 或 3...&&\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfnonfullscreen-\par
+pagemode
+&
+全屏显示样式
+&
+UseNone \par
+UseOutlines \par
+UseThumbs \par
+FullScreen
+&
+无书签缩略图 \par
+附书签 \par
+附缩略图 \par
+无书签缩略图
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfpagelayout
+&
+页面布局
+&
+TwoColumnLeft \par
+SinglePage \par
+OneColumn \par
+TwoColumnRight
+&
+对开，默认值 \par
+单页 \par
+连续 \par
+连续-对开
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfpagemode &
+文件打开模式
+&
+UseNone 默认\par
+UseThumbs\par
+UseOutlines\par
+FullScreen
+&
+无书签和缩略图\par
+显示缩略图\par
+显示书签\par
+全屏显示
+\\
+pdfpagelabels &
+底部页码样式：\par
+“v(第 5／15 页)”\par
+或“第 5／15 页”
+&true& 默认值\\
+
+pdfpagescrop & 设置裁切尺寸&例如：\{53 486 389 754\}&\\
+
+pdfpagetransition &
+页面过渡样式\par
+参数后可加子参数：\par
+/Dm、/Bi、/M、/H
+/V、/I、/O\par
+(需全屏显示模式)
+&
+Dissolve \par
+Wipe \par
+Split \par
+Glitter \par
+Blinds \par
+Box
+&
+马赛克散开 \par
+下拉帘幕 \par
+上下拉帘幕 \par
+溶化 \par
+百叶窗翻转 \par
+渐缩框
+\\
+
+pdfpicktraybypdfsize  & 纸张自动选择&true& 默认值\\
+pdfprintarea & 打印范围&参数与pdfviewarea相同&\\
+pdfprintclip & &参数与pdfviewarea相同&\\
+pdfprintpagerange & 设置打印页码范围{n n}&&\\
+
+pdfprintscaling &
+打印放大率
+&
+AppDefault  \par
+None
+&
+默认\par
+无
+\\
+
+pdfproducer &PDF加工程序需用\verb|\hypersetup| 命令设置&&\\
+pdfstartpage &打开到页码& 1 &默认值\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfstartview &
+PDF文件初始视图&
+/Fit \par
+FitH \par
+FitV \par
+FitR \par
+FitB \par
+FitBH \par
+FitBV \par
+XYZ \par
+&
+默认值 \par
+页宽适合窗口 \par
+页高适合窗口 \par
+适合窗口对角线\par
+版面适合窗口\par
+版宽适合窗口\par
+版高适合窗口\par
+自定放大率\par
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfsubject &文件主题 &&\\
+pdftex &pdflatex驱动 &&\\
+pdftitle &文件标题 &&\\
+pdftoolbar &显示工具栏&true& 默认值\\
+pdfview &链接默认视图&参数与pdfstartview相同&\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfviewarea &显示区域 &&\\
+MediaBox & 媒体框 &&\\
+CropBox &裁切框 &&\\
+BleedBox &出血框 &&\\
+TrimBox &修剪框 &&\\
+ArtBox &作品框 &&\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pdfviewclip &剪贴区域&参数与pdfviewarea相同&\\
+pdfwindowui &显示窗口控件 &true& 默认值\\
+plainpages &页锚编号&true &默认值\\
+
+ps2pdf &ps2pdf驱动&&\\
+raiselinks &抬高链接&false &默认值\\
+runbordercolor &run链接边框颜色&\{0 .7 .7\} &默认值\\
+setpagesize &用命令设置页面尺寸&true &默认值\\
+
+tex4ht& TeX4ht驱动&&\\
+textures &Textures 驱动&&\\
+unicode &Unicode 编码书签&false& 默认值\\
+urlbordercolor &URL 链接边框颜色&\{0 1 1\} &默认值\\
+urlcolor &网页与电邮链接颜色&magenta &默认值\\
+verbose &附加信息&false &默认值\\
+vtex &使用VTeX驱动&&\\
+vtexpdfmark &vtexpdfmark驱动&&\\
+xetex &使用XeTeX驱动&&\\
+\end{longtable}
+\end{center}
+\subsection{文本超链接}
+
+设置文本超链接，从文本的一处链接到另一处。 \newline 例如： \newline
+$\backslash $hypertarget{\{}bilevel{\}}{\{}bilevel programming
+problem{\}}设置锚点 \newline $\backslash
+$hyperlink{\{}bilevel{\}}{\{}BLP{\}} 设置链接 \newline
+\newline
+\textcolor[rgb]{0.50,0.00,0.50}{效果为：} \newline bilevel
+programming problem \newline BLP \newline 则点BLP可以链接到bilevel
+programming problem \newline
+
+\subsection{EMAIL 超链接}
+
+链接到email \newline 例如： \newline $\backslash
+$href{\{}mailto:username@whu.edu.cn{\}}{\{}username@whu.edu.cn{\}}
+\newline \textcolor[rgb]{0.50,0.00,0.50}{效果为：} \newline
+username@whu.edu.cn \newline
+username@whu.edu.cn为显示的内容可以修改为你需要的内容。 \newline
+
+\subsection{网址超链接}
+网址的超链接(url,href等的应用) \newline 例如： \newline $\backslash
+$url{\{}http://www.whu.edu.cn/{\}}链接到http://www.whu.edu.cn/
+\newline
+效果为： \newline http://www.whu.edu.cn/ \newline $\backslash
+$nolinkurl{\{}http://www.whu.edu.cn/{\}}是无链接输入网址的形式。
+\newline
+$\backslash
+$href{\{}http://www.whu.edu.cn/{\}}{\{}武汉大学{\}}链接到http://www.whu.edu.cn/
+\newline
+\textcolor[rgb]{0.50,0.00,0.50}{效果为：} \newline 武汉大学 \newline
+用$\backslash $href也可以链接硬盘上的文件，例如: \newline
+$\backslash $href{\{}C:/paper/example1.pdf{\}}{\{}example1.pdf{\}}
+\newline 效果为: \newline example1.pdf \newline
+在Dvi文件下可以正常打开文件example1.pdf，但是需要在acrobat中设置才能正常用acrobat来打开文件example1.pdf。而且该命令还支持相对路径，但是路径中不能用中文。
+\newline
+\subsection{直接打开链接文件}
+只要超级链接的地址前加上run:就可以了。例如，用hyperref宏包的href命令创建一个链接打开一个文件some.file就可以用$\backslash$href\{run:path/to/some.file\}\{some
+link\}。
+这样的话，我们就可以直接在PDF中点击链接打开文件，而不必先切换界面再去点文件了。其实run跟http、ftp等一样，都是协议。
+
+\subsection{图表超链接}
+例如： \newline $\backslash $begin{\{}figure{\}} \newline
+{\{}$\backslash
+$includegraphics[width=2.53in,height=1.75in]{\{}figurename.eps{\}}{\}}
+\newline
+$\backslash $caption{\{}caption of figure{\}} $\backslash
+$label{\{}label of figure{\}} \newline $\backslash
+$end{\{}figure{\}} \newline $\backslash $begin{\{}table{\}} \newline
+..... $\backslash $caption{\{}caption of table{\}} $\backslash
+$label{\{}label of table{\}} \newline $\backslash $end{\{}table{\}}
+\newline 然后用ref{\{}label of figure(table){\}}
+就可以得到图或表引用的超链接，但这仅仅将编号的数字变成超链接，即图1，表2，如将相应的文字也超链接，即：图1，表2，则可以利用hyperref
+包中的$\backslash $autoref功能。只要将引用图的$\backslash
+$ref{\{}label{\}}换成$\backslash
+$autoref{\{}label{\}}即可。但有个问题就是，这样处理的结果是英文的，即``Figure
+1''，或是"Table
+2"。要想超链接的文字变成``图1''或者"表2"，可以预先做如下的重定义：
+\newline $\backslash $renewcommand$\backslash
+$figureautorefname{\{}图{\}}. $\backslash $renewcommand$\backslash
+$tableautorefname{\{}表{\}}. \newline
+对于公式、章节等要达到同等的效果可以类似考虑，不再一一说明。
+\newline 注意：如果在图或者表格环境中没有caption或者它与$\backslash
+$label分开那么引用时没有图表编 \newline 号。即当用$\backslash
+$autoref{\{}label{\}}时仅有Table(Figure)。 \newline
+
+\subsection{公式超链接}
+例如： \newline $\backslash $begin{\{}equation{\}}$\backslash
+$label{\{}equation{\}}
+\newline
+x+y=z \newline $\backslash $end{\{}equation{\}} \newline
+用ref{\{}label of equation{\}}
+可以将公式的引用作为超链接。对于能够产生公式编号的数学环境命令类似考虑，不再一一举例说明。
+\newline
+
+\subsection{文献目录超链接}
+只要用了宏包hyperref就可以产生他们的超链接。对于文献的引用方法没有改变，但是hyperref宏包不能与cite宏包同时应用，
+而且也不能使得文献压缩引用。 \newline
+
+\subsection{定理引理推论中文环境超链接}
+例如： \newline 在前面定义$\backslash
+$newtheorem{\{}Theorem{\}}{\{}Theorem{\}}[section]，由代码 \newline
+$\backslash $begin{\{}Theorem{\}}$\backslash $label{\{}theorem1{\}}
+\newline 这是一个定理的例子 \newline $\backslash $end{\{}Theorem{\}}
+\newline 4 \newline 然后用$\backslash
+$ref{\{}theorem1{\}}就可以得到该定理的超链接。其它的类似考虑。对于enumerate,itemize等环境也可以得到引用的超链接。
+\newline
+\subsection{章节的引用}
+例如： \newline $\backslash $section{\{}section's
+name{\}}$\backslash $label{\{}label of section's name{\}} \newline
+用ref{\{}label of section's name{\}}
+可以将节的引用作为超链接，对于部分、章以及子节等类似考虑。 \newline
+\subsection{注释超链接}
+把$\backslash $ref替换为$\backslash $ref*可以注释掉超链接的形式。
+\newline
+
+\subsection{PDF 属性设置}
+以下命令放在文档中。
+\begin{lstlisting}
+  \hypersetup{
+  pdfkeywords={latex,pgf,asy,beamer}, %`关键词`
+  pdfsubject={latex}, %`主题`
+  pdfauthor={`王凡`}, %`作者`
+  pdftitle={xelatex `笔记`}, %`标题`
+  pdfcreator={texlive2011}}
+\end{lstlisting}

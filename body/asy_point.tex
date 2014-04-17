@@ -1,0 +1,62 @@
+\subsection{点的绘制}
+%
+\subsubsection{空心点，实心点}
+dot(参数)表示画实心点；
+dot(参数，UnFill)表示画空心点；
+参数一般为 pair 二元组的数据类型，表示平面坐标。\\
+
+\lstinputlisting{body/asycode/dots.asy}
+
+\subsubsection{网络格点}
+1.自己绘制
+
+\begin{lstlisting}
+//`背景网格`
+for (int i = 0; i <= 8; ++i) {
+  real x = i * cm;
+  //`横线`
+  draw((0,x)--(8cm,x));
+  //`竖线`
+  draw((x,0)--(x,8cm));
+}
+\end{lstlisting}
+
+2.调用 math 模块的 grid 函数\\
+\begin{lstlisting}
+import math;
+add(grid(10,10,gray));
+\end{lstlisting}
+grid函数使用方法：\\
+\begin{lstlisting}
+ picture grid(int Nx, int Ny, pen p=currentpen)
+\end{lstlisting}
+
+
+以上为绘制一个 Nx X Ny ，间距为 1 的图形，为 pic 格式。\\
+\begin{lstlisting}
+add(grid(10,10,gray));
+\end{lstlisting}
+
+要使用 grid 函数画的图形，要使用 add(图) 命令，把这个图形加在当前的图上：
+
+
+
+\subsubsection{比例分点，中点}
+可用这种形式：\textcolor[rgb]{0.00,0.50,0.00}{interp(A,B,t)}
+来表示比例分点，其中 t 为比例因子为 real 类型；A，B 为点坐档，pair类型。\\
+用 midpoint 函数它们的中点。调用格式是：\textcolor[rgb]{1.00,0.00,0.00}{midpoint(path)}，代码如下所示：\\
+\begin{lstlisting}
+pair X=interp(A,B,t);
+pair D=midpoint(A- -B)
+\end{lstlisting}
+
+
+\subsubsection{交点}
+调用函数 extension:\\
+\begin{lstlisting}
+ pair extension(pair P, pair Q, pair p, pair q);
+\end{lstlisting}
+%
+返回线段P\,-\,-\,Q与p\,-\,-\,q延长线的交点，否则，如果两直线平行，返回(infinity,infinity)。
+
+\clearpage

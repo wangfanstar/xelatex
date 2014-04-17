@@ -1,0 +1,39 @@
+\section{pdfscreen 模板}
+使用游道德之平林模板改写
+\subsection{模板选项}
+导言区读入宏包命令为：\\
+\fbox{$\backslash$usepackage[screen,panelleft]{pdfscreen}}
+
+其中的主要选项有：\\
+\begin{table}[htbp]
+  \centering
+  \caption{pdfscreen 模板可选项}\label{panel_pdfscreen}
+\begin{tabularx}{14cm}{rX}
+\toprule
+  screen(或 print) & 屏幕输出（打印输出）版本 \\
+  panelleft(或 panelright) & 导航板居左（右） \\
+  nopanel & 无导航板 \\
+paneltoc & 目录放在面板上，但在正文中有 tableofcontents 命令，本命令失效 \\
+sectionbreak & 在每一节前面分页 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{导言中必需出现的命令}
+其中的主要选项有：\\
+\begin{table}[htbp]
+  \centering
+  \caption{pdfscreen 导言中命令}\label{command_pdfscreen}
+\begin{tabularx}{14cm}{lX}
+\toprule
+  $\backslash$screensize\{高度\}\{宽度\} & 屏幕尺寸，必须出现 \\
+  $\backslash$margins\{左边\}\{右边\}\{顶部\}\{底部\} & 页边宽度，必须出现 \\
+  $\backslash$overlay\{图形文件\} & 选取背景图形 \\
+  $\backslash$overlayempty & 无背景图形 \\
+  $\backslash$paneloverlay\{图形文件\} & 选取导航板背景图形 \\
+  $\backslash$paneloverlayempty & 导航板无背景图形 \\
+ $\backslash$changeoverlay & 出现此命令，每一新节自动更改背景图形，从 overlay0.pdf 到 overlay10.pdf ，循环使用\\
+ $\backslash$urlid\{URL 地址\} & 导航板‘HOME PAGE’指向的地址\\
+\bottomrule
+\end{tabularx}
+\end{table}

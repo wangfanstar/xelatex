@@ -1,0 +1,11 @@
+This is makeindex, version 2.15 [TeX Live 2010] (kpathsea + Thai support).
+Scanning input file xelatex.idx....
+!! Input index error (file = xelatex.idx, line = 236):
+   -- Extra `@' at position 48 of first argument.
+!! Input index error (file = xelatex.idx, line = 237):
+   -- Extra `@' at position 47 of first argument.
+done (244 entries accepted, 2 rejected).
+Sorting entries.....done (2221 comparisons).
+Generating output file xelatex.ind....done (253 lines written, 0 warnings).
+Output written in xelatex.ind.
+Transcript written in xelatex.ilg.

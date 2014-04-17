@@ -1,0 +1,38 @@
+\chapter{摘~~~~要}
+ \thispagestyle{fancy} \fancyhead[R]{\song\wuhao 摘要}
+本文档是自己在 \LaTeX 学习过程中为节省时间而做的学习手记，比较方便有基础的人进行命令查询和扩展功能 DIY。初学入门者可能会对其中省略的一些步骤和基础知识感到困感。
+
+在学习 latex 的过程中，发现了很多新的简便用法，虽然出来的效果一致，但方法简便了许多，这个可以从源文件的代码中看出来，后面写的代码比以前简洁许多，但编译出来的效果是一样的。
+
+有热心网友村长 laomaicunzhang@sina.com 提出相关修改意见，在此表示感谢。
+
+学习 emacs ，越来越发现其强大，而且里面的 org-mode 模式可以发布成网页，PDF，BEAMER，TEX 等各种格式，极大地提高了自己的效率，但是其对 PDFLaTeX 中文支持不太好，所以升级到 \XeLaTeX ，插入图形同时支持（eps，jpg，png，pdf），很强大，因为一些矢量图作图软件（asy,graphviz）只有EPS 格式是矢量的。
+
+~\\ \color{info} \indent
+偶然的机会遇到\href{http://www.onefoundation.cn/}{\textcolor[rgb]{0.00,0.00,1.00}{壹基金}}，觉得这是一件很伟大的公益事业。能最大限度地发动和鼓励更多的人为这个世界奉献自己的爱心，
+在这里借这个机会让更多的人知道。发送 1 到 1069999309\footnote{\textcolor[rgb]{1.00,0.50,0.50}{会替你从手机中捐出 1 元到基金会，用于赈灾和其他公益活动}}。\\
+
+
+ \heartpar{ 虽然不能彻底改变整个世界，
+但我们可以尽自己的一份力让这个世界变得比以前更好一点} \color{black}
+
+%
+%~\\[2cm]
+%\begin{flushright}
+%\begin{minipage}{8cm}
+%\begin{asy}
+%texpreamble("\usepackage{CJK}
+% \AtBeginDocument{\begin{CJK*}{GBK}{kai}}
+%   \AtEndDocument{\clearpage\end{CJK*}}");
+%import three;
+%size(200);
+%currentprojection=orthographic(-2,-2,1.5);
+%path[]g=texpath("LATEX 笔记");
+%for(path p:g){
+%draw(path3(p),red+1pt);
+%draw(extrude(p,2Z),yellow);
+%draw(shift(2Z)*path3(p),red+1pt);
+%}
+%\end{asy}
+%\end{minipage}
+%\end{flushright}

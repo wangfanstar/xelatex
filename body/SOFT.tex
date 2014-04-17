@@ -1,0 +1,306 @@
+\bookmarksetup{bold,color=grass}
+\chapter{软件安装配置}
+\bookmarksetup{bold=false,color={}}
+ \thispagestyle{fancy}
+\fancyhead[R]{\song\wuhao \leftmark}
+
+
+\section{安装所需软件}
+%
+%本文档在 XP 系统下，使用 《LATEX 入门与提高光盘》附赠软件 ChinaTex，和网上下载的宏包，用 winedt 编辑器编辑而成。
+%所用到的软件如下，可不用升级的软件，推荐使用其余的软件，会给编辑带来很大方便\upcite{latex}。
+%
+\begin{table}[htbp]
+  \caption{推荐软件}\label{soft_recommend}
+  \center
+\begin{tabularx}{350pt}{lX}
+  \toprule   \rowcolor{backcolor}
+  软件名称 & 备注\\
+  \midrule
+  TEXLIVE 2012 &  tex 编译软件，xelatex,pdflatex等等集成软件包  \\ \rowcolor{lightgray}
+  winedt7 &  编辑器\\
+  Emacs & 编辑器 \\ \rowcolor{lightgray}
+  % &  \\
+  Ghostscript 9.05 & EPS 图形相关软件 GSview 软件须装 \\
+  Gsview5.0 & EPS 图形查看软件(\textcolor[rgb]{0.00,0.00,1.00}{16417-30959}) \\\rowcolor{lightgray}
+  Asymptote & 矢量绘图软件(TEXLIVE中有，但有些有软件错误需从原版修正) \\
+  \parbox[t]{6cm}{ImageMagick 6.8.0}& 跨平台的全能图片转换工具\\ \rowcolor{lightgray}
+  word2tex2.4.exe   & word 转 TEX，方便进行转换
+  注意转之前改成英文名，图片会以文档名带数字的 EPS 形式转换出\\
+  GeoGebra & 可视化绘图软件，可以转换成asy和pgf代码。\\ \rowcolor{lightgray}
+  Adobe Acrobat 9 Pro & 9 以上的版本用于看 3D 图和其他特效，推荐使用\\
+  ccmap，slashbox，shortlst 宏包 & 宏包扩展 \\\rowcolor{lightgray}
+
+  \bottomrule
+\end{tabularx}
+\end{table}
+
+%
+%\noindent
+%\fcolorbox{white}{lightgray}{其中 Asymptote 涉及的软件还包括：}
+%\begin{enumerate}
+%  \item python-2.6.msi
+%  \item PIL-1.1.7.win32-py2.6.exe
+%  \item animate.sty
+%  \item movie15.sty
+%  \item animfp.sty
+%  \item ocg.sty
+%\end{enumerate}
+
+升级TEXLIVE 2012后的所用软件如下：
+\section{安装新宏包方法}
+将包括新宏包的文件夹放入\verb|D:\texlive\2012\texmf-dist\tex\latex| 文件夹下，进入DOS或终端，运行输入 texhash 命令，mac 和 linux 系统运行 sudo texhash。如果是 TDS 系列的宏包，如 zhmCJK 系列的宏包，放到更上一层的对应的文件夹下，再运行 texhash 命令。
+\section{mac 系统安装后设置}
+ 使用 \XeLaTeX 个人感觉最牛的是终于可以跨平台编译文件，中文字体的问题解决了。对，\XeLaTeX + CTEX 宏包可以跨平台了。经测试，本文档在 mac os 和 winxp、win7 平台上都可编译成功。使用 TEXLIVE2012 在 Win 平台，MacTex 在 Mac os 平台上。Linux 应该也可以，但暂时我没测试过。
+
+mac 下安装完 MacTeX 后还需对 CTEX 的相关字体文件进行更改才能生效。CTeX中默认使用的SimSun等字体在Mac OS中并不存在，取而代之的是“华文宋体”等华文系列的字体。因此如果不配置，会因找不到字体而出现编译错误。另外，在Windows中常用的“隶书”和“幼圆”两种字体，在Mac OS中根本不存在，也没有可以替换的字体。对于缺失的隶书和幼圆，我们使用Windows中的字体，下载地址是
+\uline{\url{http://tinker-bot.googlecode.com/files/cfonts.tar.gz}}
+我们只用到其中的\fbox{simli.ttf}和\fbox{simyou.ttf}这两个字体。另外的4的Adobe 字体在我的系统中已经自带（也可能是我安装Photoshop时装上的？）
+打开应用程序中的“字体册”，点“所有字体”，再在菜单栏中点“文件”-“添加字体”，选择从刚下载的压缩包中解压出的simli.ttf和simyou.ttf，你也可以点击“中文”标签来检查一下四个Adobe字体是否已经自带，如果没有，就在添加字体时把它们也加进来。默认情况下字体会安装到你的用户文件夹下，如果你希望计算机上所有的用户都可以使用这些字体，可以在字体册偏好设置里设置将其安装到系统字体文件夹中（我是这么做的）。当然这需要你有root的口令。
+安装好字体后需要修改一下配置文件，在应用程序中打开终端，输入下列命令
+\begin{cmd}[label=修改MACTEX字体文件命令,xrightmargin=-0.5cm]
+sudo vim /usr/local/texlive/2012/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def
+\end{cmd}
+（如果您不会用vim就换个编辑器，比如nano）
+输入密码后将其内容替换为：
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\setCJKmainfont[BoldFont={STHeiti},ItalicFont=STKaiti]
+  {STSong}
+\setCJKsansfont{STHeiti}
+\setCJKmonofont{STFangsong}
+
+\setCJKfamilyfont{zhsong}{STSong}
+\setCJKfamilyfont{zhhei}{STHeiti}
+\setCJKfamilyfont{zhkai}{STKaiti}
+\setCJKfamilyfont{zhfs}{STFangsong}
+\setCJKfamilyfont{zhli}{LiSu}
+\setCJKfamilyfont{zhyou}{YouYuan}
+
+\newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
+\newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
+\newcommand*{\fangsong}{\CJKfamily{zhfs}} % 仿宋
+\newcommand*{\lishu}{\CJKfamily{zhli}}    % 隶书
+\newcommand*{\youyuan}{\CJKfamily{zhyou}} % 幼圆
+
+\endinput
+\end{lstlisting}
+
+同理修改另外一个配置文件，命令是
+\begin{cmd}[label=修改MACTEX字体文件命令,xrightmargin=-0.8cm]
+sudo vim /usr/local/texlive/2012/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-adobefonts.def
+\end{cmd}
+加入两行以支持隶书和幼圆，修改后的内容为：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\setCJKmainfont[BoldFont=Adobe Heiti Std,ItalicFont=Adobe Kaiti Std]
+  {Adobe Song Std}
+\setCJKsansfont{Adobe Heiti Std}
+\setCJKmonofont{Adobe Fangsong Std}
+
+\setCJKfamilyfont{zhsong}{Adobe Song Std}
+\setCJKfamilyfont{zhhei}{Adobe Heiti Std}
+\setCJKfamilyfont{zhfs}{Adobe Fangsong Std}
+\setCJKfamilyfont{zhkai}{Adobe Kaiti Std}
+\setCJKfamilyfont{zhli}{LiSu}
+\setCJKfamilyfont{zhyou}{YouYuan}
+
+\newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
+\newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
+\newcommand*{\fangsong}{\CJKfamily{zhfs}} % 仿宋
+\newcommand*{\lishu}{\CJKfamily{zhli}}    % 隶书
+\newcommand*{\youyuan}{\CJKfamily{zhyou}} % 幼圆
+
+\endinput
+\end{lstlisting}
+
+下面我们来测试配置，使用TeXShop作为IDE，代码存为UTF-8编码，以XeLaTeX编译。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\documentclass[UTF8]{ctexart} % 采用Mac字体
+%\documentclass[UTF8,adobefonts]{ctexart} % 采用Adobe字体
+
+%以上两行分别测试华文字体和Adobe字体，请交替使用（月下独酌 注）
+
+\title{\LaTeX 中文设置之高层方案}
+\author{xiaoyong}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+  1. 字体示例：\\
+  \begin{tabular}{c|c}
+    \hline
+    \textbf{\TeX 命令} & \textbf{效果}\\
+    \hline
+    \verb|{\songti 宋体}| & {\songti 宋体}\\
+    \hline
+    \verb|{\heiti 黑体}| & {\heiti 黑体}\\
+    \hline
+    \verb|{\fangsong 仿宋}| & {\fangsong 仿宋}\\
+    \hline
+    \verb|{\kaishu 楷书}| & {\kaishu 楷书}\\
+    \hline
+    \verb|{\lishu 隶书}| & {\lishu 隶书}\\
+    \hline
+    \verb|{\youyuan 幼圆}| & {\youyuan 幼圆}\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  2. 字号示例：\\
+  {\zihao{0}初号}
+  {\zihao{1}一号}
+  {\zihao{2}二号}
+  {\zihao{3}三号}
+  {\zihao{4}四号}
+  {\zihao{5}五号}
+  {\zihao{6}六号}
+  {\zihao{7}七号}
+  {\zihao{8}八号}
+\end{center}
+
+\end{document}
+\end{lstlisting}
+
+\section{winedt使用技巧}
+\subsection{编译方法}
+本文档的编译方法，安装完各宏包后，按以下几步，有宏包冲突可先按 Enter 忽略错误强行编译。
+
+\begin{enumerate}
+  \item \XeLaTeX (或pdflatex) XELATEX.TEX
+  \item Accessories$\rightarrow$ make index 生成索引
+  \item \XeLaTeX (或pdflatex) XELATEX.TEX
+  \item \XeLaTeX (或pdflatex) XELATEX.TEX 加入索引目录
+\end{enumerate}
+
+
+本文档编译时会出现 dingbat.sty 和 marvosym.sty 错误，是因为引用了太多的符号宏包，其中符号宏包定义的符号相冲突，把对应冲突的符号（对应 dingbat 里的 \fbox{checkmark}和 marvosym 中的\fbox{Letter}）注释掉，再 texhash 一下，即可。具体操作见\ref{sym_clash}。
+
+
+PDFLaTeX 可以直接运行 PDFTeXify 实现以上 4 个步骤，\XeLaTeX 还需额外配置一下。
+
+注：以上都必须将主工程目录设置一下。在左上角的 + 号符号，\fbox{SET MAINFILE}。
+
+编译方法2: windows 下可以直接建立 BAT 文件来设置这些命令顺序执行，双击 BAT 文件即可。本文为 MAKEPDF.BAT 文件，内容如下所示：
+\lstinputlisting{MAKEPDF.BAT}
+\subsection{winedt 6, 7 设置快捷键}
+\textcolor[rgb]{1.00,0.00,0.00}{winedt5.6 快捷键设置：}
+
+options $\rightarrow$ menu setup $\rightarrow$ 双击对应选项添加 shortcut。
+推荐设置添加环境列表、表格、公式、编译的快捷方式。
+
+CTRL+ALT+$\rightarrow$：对选中的对象每行添加字符，可加 \% 以注释内容，反方向箭头为去除。
+
+WINEDT 6 采用自己配置的方法设置快捷方式，使用
+options$\rightarrow$menus and toolbar$\rightarrow$main menu 里，在对应的选项后加上 SHORTCUT="快捷键组合" 即可。
+
+
+WINEDT 7 同上，使用
+options$\rightarrow$options Intereface$\rightarrow$menus and toolbar$\rightarrow$main menu 里，在对应的选项后加上 SHORTCUT="快捷键组合" 即可。如下所示，将 Itemize 的快捷键设为“Ctrl+Alt+1”，需在对应代码后加入 SHORTCUT="Ctrl+Alt+1"。
+
+\begin{lstlisting}
+      ITEM="Itemize"
+      CAPTION="&Itemize"
+      IMAGE="ListItem"
+      MACRO="LetReg(9,'List Items');LetReg(8,'itemize');"+
+            "Exe('%b\Menus\Insert\List.edt');"
+      REQ_DOCUMENT=1
+      SHORTCUT="Ctrl+Alt+1"
+\end{lstlisting}
+
+然后保存，右键 Load script 或 F9 加载一下即可，有的快捷键已占用会出错，注意设置键。
+
+\subsection{winedt 6 自动加载 gbk2uni}
+
+在 WinEdt 6 或 WINEDT7 的安装文件夹下找到\verb|\exec\execompiler.edt| 文件，用记事本打开，在文本内容中的 END; 前添加如下代码：
+\scriptsize
+
+\begin{cmd}[label= 复制 winedt 代码]
+IfStr("%!9","LaTeX", "=",!"JMP(!'gbk2uni');");
+IfStr("%!9","PDFLaTeX", "=",!"JMP(!'gbk2uni');");
+IfStr("%!9","TeXify", "=",!"JMP(!'gbk2uni');");
+IfStr("%!9","PDFTeXify","=",!"JMP(!'gbk2uni');");
+JMP(!'gbk2uni-Done');
+
+:gbk2uni:: ================================================
+
+IfFileExists("%!6\%N.out","",!"JMP(!'gbk2uni-Done');");
+IfStr("%$('%!9-WinEdt_Console');",'1','=',>
+!|RunConsole('gbk2uni.exe "%N"','%!6','%!9 ...',1,1);|,>
+!|WinExe('','gbk2uni.exe "%N"','%!6','%!9 ...', %!0, %!2,>
+'', '%b\_Out.log', '%b\_Err.log',%!1);|);
+
+:gbk2uni-Done:: ================================================
+\end{cmd}
+
+
+\normalsize
+附件中的 TXT 文档中复制粘贴，见\textattachfile{winedt6_gbk2uni.txt}{\textcolor[rgb]{0.00,0.00,1.00}{代码粘贴附件}}
+\subsection{注册提示框}
+
+winedt5.6：
+\begin{shaded}
+\noindent
+user: Hard Wisdom\\
+code: 1135362106278309830
+\end{shaded}
+
+winedt6:
+\begin{shaded}
+options菜单$\rightarrow$options$\rightarrow$ advanced configuration$\rightarrow$Event Handlers$\rightarrow$Exit\\
+在 END; 前加一行\\
+\wuhao\verb| RegDeleteValue('HKEY_CURRENT_USER', 'Software\WinEdt 6', 'Inst');|\\
+\normalsize 保存后在 Exit 点鼠标右键 Execute Script
+\end{shaded}
+
+winedt7:
+\begin{shaded}
+开始$\rightarrow$运行$\rightarrow$regedit$\rightarrow$HKEY CURRENT USER$\rightarrow$SOFTWARE\\
+删除其中的Winedt 和 Winedt7 两个文件夹一样的东西，整体删除。
+\end{shaded}
+
+\subsection{winedt 打开 utf-8 文件}
+方案一：是在文件的开头加上一行
+\begin{cmd}
+% !Mode:: "TeX:UTF-8"
+\end{cmd}
+这样这个tex文档就会被默认用UTF-8的格式打开。
+方案二：是在options→ configuration wizard→wrapping 下 UFT-8 format中加上Tex，改成
+\begin{cmd}
+Tex;UTF-8|ACP;EDT;INI
+\end{cmd}
+
+就可以了。这样所有的tex文档都被默认是utf-8文档打开。
+但是winedt还没有办法很好支持两种以上的utf-8文档，比如同时输入中文和韩语。
+
+注意：如上修改完毕后，请关闭当前文件，然后打开即可显示正常。
+
+
+%\section{pgf 安装配置}
+%\begin{enumerate}
+%  \item 下载最新的 pgf 宏包
+%  \item 删除旧宏包（否则会出错），删除以下文件夹
+%  \begin{lstlisting}
+%1.c:\ChinaTeX\texmf\doc\generic\pgf
+%2.c:\ChinaTeX\texmf\tex\context\third
+%3.c:\ChinaTeX\texmf\tex\latex\pgf
+%4.c:\ChinaTeX\texmf\tex\plain\pgf
+%5.c:\ChinaTeX\texmf\tex\generic\pgf
+%  \end{lstlisting}
+%  \item 将新宏包解压放到\verb|c:\ChinaTeX\texmf|内，更新目录，进入 DOS 执行 texhash 命令
+%\end{enumerate}
+
+\section{ASY 安装配置}
+安装完相应的软件后在 \verb|C:\Documents and Settings\Administrator\.asy|中添加 \textattachfile{config.asy}{\uline{\textcolor[rgb]{0.00,0.00,1.00}{CONFIG.ASY}}} 文件，内容如下：
+\begin{cmd}
+import settings;
+gs="D:\Program Files\gs\gs9.00\bin\gswin32c.exe";
+psviewer="D:\Program Files\Ghostgum\gsview\gsview32.exe";
+pdfviewer="D:\Program Files\Adobe\Acrobat 9.0\Acrobat\Acrobat.exe";
+python="D:\Python26\python.exe";
+\end{cmd}
+

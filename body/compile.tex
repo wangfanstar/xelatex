@@ -1,0 +1,63 @@
+\section{编译技巧}
+节省时间
+\subsection{注释一段文字}
+在前加 \% 号，或在首尾加以下代码：
+\begin{shaded}
+\begin{Verbatim}
+\iffalse
+被注释的代码
+\fi
+\end{Verbatim}
+\end{shaded}
+
+\subsection{编译当前一小段}
+这样还可以检查语法错误。
+\begin{enumerate}
+  \item 选中要编译的\TeX 代码
+  \item 选择 Accessories$\rightarrow$Compile Selected，（快捷键 CTRL+SHIFT+C或SHIFT+F9）
+  \item 会弹出 \LaTeX 编译后的效果
+\end{enumerate}
+\color{red}
+当只想看新增部分的效果和查看新写的代码是否能编译通过时，这个命令十分好用，还可以在主界面选中几个章节如下所示：
+\begin{shaded}
+\begin{Verbatim}
+%\input{body/CHAPTER1}       %LATEX文档设计
+%\input{body/CHAPTER2}       %ASY绘图设计
+\end{Verbatim}
+\end{shaded}
+
+选中这几个\footnote{前面的\%号应该去掉}，就可以对第一章，第二章进行编译查看效果了，不过里面的超链接编号会从头开始。PDF 图片和其他附件不会显示。
+\color{black}
+
+\subsection{只编译几个章节}
+\index{命令!\verb$\includeonly$}
+
+\begin{itemize}
+  \item 在导言区加上\fcolorbox{white}{lightyellow}{$\backslash$includeonly\{文件名1，文件名2，...\}}。
+  \item 需全文编译时，将命令注释掉即可
+\end{itemize}
+
+\subsection{删除辅助文件}
+两种方法
+\begin{enumerate}
+  \item 点击 winedt 的回收站图标，可以选择把 \LaTeX 生成的辅助文件删除，方便快捷。
+  \item 将以下文本另存为 clean.bat 文件，放在源文件夹中，双击即可。\textcolor[rgb]{1.00,0.00,0.00}{清除的文件还包括子文件夹。}
+\begin{shaded}
+  \begin{Verbatim}
+del *.aux /s
+del *.bak /s
+del *.log /s
+del *.bbl /s
+del *.dvi /s
+del *.blg /s
+del *.thm /s
+del *.toc /s
+del *.out /s
+  \end{Verbatim}
+\end{shaded}
+\end{enumerate}
+
+
+
+
+\clearpage

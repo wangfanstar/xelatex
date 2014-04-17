@@ -1,0 +1,34 @@
+
+
+\frontmatter
+%%%%%%%%%%%%%%%%%%%%%% 中文化 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%以下为 titletoc宏包设置 但目录第二页不显示页码
+\renewcommand\contentsname{\sanhao\hei 目~~~录}
+\renewcommand\listfigurename{\sanhao\hei 图目录}
+\renewcommand\listtablename{\sanhao\hei 表目录}
+%以下为 tocloft 宏包设置
+%\renewcommand\contentsname{\sanhao\hei\qquad\qquad\qquad\qquad\qquad\qquad  目~~~录}
+%\renewcommand\listfigurename{\sanhao\hei\qquad\qquad\qquad\qquad\qquad\qquad 图表目录}
+%\renewcommand\listfigurename{\sanhao\hei\qquad\qquad\qquad\qquad\qquad\qquad 图目录}
+%\renewcommand\listtablename{\sanhao\hei\qquad\qquad\qquad\qquad\qquad\qquad 表目录}
+%\renewcommand\listtablename{}%表~目~录}按论文要求合并至图表目录中
+
+\renewcommand{\chaptername}{第~\thechapter~章}
+%\renewcommand{\contentslabel}{第~\thecontentslabel~章}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername \ #1}{}}  %去掉章节标题中的数字
+\renewcommand*\figurename{}
+\renewcommand*\tablename{}
+\renewcommand\thefigure{图 \arabic{chapter}-\arabic{figure}~}      %将图号1.1改成1-1
+\renewcommand\thetable{表 \arabic{chapter}-\arabic{table}~}        %将表号1.1改成1-1
+
+\renewcommand*\bibname{参考文献}    %book类型
+%\renewcommand\refname{参考文献}     %article类型
+\renewcommand*\indexname{索\quad 引}    %
+%
+
+\xiaosi
+\pagenumbering{Roman}
+\fancyfoot[C]{\textcolor[rgb]{0.00,0.50,0.00}{\thepage}/\pageref{page_menu}}
+\fancypagestyle{plain}{\pagestyle{fancy}} %章节首节加上页眉
+\pagestyle{fancy} % 设置页眉

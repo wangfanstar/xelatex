@@ -1,0 +1,35 @@
+\section{索引}
+\index{命令!\verb$\makeindex$}
+\index{命令!\verb$\printindex$}
+\index{宏包!makeidx}
+
+\subsection{默认宏包 makeidx}
+用\textcolor[rgb]{1.00,0.00,0.00}{ makeindex 文件名 }处理 idx 后缀文件，可不写后缀。
+\begin{shaded}
+\begin{Verbatim}
+\usepackage{makeidx}
+\makeindex % 激活索引命令
+\index{索引分类项!索引目标内容} % 放在对应的内容后
+\printindex % 输出索引章节
+\end{Verbatim}
+\end{shaded}
+注意：\\
+\begin{enumerate}
+  \item !、 \verb|@| 和 \verb$|$ 在 makeindex 里是命令字符。不能放在\verb|\index{...}|内
+  \item \verb|\makeindex|注释掉则不产生索引。\index{命令!\verb$\makeinedex$}
+  \item ！为输入分类符，在后新建一条目，最多嵌套 3 层条目。
+\end{enumerate}
+效果如文末。
+
+
+\subsection{xelatex 索引高级宏包 xeindex}
+
+用法兼容makeidx宏包的命令。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\makeindex
+\printindex
+\index{entry}
+`兼容以上命令`
+`增加命令如下`
+\IndexList*{}{list of entries}
+\end{lstlisting}

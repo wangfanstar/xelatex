@@ -1,0 +1,35 @@
+\subsection{图形变换}
+shift,scale,rotate,fill,clip,
+\subsubsection{平移，放缩，旋转}
+\begin{description}
+  \item[平移] shift(x,y)$*$图像
+  \item[放缩] xscale(放大倍数)$*$图像: xscale(real x),yscale(real y),scale(real s),scale(real x,real y)
+  \item[旋转] rotate(旋转角度, 点坐标)，绕点逆时针旋转
+  \item[反射] reflect(点a,点b):以 a - - b 为对称轴反射
+\end{description}
+
+\subsubsection{填充,裁剪}
+\begin{itemize}
+  \item add(图像，原点)
+  \item add(图像，above=false)
+  \item fill(封闭区域，颜色)
+  \item filldraw(封闭区域，fillpen=填充颜色，drawpen=路径颜色)
+  \item clip(裁剪对象(pic)，裁剪路径)：裁剪命令处理完后 pic 只剩下裁剪出的部分，可用 add 函数再次加入。
+\end{itemize}
+\textcolor[rgb]{1.00,0.00,0.50}{picture 类型是一个独立的图，用 draw，filldraw 绘制后不会显示，要显示必须用 add 命令。}
+
+
+\textcolor[rgb]{0.25,0.50,0.50}{填充阴影}使用 pattern 宏包\\
+
+\begin{minipage}{12cm}
+\lstinputlisting{body/asycode/pattern.asy}
+\end{minipage}
+
+
+hatch(NW) 是一种西北走向的阴影斜线的图形； 用\verb$ add("name",hatch(NW))$； 命名为 name。
+接下去用 \verb$pattern("name")$ 的方式把它做成一个类似与颜色的画笔。
+hatch() 函数还有其他参数, 比如线的粗细, 线的间隔等.
+
+
+
+\clearpage

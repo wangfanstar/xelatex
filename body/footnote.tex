@@ -1,0 +1,123 @@
+\section{脚注边注设计}
+\index{命令!\verb$\footnote$}
+
+\subsection{脚注编号 footnote}
+\subsubsection{使用方法}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\footnote[`序号`]{`脚注内容`}
+\end{lstlisting}
+
+\subsubsection{调整脚注序号}
+不带序号的脚注前加以下命令：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\renewcommand{\thefootnote}{}%`清除脚注序号`
+\end{lstlisting}
+序号改为字母形式：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\renewcommand{\thefootnote}{\alph{footnote}}
+\end{lstlisting}
+脚注序号是以每章第一个脚注为 1 开始排序，要以全文为单位排序可用
+remmreset 宏包，并在后加入以下命令：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\makeatother
+\@removefromreset{footnote}{chapter}
+\makeatother
+\end{lstlisting}
+\subsubsection{调整脚注字体}
+默认为中文宋体，英文罗马体，尺寸为 footnotesize。
+可用下述命令修改：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\renewcommand{\footnotesize}{\small\sf\fangsong}
+\end{lstlisting}
+
+\subsubsection{小页环境 minipage 中的脚注}
+\index{命令!\verb$\footnotemark$}
+脚注在小页的底部，而不是页面底部。小页环境中脚注序号为小写英文字母，计数器为 mpfootnote。
+
+如果要求小页脚注与普通脚注统一，可用 \verb|\footnotemark| 和  \verb|\footnotetext{}| 来插入脚注，
+ \verb|\footnotemark| 插在要标注的地方， \verb|\footnotetext{}|放在小页环境后。括号内为脚注内容。
+
+\subsubsection{表格中的脚注}
+tabular 和 array 不支持脚注命令\verb|\footnote| ，longtable 和 tabularx 表格环境中可使用，脚注在页底，
+如要在表格下实现脚注，可将 longtable 或 tabularx 嵌入 minipage 中。
+
+但实现的表格脚注长度可能超过表格宽度，因此可使用宏包 threeparttable 来实现表格环境的脚注，可实现三种表格环境
+tabluar、tabluarx、tabluar$*$ 三种环境的表格脚注。
+使用要点：threeparttable 环境是不浮动的，如果要浮动，可再置于 table 或 table$*$ 环境中。
+\index{命令!\verb$\begin{threeparttable}$}
+\index{宏包!threeparttable}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\usepackage[]{threeparttable}
+%`可选参数有：`
+%para `所有脚注作为一段，默认每个脚注一段`
+%flushleft  `脚注左侧对齐，默认缩进 1.5em`
+%online  `标记与标注同尺寸，默认为上标形式`
+
+\tnote{`标记序号`}
+%`在表格后用以下代码`
+\begin{center}
+\begin{threeparttable}
+\caption{`表格标注`}
+\begin{tabular}{ll}
+\toprule
+`我是表格`\tnote{a} & `是什么表格` \\
+`表` & `测试数据，加长表格` \tnote{b}\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes} \footnotesize
+  \item[a] `我是表格标注1`
+  \item[b] `我是表格标注2`
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{lstlisting}
+
+\begin{center}
+\begin{threeparttable}
+\caption{表格标注}
+\begin{tabular}{ll}
+\toprule
+我是表格\tnote{a}&是什么表格\\
+表&测试数据，加长表格\tnote{b}\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes} \footnotesize
+  \item[a] 我是表格标注1
+  \item[b] 我是表格标注2
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+
+\subsection{尾注 endnotes}
+\index{命令!\verb$\endnote$}
+\index{命令!\verb$\theendnotes$}
+\index{宏包!endnotes}
+
+尾注宏包 endnotes\endnote{尾注测试1} 将标记内容统一放在一个地方\endnote{尾注测试2} ，一章后或书最后:
+
+注意：theendnotes 如放在一章的中间后会引起 PDF 书签的混乱，之后页眉章号会全变成 notesname。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\usepackage{endnotes}
+\endnote{`尾注内容`}
+\theendnotes
+`常用方法`
+\renewcommand{\notesname}{`本章注释`}
+\theendnotes
+\setcounter{endnote}{0}
+\end{lstlisting}
+
+
+
+\subsection{边注 marginpar}
+
+\index{命令!\verb$\marginpar$}
+\begin{shaded}
+  \begin{Verbatim}
+    \marginpar[左边注内容]{右边注内容}
+  \end{Verbatim}
+\end{shaded}
+\begin{enumerate}
+  \item 单页排版时写入右边注
+  \item 双页排版写入左页左边，右页右边
+  \item 边注不能自动分页
+\end{enumerate}

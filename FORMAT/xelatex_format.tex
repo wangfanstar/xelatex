@@ -1,0 +1,208 @@
+
+%%%%%%%%%%%%%%%% 重定义字号命令 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt  %%這兩行一行使中文能自動換行
+
+%%-----------------------------------------------------------------------------------------
+
+
+
+\newcommand{\song}{\songti}
+\newcommand{\fs}{\fangsong}
+\newcommand{\hei}{\heiti}
+\newcommand{\kai}{\kaishu}
+\newcommand{\li}{\lishu}
+\newcommand{\you}{\youyuan}
+
+
+
+\newcommand{\yihao}{\fontsize{26pt}{36pt}\selectfont}    % 一号, 1.4倍行距
+\newcommand{\erhao}{\fontsize{22pt}{28pt}\selectfont}    % 二号, 1.25倍行距
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}    % 小二, 单倍行距
+\newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}    % 三号, 1.5倍行距
+%\newcommand{\xiaosan}{\fontsize{15pt}{22pt}\selectfont}    % 小三, 1.5倍行距
+\newcommand{\xiaosan}{\fontsize{15pt}{36pt}\selectfont}    % 小三, 论文行距
+\newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}    % 四号, 1.5倍行距
+\newcommand{\banxiaosi}{\fontsize{13pt}{19.5pt}\selectfont}    % 半小四, 1.5倍行距
+\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}    % 小四, 1.5倍行距
+\newcommand{\dawuhao}{\fontsize{11pt}{11pt}\selectfont}    % 大五号, 单倍行距
+\newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}    % 五号, 单倍行距
+
+%
+%\setmainfont{Times New Roman} %设置默认英文字体。
+%%\setmainfont{TeX Gyre Pagella}
+%\setsansfont{TeX Gyre Adventor}
+%\setmonofont{TeX Gyre Cursor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%% 颜色 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{lightgray}{rgb}{0.75,0.75, 0.75}
+\definecolor{grass}{rgb}{0.00,0.50,0.25}   %用于程序语言
+\definecolor{lightgreen}{rgb}{0.93,1.00,0.93}
+
+\definecolor{lightred}{rgb}{1.00,0.50,0.50}
+\definecolor{deepyellow}{rgb}{0.91,0.91,0.00}
+\definecolor{lightyellow}{rgb}{1,1,0.9}%浅黄，适合作代码框背景
+\definecolor{deepgreen}{rgb}{0.00,0.50,0.00} %深绿，适合作代码注释
+\definecolor{deepblue}{rgb}{0.00,0.40,0.40}
+\definecolor{lightblue}{rgb}{0.50,0.50,1.00} %浅蓝
+\definecolor{whiteblue}{rgb}{0.82,0.82,1.00} %蓝白
+
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92} %文本背景色
+%\definecolor{backcolor}{rgb}{1,1,0.95} %米黄色背景
+\definecolor{backcolor}{rgb}{1,1,0.955} %黄色背景
+
+\definecolor{bg-color}{rgb}{0.96,1,0.95}
+\definecolor{shadecolor}{rgb}{0.96,1,0.95} %文本背景色
+\definecolor{info}{rgb}{1.00,0.50,0.50} %粉色
+\definecolor{txt-color}{HTML}{000000}
+\definecolor{builtin}{HTML}{DA70D6}
+\definecolor{comment}{HTML}{B22222}
+\definecolor{comment-delimiter}{HTML}{B22222}
+\definecolor{constant}{HTML}{5F9EA0}
+\definecolor{function-name}{HTML}{0000FF}
+\definecolor{keyword}{HTML}{a020F0}
+\definecolor{string}{HTML}{BC8F8F}
+\definecolor{type}{HTML}{228B22}
+\definecolor{variable-name}{HTML}{B8860B}
+\definecolor{brick}{HTML}{7B0C00}
+
+%%%%%%%%%%%%%%% 背景色 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagecolor{backcolor}
+
+%%%%%%%%%%%%% 超链接 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}} %参考文献上标\upcite
+
+
+
+%%%%%%%%%%%%%%%%浮动图形和表格标题样式%%%%%%%%%%%%
+
+\renewcommand{\captionlabeldelim}{\hspace{0em}}     % 按清华标准, 图表标题字体为11pt, 这里写作大五号
+\renewcommand{\captionfont}{\wuhao\kai}
+
+
+
+%%%%%%%%%%%%%%%%%%%%% 图路径设置 %%%%%%%%%%%%%%%%%%%
+\graphicspath{{figures/}}
+
+
+%%%%%%%%%%%%%%% 页眉页脚 %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{fancy}           %\fancyhf{}为清空页眉页脚，\rhead{} \lhead{} \lfoot{} \cfoot{} \rfoot{\thepage} 命令设置
+\addtolength{\headsep}{-0.1cm}          %页眉位置
+\addtolength{\footskip}{0.4cm}         %页脚位置
+
+
+
+%%%%%%%%%%%%%%%%%% 定义段落章节的标题和目录项的格式 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\titleformat{\chapter}[hang]{\centering\LARGE\bfseries}{\chaptername}{1em}{}
+   %其中\chapter可以换为\section, \subsection等，设置节、小节等标题的格式。
+    %hang 表示标题头与标题内容在同一行，是默认值。而book类默认的章标题是标题头与标题内容放在两个段落，
+    %对应于display选项。此外还有block,runin, leftmargin, rightmargin, frame, wrap等选项，一般不大用到。
+    % \centering\LARGE\bfseries这一块是设置标题的排版格式，这里设置为居中、 \LARGE尺寸和黑体。
+    %后面紧跟的是标题头的定义。book类里的标题头是英文，需要改成中文。如果希望改成“第一章”这样的格式，    %则应先引用CJKnumb宏包，它提供了把阿拉伯数字转换成中文数字的命令。然后定义
+
+\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
+\titlespacing{\chapter}{0pt}{2.4ex}{2.4em}          % ex相当于当前字母尺寸小写字母x的高度，em相当于大写M的宽度
+
+\titleformat{\section}[hang]{\color{blue}\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\color{grass}\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[hang]{\color{lightblue}\large\bfseries}{\thesubsubsection}{1em}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 定义目录格式 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titlecontents{chapter}
+[0em]
+{\color{blue}\heiti\large\heiti\addvspace{1.5ex}}        %[0em]为目录距左边的距离\addvspace为章与章之间的行距
+{\xiaosi\thecontentslabel{~~~}}
+{}          %{2em}为章号距章标题的距离{}为章标题前的内容
+{\titlerule*[0.5pc]{.}\contentspage}[\addvspace{0.5ex}] %0.5ex为章到下节的距离
+
+
+
+\titlecontents{section}
+[2em] {\color{blue}\normalsize\addvspace{0.5ex}}
+{\thecontentslabel\hspace*{1em}} {\hspace*{-2.3em}}
+{\titlerule*[0.4pc]{.}\contentspage}
+
+
+\titlecontents{subsection}
+[4em] {\color{grass}\normalsize\addvspace{0.5ex}}
+{\thecontentslabel\hspace*{1em}} {\hspace*{-2.3em}}
+{\titlerule*[0.4pc]{.}\contentspage}
+
+\titlecontents{subsubsection}
+[6em] {\color{grass}\normalsize\addvspace{0.5ex}}
+{\thecontentslabel\hspace*{1em}} {\hspace*{-2.3em}}
+{\titlerule*[0.4pc]{.}\contentspage}
+
+
+%%%%%%%%%%%%%%%%%% 图表目录合并 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\titlecontents{figure} [0em]
+{\xiaosi\song\addvspace{-0.5ex}}      %行距
+{\color{grass}\thecontentslabel{~~~}}{}         %图号与标题间距
+{\titlerule*[0.5pc]{.}\hspace*{.1em}\contentspage}[\large\addvspace{1.8ex}]
+
+\titlecontents{table}[0em]
+{\xiaosi\song\addvspace{-0.5ex}}
+{\color{grass}\thecontentslabel{~~~}}{}
+{\titlerule*[0.5pc]{.}\hspace*{.1em}\contentspage}[\large\addvspace{1.8ex}]
+
+
+
+%%%%%%%%%%%%%%%%% 粘贴代码宏包设置 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%
+%\lstset{
+%numbers=left, numberstyle=\footnotesize\itshape\mdseries,%行号显示在代码左边，行号字体为small
+%basicstyle=\small\rmfamily\upshape\mdseries,                    %代码的字号
+%backgroundcolor=\color{lightgreen},            %背景为灰色
+%keywordstyle=\color{blue!70}\mdseries\rmfamily,               %关键字高亮加粗
+%stringstyle=\rmfamily\upshape,
+%showstringspaces=false,         %不显示空格标记
+%commentstyle=\color{red!50!green!50!blue!50},
+%frame=single, framerule=0pt,                                 %框住代码
+%rulesepcolor=\color{red!20!green!20!blue!20},   %框线条颜色
+%escapeinside=``,                                %框线条颜色 逃逸符号
+%xleftmargin=2em,xrightmargin=2em,               %左右边距与上下边跑
+%aboveskip=1em,breaklines=true
+%}
+
+%
+%
+
+%%%%%%%%%%%%%%% 小数点对齐格式 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcolumntype{,}{D{.}{,}{5}}  %“，”小数点输入，逗号输出，小数位数最多5位
+\newcolumntype{d}[1]{D{.}{.}{#1}} %d{小数位数}，输入输出都为.  小数位数自己设定
+\newcolumntype{.}{D{.}{.}{-1}} %“.” 输入输出小数点，小数位数为任意值。
+
+
+
+%%%%%%%%%%%%%%% 自定义 Verbatim 环境 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DefineVerbatimEnvironment{VimVBshcmd}{Verbatim}
+  {gobble=0,rulecolor=\color{black},formatcom=\color{blue},samepage=true,numbers=none,numbersep=0mm, frame=single,framerule=0.1pt,label=\LaTeX \quad 命令 ,fontsize=\small}
+\DefineVerbatimEnvironment{latexcmd}{Verbatim}
+  {gobble=0,rulecolor=\color{black},formatcom=\color{blue},samepage=true,numbers=none,numbersep=0mm, frame=single,framerule=0.1pt,label=\LaTeX \quad 命令 ,fontsize=\small}
+\DefineVerbatimEnvironment{asycmd}{Verbatim}
+  {gobble=0,rulecolor=\color{black},formatcom=\color{blue},samepage=true,numbers=none,numbersep=0mm, frame=single,framerule=0.1pt,label=ASY ~~代码  ,fontsize=\small}
+\DefineVerbatimEnvironment{cmd}{Verbatim}
+  {gobble=0,rulecolor=\color{black},formatcom=\color{blue},samepage=true,numbers=none,numbersep=0mm, frame=single,framerule=0.1pt,label= 代码命令  ,fontsize=\small}
+%参考了 VIM 7.2 手册代码
+
+
+%%%%%%%%%%%%%%% 自定义分割线%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\fengexian}[1]{
+{\centering \makebox[\textwidth][s]{
+\textcolor{red}{* * * * \mbox{#1} * * * *}}}}
+
+

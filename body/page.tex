@@ -1,0 +1,38 @@
+\section{页码、标号等计数器}
+\subsection{计数器}
+已有的计数器
+\begin{itemize}
+  \item part  \item section  \item subsection \item subsubsection
+  \item chapter \item paragraph \item subparagraph \item page \item footnote
+  \item equation
+\end{itemize}
+更改命令
+\begin{latexcmd}
+  \setcounter{计数器名称}{数字}  %给计数器赋值
+  \addtocounter{计数器名称}{数字} %把指定值加入计数器
+  \stepcounter{计数器名称} %指定计数器值加1，下属计数器清零
+\end{latexcmd}
+
+\subsection{最后页调用 LastPage}
+lastpage 宏包使用，\verb|\pageref{LastPage}|命令即调用页码。
+
+\subsection{指定页码调用 label}
+本文档目录页下的页码调用代码如下：
+\begin{latexcmd}
+\label{page_menu} % 在目录页的最后一页后加入
+\fancyfoot[C]{\textcolor[rgb]{0.00,0.59,0.00}{\thepage}/\pageref{LastPage}}
+
+\end{latexcmd}
+\subsection{页码重新设置格式}
+\begin{latexcmd}
+\pagenumbering{Roman}
+\end{latexcmd}
+\subsection{图号表号设置}
+\begin{latexcmd}
+\renewcommand*\figurename{}
+\renewcommand*\tablename{}
+\renewcommand\thefigure{图 \arabic{chapter}-\arabic{figure}~}
+%将图号1.1改成1-1
+\renewcommand\thetable{表 \arabic{chapter}-\arabic{table}~}
+%将表号1.1改成1-1
+\end{latexcmd}

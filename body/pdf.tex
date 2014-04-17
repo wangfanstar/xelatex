@@ -1,0 +1,39 @@
+\section{加入PDF,pdfpages宏包}
+\index{命令!\verb$\includepdf$}
+\index{命令!\verb$\includepdfmerge$}
+\index{宏包!pdfpages}
+
+\begin{shaded}
+\begin{Verbatim}
+\usepackage{pdfpages}
+// 简略写法
+\includepdfmerge{appendix/pcb.pdf,2-3}
+
+// 插入多个PDF，同页显示
+\includepdf
+[pages={1,{},2-3},fitpaper=true,nup=2x2,landscape=true,
+scale=0.8,delta=0mm 0mm, frame] {appendix/wangfan.pdf}
+
+
+//连续的多个PDF
+\includepdf[pages={1-3},fitpaper=false,nup=2x2,
+landscape=false,delta=2mm 2mm,scale=0.8,
+frame] {appendix/pcb.pdf}
+\end{Verbatim}
+\end{shaded}
+
+\noindent
+landscape 默认为 false，\\
+frame 默认为 false，\\
+fitpaper默认为false\\
+scale默认为 1\\
+nup 为 $n$ x $m$ ,n 为横向数目，m 为纵向数目。\\
+加入目录和超链接\\
+%addtotoc={(pagenumber),(section),(level),(heading),(label)}\\
+加入图表目录\\
+%addtolist={(pagenumber),(type),(heading),(label)}
+lever : 1 为 section 2 为 subsection
+pagenumber: 为 PDF 中要引用的页数\\
+type= figure 或 table\\
+heading 为目录中显示的标题\\
+label 为引用标识\\

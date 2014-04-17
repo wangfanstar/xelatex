@@ -1,0 +1,36 @@
+\section{自定义命令}
+
+\subsection{新建命令 newcommand def}
+导言区加入：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\newcommand{\fengexian}[1]{
+{\centering \makebox[\textwidth][s]{
+\textcolor{red}{* * * * \mbox{#1} * * * *}}}}
+\end{lstlisting}
+定义中 [] 中数字表示变量的个数，在 \{\} 中 \#1 表示变量的位置
+\begin{cmd}[label=用法]
+\newcommand{\新函数}{新函数定义}
+使用时：\新函数
+如：\fengexian{我是分割线}
+\end{cmd}
+\fengexian{我是分割线}
+
+\subsection{修改命令 renewcommand}
+
+
+\subsection{自定义盒子 newsavebox}
+\index{命令!\verb$\newsavebox$}
+\index{命令!\verb$\savebox$}
+\index{命令!\verb$\usebox$}
+\index{命令!\verb$\sbox$}
+\index{环境!lrbox}
+其中 name 为自定义的名字，用以下代码可以直接用\verb|\usebox{\name}|来节省代码量。排版时 \TeX 只按盒子大小安排空间，若盒子里内容多出盒子空间，会导致与外部内容重叠，反之则出现大段空白。
+\begin{lstlisting}
+\newsavebox{\name} % 定义盒子名
+\savebox( 宽度 , 高度 )[ 位置 ]{\name}{ 内容 } % 定义盒子内容
+\sbox{\name}{ 内容 } % \savebox 的简略用法
+\begin{lrbox}{\name} % 保存大段文本的盒子形式
+    内容
+\end{lrbox}
+\usebox{\name}  % 引用盒子
+\end{lstlisting}

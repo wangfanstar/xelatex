@@ -1,0 +1,62 @@
+\section{长度设置}
+\subsection{长度单位}
+所有长度单位如下所示：\\
+\begin{itemize}
+  \item mm \item cm
+  \item pt \item em \item ex
+  \item sp \item bp \item pc
+  \item cc \item dd \item in
+  \item mu \item fil \item fill \item filll
+\end{itemize}
+
+最大长度不超过$2^{30}$sp=5758.3mm，主要用到长度如\ref{length}所示：\\
+\begin{table}[htbp]
+  \centering
+  \caption{长度单位}\label{length}
+\begin{tabular}{llllll}
+  \toprule
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  单位 & 名称 & 说明 & 单位 & 名称 & 说明 \\
+  \midrule
+  mm & 毫米 & 1mm=2.845pt  & cm & 厘米 & 1mm=28.45pt \\
+  pt & 点 & 1pt=0.351mm & em & em & 当前字体 M 的宽度 \\
+  in & 英寸 & 1in=25.4mm=72.27pt & ex & ex & 当前字体 x 的高度 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{长度的设置}
+可根据排版情况进行一定长度的伸长或缩短。弹性长度前不能相乘，否则长度变为 0 。\\
+
+\index{命令!\verb$\fil$}
+\index{命令!\verb$\hfil$}
+\index{命令!\verb$\hfill$}
+\index{命令!\verb$\vfil$}
+\index{命令!\verb$\vfill$}
+\index{命令!\verb$\quad$}
+\index{命令!\verb$\qquad$}
+\index{命令!\verb$\hspace$}
+\index{命令!\verb$\vspace$}
+\index{命令!\verb$\\[]$}
+\index{命令!\verb$\newlength$}
+\index{命令!\verb$\addvspace$}
+\index{命令!plus }
+\index{命令!minus}
+\begin{table}[htbp]
+  \centering
+  \caption{长度设计}\label{length_design}
+\rowcolors{1}{lightgray}{}
+\begin{tabularx}{13cm}{p{5cm}X}
+\toprule
+2mm plus 0.2mm minus 0.3mm  &：表示长度根据排版需要在$2^{+0.2}_{-0.3}$mm内取值。\\
+\verb|\fill \hfil \hfill \vfil \vfill| &: 从 0 到任意长\\
+\verb|\hspace{长度}| &: 水平长度\\
+\verb|\vspace{长度}| &: 竖直长度\\
+\verb|\addvspce| &:  有条件的竖直长度\\
+\verb|\\[长度]| &: 竖直长度\\
+\verb|\quad \qquad| &: 1em，2em 长度\\
+\verb|\newlength{..}| &: 新长度值\\
+\verb|\phantom{字符串} \vphantom{字符串}| &: 生成字符串的总长(高)度\\
+\bottomrule
+\end{tabularx}
+\end{table}

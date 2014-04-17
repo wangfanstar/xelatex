@@ -1,0 +1,35 @@
+\section{行号}
+示例：
+\index{命令!\verb$\begin{linenumbers}$}
+\index{宏包!lineno}
+\begin{Verbatim}[formatcom=\color{grass},frame=single,numbers=left]
+\usepackage[left]{lineno}
+%swtich,pagewise,running,modulo，mathlines,displaymath
+\linenumbers[起始行号] %默认为1
+\nolinenumbers
+\resetlinenumbers[行号]
+\modulolinemumbers[间隔数] %默认为5
+\internallinenumbers %可在段落盒子或小页环境中使用行号起始命令
+
+%局部编号
+\begin{linenumbers}[起始行号]
+  文本
+\end{linenumbers}
+%带*号的每次从1开始，不带*的接上次的行号
+\begin{linenumbers*}[起始行号]
+  文本
+\end{linenumbers*}
+
+%公式加行号
+\begin{linenomath}
+  公式代码
+\end{linenomath}
+\end{Verbatim}
+
+\begin{linenumbers}[10]
+测试\\
+行号开始\\
+文本\\
+\end{linenumbers}
+
+经测试只有局部编号起作用，可能得更新lineno宏包。

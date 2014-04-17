@@ -1,0 +1,108 @@
+\section{公式}
+常用 amsmath 宏包，用 texfriend 输入字符可自动加宏包。
+
+\subsection{单行公式}
+\index{命令!\verb$\($}
+\index{命令!\verb$\[$}
+\index{命令!\$}
+\index{命令!\$\$}
+\begin{Verbatim}[formatcom=\color{grass},frame=single,numbers=left]
+$公式$:行内公式
+\(公式\)
+$$公式$$：行间公式
+\end{Verbatim}
+
+\subsection{多行公式}
+\index{环境!equation}
+\index{环境!gather}
+单个公式编号可在 equation 环境内加入 split 环境，每个公式对应一编号用 gather 环境，默认居中对齐。
+\textcolor[rgb]{1.00,0.00,0.00}{注意环境之间不要留空行。}
+\begin{Verbatim}[formatcom=\color{grass},frame=single]
+无标号
+\[公式\]
+equation 为单个公式
+\begin{equation}
+\begin{split}
+  a^2 =c+4\\
+  b^3 =e+6+b
+\end{split}
+\end{equation}
+gather为多个公式，但在 split 环境里的公式只有一个编号
+\begin{gather}
+\begin{split}
+  a^2 =c+4\\
+  b^3 =e+6+b\\
+c^2=3+c
+\end{gather}
+\end{Verbatim}
+
+\begin{gather}
+  a^2 =c+4\\
+  b^3 =e+6+b\\
+c^2=3+c
+\end{gather}
+
+\subsection{公式对齐}
+\index{环境!align}
+\index{环境!split}
+
+单编号公式对齐可用 split 环境。\\
+多编号公式对齐可用 align 环境。\\
+align 环境还可以让多个公式同行显示对齐。
+对齐符号为 \&，不写对齐符号默认右对齐，
+用 split 后多行公式的公式编号居中，
+在 gather 环境中用\verb$\notag$ 命令使本行公式不编号。
+\begin{Verbatim}[formatcom=\color{grass},frame=single]
+\begin{align}
+  a^2 =c+4 \notag\\
+  b^3 =e+6+b\\
+  c^2=q+7+p+7
+\end{align}
+\end{Verbatim}
+
+\begin{align}
+  a^2 =c+4 \notag\\
+  b^3 =e+6+b\\
+  c^2=q+7+p+7
+\end{align}
+
+\subsection{大小自动调整括号}
+
+\index{环境!matrix}
+\index{环境!pmatrix}
+\index{环境!bmatrix}	 
+\index{环境!Bmatrix}	
+\index{环境!vmatrix}	
+\index{环境!Vmatrix}	
+包括无框，小、中、大括号，单、双竖线。\\
+\fbox{\parbox{12cm}{
+\verbinput{body/fuhao.txt}}}
+~\\
+\par
+\[\begin{matrix}
+\begin{matrix} 1 & 2\\ 3 & 4 \end{matrix} &
+\begin{pmatrix} 1 & 2\\ 3 & 4 \end{pmatrix} &
+\begin{bmatrix} 1 & 2\\ 3 & 4 \end{bmatrix}\\[12pt]
+\begin{Bmatrix} 1 & 2\\ 3 & 4 \end{Bmatrix} &
+\begin{vmatrix} 1 & 2\\ 3 & 4 \end{vmatrix} &
+\begin{Vmatrix} 1 & 2\\ 3 & 4 \end{Vmatrix}
+\end{matrix}\]
+
+\subsection{公式内加文本}
+\index{命令!\verb$\text$}
+\index{命令!\verb$\intertext$}
+\begin{Verbatim}[formatcom=\color{grass},frame=single,numbers=left]
+\text{文本}
+行之间可用
+\intertext{文本}
+\end{Verbatim}
+
+\subsection{公式自动编号}
+\begin{Verbatim}[formatcom=\color{grass},frame=single,numbers=left]
+\begin{equation}
+可自动编号
+\end{equation}
+\begin{equation*}
+不自动编号
+\end{equation*}
+\end{Verbatim}

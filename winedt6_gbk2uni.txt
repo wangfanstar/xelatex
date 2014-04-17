@@ -1,0 +1,23 @@
+自动加载GBK2UNI的代码：
+
+IfStr("%!9","LaTeX", "=",!"JMP(!'gbk2uni');");
+IfStr("%!9","PDFLaTeX", "=",!"JMP(!'gbk2uni');");
+IfStr("%!9","TeXify", "=",!"JMP(!'gbk2uni');");
+IfStr("%!9","PDFTeXify","=",!"JMP(!'gbk2uni');");
+JMP(!'gbk2uni-Done');
+
+:gbk2uni:: ================================================
+
+IfFileExists("%!6\%N.out","",!"JMP(!'gbk2uni-Done');");
+IfStr("%$('%!9-WinEdt_Console');",'1','=',>
+!|RunConsole('gbk2uni.exe "%N"','%!6','%!9 ...',1,1);|,>
+!|WinExe('','gbk2uni.exe "%N"','%!6','%!9 ...', %!0, %!2,>
+'', '%b\_Out.log', '%b\_Err.log',%!1);|);
+
+:gbk2uni-Done:: ================================================
+
+
+
+注册提示框代码:
+
+RegDeleteValue('HKEY_CURRENT_USER', 'Software\WinEdt 6', 'Inst');

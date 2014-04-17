@@ -1,0 +1,14 @@
+样式设置
+\setbeamertemplate{beamer`元素`}{`定义`}
+\setbeamertemplate{beamer`元素`}[`参数`]
+
+颜色设置
+\setbeamercolor{beamer`元素`}{fg=`字体颜色`，bg=`背景颜色`}
+
+字体设置
+\setbeamerfont{beamer `元素`}{`定义`}
+定义有：
+size=	 \small,\large`等字体尺寸`
+series=	 `默认`\mdseries,`可选`\mdseries
+shape=	 `默认`\upshape,`可选`\itshape,\scshape
+family=	 `默认`\sffamily,`可选`\rmfamily,\tffamily

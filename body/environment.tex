@@ -1,0 +1,255 @@
+\section{环境}
+\subsection{自定义环境}
+
+*号必须改为不同的名称以便设定不同的计数器。
+\begin{Verbatim}[formatcom=\color{grass},frame=single]
+\newcounter{buzhou_*} %不同环境计数器的名称也必需不同
+\begin{list}
+{\bfseries\sffamily 步骤\,\arabic{buzhou_*}:\hfill}
+{\setlength{\parsep}{\parskip}
+ \setlength{\itemsep}{0ex plus0.1ex}
+ \setlength{\labelwidth}{4em}
+ \setlength{\labelsep}{0.2em}
+ \setlength{\leftmargin}{6.2em}
+ \setlength{\rightmargin}{2em}
+ \usecounter{buzhou_*} \setcounter{buzhou_*}{0}
+ \upshape
+}
+
+\item 规则检查设置
+\item 钻孔文件设置
+\item ART
+\item GERBE文件查看
+
+\end{list}
+\end{Verbatim}
+
+\index{命令!\verb$\newcounter$}
+
+结果如下所示\\
+\newcounter{buzhou_test1}
+\begin{list}
+{\bfseries\sffamily 步骤\,\arabic{buzhou_test1}:\hfill}
+{\setlength{\parsep}{\parskip}
+ \setlength{\itemsep}{0ex plus0.1ex}
+ \setlength{\labelwidth}{4em}
+ \setlength{\labelsep}{0.2em}
+ \setlength{\leftmargin}{6.2em}
+ \setlength{\rightmargin}{2em}
+ \usecounter{buzhou_test1} \setcounter{buzhou_test1}{0}
+ \upshape
+}
+
+
+
+\item 规则检查设置
+\item 钻孔文件设置
+\item ART
+\item GERBE文件查看
+
+\end{list}
+
+\subsection{默认环境}
+有前面为阿拉拍数字和圆点的环境。
+
+\index{环境!enumerate}
+\index{环境!itemize}
+\index{环境!description}
+
+\begin{lstlisting}[language={[LATEX]TEX}]
+`下面是阿拉伯数字列表`
+\begin{enumerate}
+  \item 
+  \item 
+  \item 
+\end{enumerate}
+`下面是圆点列表`
+\begin{itemize}
+  \item 
+  \item 
+  \item 
+\end{itemize}
+\begin{description}
+  \item[`主题1名称`] 
+  \item[`主题2名称`] 
+  \item[`主题3名称`] 
+\end{description}
+
+\end{lstlisting}
+
+
+
+\subsection{改变环境标号}
+
+
+\index{命令!\verb$\labelitemi$}
+\index{命令!\verb$\labelenumi$}
+\index{环境!enumi}
+\index{命令!\verb$\labelitemii$}
+\index{命令!\verb$\labelenumii$}
+\index{环境!enumii}
+\index{命令!\verb$\labelitemiii$}
+\index{命令!\verb$\labelenumiii$}
+\index{环境!enumiii}
+\index{命令!\verb$\labelitemiv$}
+\index{命令!\verb$\labelenumiv$}
+\index{环境!enumiv}
+
+
+
+\subsubsection{使用 \LaTeX 命令}
+
+itemize 的分层标号如下
+
+\begin{itemize}
+  \item
+  \begin{itemize}
+           \item
+           \begin{itemize}
+             \item
+             \begin{itemize}
+               \item
+             \end{itemize}
+           \end{itemize}
+         \end{itemize}
+\end{itemize}
+
+enumerate 的各层标号如下
+
+\begin{enumerate}
+  \item
+  \begin{enumerate}
+    \item
+    \begin{enumerate}
+      \item
+      \begin{enumerate}
+        \item
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+itemize 和 enumerate 的标签命令保存在以下命令中：
+
+\begin{shaded}
+  \begin{Verbatim}
+    \labelitemi  \labelitemii \labelitemiii \labelitemiv
+    \labelenumi  \labelenumii \labelenumiii \labelenumiiv
+  \end{Verbatim}
+\end{shaded}
+
+其计数器没有倒斜线，为
+
+\begin{framed}
+  \begin{Verbatim}
+    enumi  enumii enumiii enumiv
+  \end{Verbatim}
+\end{framed}
+
+将 enumerate 的首标号改为 a），次层标号改为 1）代码如下：
+
+\begin{shaded}
+  \begin{Verbatim}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii})}
+  \end{Verbatim}
+\end{shaded}
+
+
+同理，将 itemize 的第二层标号 - 改为 + 代码如下：
+
+
+\begin{shaded}
+  \begin{Verbatim}
+\renewcommand{\labelitemii}{+}
+  \end{Verbatim}
+\end{shaded}
+
+以上命令放在导言区对所有命令起作用，放在当前环境则只对当前环境起作用。
+
+
+\subsubsection{使用 enumerate 宏包}
+
+
+enumerate 环境更换标号的快捷方式
+
+\begin{cmd}[label=enuemerate 更换标号]
+  \begin{enumerate}[A a I i 或 1 + 任意字符]
+  \item
+  \end{enumerate}
+  注意：如果字符中包含了 A a I i 或 1 中一个，需用{}框起来
+\end{cmd}
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{enumerate}[`例` i.]
+\item one one one one one one one
+one one one one\label{LA}
+\item two
+\begin{enumerate}[{example} a)]
+\item one of two one of two
+one of two\label{LB}
+\item two of two
+\end{enumerate}
+\item two of two
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[{A}-1]
+\item one\label{LC}
+\item two
+\end{enumerate}
+\ref{LA}, \ref{LB},\ref{LC}
+\end{lstlisting}
+
+显示效果如下：
+
+\begin{enumerate}[例 i.]
+\item one one one one one one one
+one one one one \label{LA}
+\item two
+
+\begin{enumerate}[{example} a)]
+\item one of two one of two
+one of two \label{LB}
+\item two of two
+\end{enumerate}
+
+\item two of two
+\end{enumerate}
+
+\begin{enumerate}[{A}-1]
+\item one \label{LC}
+\item two
+\end{enumerate}
+
+引用效果如下：\ref{LA}，\ref{LB}，\ref{LC}
+
+%\subsection{短列表环境 shortlst}
+%
+%\index{命令!\verb$\begin{shortitemize}$}
+%\index{命令!\verb$\begin{shortenumerate}$}
+%\index{宏包!shortlst}
+%
+%如下所示，将许多可以简短条目在一行内显示出来有 shortitemize 和 shortenumerate 两种形式。
+%\begin{shaded}
+%  \begin{Verbatim}
+%  \usepackage{shortlst}
+%    \begin{shortitemize}
+%      \item ...
+%    \end{shortitemize}
+%
+%    \begin{shortenumerate}
+%      \item \laber{...}...
+%    \end{shortenumerate}
+%    我选择\ref{...}
+%  \end{Verbatim}
+%\end{shaded}
+%
+%\begin{shortenumerate}
+%  \item 短列表1  \item 短列表2  \item 短列表3  \item 短列表4  \item 短列表短列表短列表5 \item 短列表6  \item 短列表7
+%    \item 短列表8  \item 短列表9  \item 短列表短列表短列表短列表10  \item 短列表11  \item \label{short12}短列表12\
+%\end{shortenumerate}
+%我选择\ref{short12}。
+%\begin{shortitemize}
+%  \item 短列表1  \item 短列表2  \item 短列表3  \item 短列表4  \item 短列表短列表短列表5 \item 短列表6  \item 短列表7
+%    \item 短列表8  \item 短列表9  \item 短列表短列表短列表短列表10  \item 短列表11  \item 短列表12
+%\end{shortitemize}

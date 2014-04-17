@@ -1,0 +1,231 @@
+\section{版式设计}
+\subsection{常用文档类别 book article}
+可选 4 种文档类别。
+\begin{itemize}
+  \item book
+  \item report
+  \item article
+  \item letter
+\end{itemize}
+可选参数有字体尺寸，纸张大小，纸张方向，有无标题页
+\begin{cmd}[label= 基本字体尺寸]
+10pt,11pt,12pt
+\end{cmd}
+默认 10pt。
+\begin{cmd}[label= 纸张大小，方向]
+a4paper (297 X 210 mm)   executivepaper(10.5 X 7.25 in)
+a5paper (210 X 148 mm)   legalpaper(14 X 8.5 in)
+b5paper (250 X 176 mm)   letterpaper(11 X 8.5 in)
+默认纵向，可选 landscape 参数为横向
+\end{cmd}
+对于 book 和 report ，默认标题页单独一页，加入 notitlepage 参数可使标题与开头文本在同一页。
+对于 article 类，默认标题与正文同一页，加入 titlepage 参数可使标题单独一页。
+\begin{cmd}[label= 标题页选项]
+notitlepage     titlepage
+\end{cmd}
+
+\subsection{标题格式设计 caption2宏包}
+\index{宏包!caption2}
+
+\begin{description}
+\item [normal] 标题文本两边对齐，其中最后一行为左对齐。
+\item [center] 标题文本居中。
+\item [flushleft] 标题文本左对齐。
+\item [flushright] 标题文本右对齐。
+\item [centerlast] 标题文本两边对齐，其中最后一行居中。
+\item [indent] 与~\textbf{normal}~式样相似，只是标题文本从第二行开始，
+               每行行首缩进由命令~\verb|\{captionindent}|~给出的长度。因为
+               ~\verb|{captionindent}|~的缺省值为零，通常用像~
+              \verb|\setlength{\bs captionindent}{1cm}|~这样的命令
+              来设置缩进值。
+\item [hang] 与~\textbf{normal}~式样相似，只是标题文本从第二行开始，
+             每行行首缩进与标题标记宽度相等的长度。
+\end{description}
+
+通常这些标题式样在调入宏包时给出，如：
+\begin{Verbatim}[xleftmargin=2cm]
+\usepackage[centerlast]{caption}
+\end{Verbatim}
+
+将使整个文档中的标题都为~\textbf{centerlast}~式样。
+
+
+\begin{table}
+\newcommand{\tbltt}[1]{\textcolor{cyan}{\texttt{#1}}}
+\renewcommand{\arraystretch}{1.2}
+\centering
+\caption{caption2~{\hei 选项}}\label{tab:caption2opt}
+\begin{tabular}{|>{\kai\color{blue}}m{2cm}|m{3cm}|>{\kai}p{\textwidth - 6.5cm}|}
+\hline
+标题式样 & \tbltt{normal, center, flushleft, flushright, centerlast,
+  hang, indent} & 选择标题的式样。 \\
+\hline
+标题字号 & \tbltt{scriptsize, footnotesize, small, normalsize, large, Large}
+  & 选择标题的标记和文本的字体大小。\\
+\hline
+标记字形 & \tbltt{up, it, sl, sc} & 选择标题的标记的字形，不会影响到
+  标题的文本。 \\
+\hline
+字体序列 & \tbltt{mb, bf} & 选择标题的标记的字体序列，即字体的宽度或
+  权重。不会影响到标题的文本。\\
+\hline
+标记字族 & \tbltt{sl, sf, tt} & 选择标题的标记的字族，可为~Roman,
+   San Serif~或~Typewriter~字体。不会影响到标题的文本。 \\
+\hline
+单行标题 & \tbltt{oneline, nooneline} & 控制是否采用单行标题格式     \\
+\hline
+\end{tabular}
+\end{table}
+
+\index{命令!\verb$\titlefromat$}
+\scriptsize
+\begin{lstlisting}
+%%%% 定义段落章节的标题和目录项的格式  %%%%%
+\titleformat{\chapter}[hang]{\centering\LARGE\bfseries}{\chaptername}{1em}{}
+\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
+\titlespacing{\chapter}{0pt}{2.4ex}{2.4em}
+\titleformat{\section}[hang]{\color{blue}\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\color{grass}\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[hang]{\color{lightblue}\large\bfseries}{\thesubsubsection}{1em}{}
+\end{lstlisting}
+\normalsize
+\index{命令!\verb$\titlecontents$}
+本文档的目录格式设计：
+\scriptsize
+\begin{lstlisting}
+\titlecontents{chapter}
+[0em]
+{\color{blue}\heiti\large\heiti\addvspace{1.5ex}}
+%[0em] 为目录距左边的距离 \addvspace 为章与章之间的行距
+{\xiaosi\thecontentslabel{~~~}}
+{}          %{2em} 为章号距章标题的距离{}为章标题前的内容
+{\titlerule*[0.5pc]{.}\contentspage}[\addvspace{0.5ex}] %0.5ex 为章到下节的距离
+
+\titlecontents{section}
+[2em] {\color{blue}\normalsize\addvspace{0.5ex}}
+{\thecontentslabel\hspace*{1em}} {\hspace*{-2.3em}}
+{\titlerule*[0.4pc]{.}\contentspage}
+
+\titlecontents{subsection}
+[4em] {\color{grass}\normalsize\addvspace{0.5ex}}
+{\thecontentslabel\hspace*{1em}} {\hspace*{-2.3em}}
+{\titlerule*[0.4pc]{.}\contentspage}
+
+\titlecontents{subsubsection}
+[6em] {\color{grass}\normalsize\addvspace{0.5ex}}
+{\thecontentslabel\hspace*{1em}} {\hspace*{-2.3em}}
+{\titlerule*[0.4pc]{.}\contentspage}
+\end{lstlisting}
+\normalsize
+
+\subsection{多目录格式设计 minitoc宏包}
+\index{命令!\verb$\minitoc$}
+\index{宏包!minitoc}
+可以用来给每章，节前加一个小目录。
+
+\subsection{页边距设计 geometry宏包}
+\index{宏包!geometry}
+\begin{cmd}
+  \usepackage[top=2.54cm,bottom=2.54cm,left=2cm,
+  right=2cm,includehead,includefoot]{geometry}
+%上下2.54，左右2
+\end{cmd}
+
+\subsection{空页面，页眉页脚}
+\index{命令!\verb$\pagestyle{}$}
+pagestyle的版式有 4 种\\
+\begin{enumerate}
+  \item plain : 默认 页眉空，页码居中在页脚
+  \item empty ： 空白页
+  \item headings : 页眉由页码和页眉标题，每一章的第一页不显示页眉
+  \item myheadings : 同 headings ，但页眉标题不是自动提取，由
+  markright 和 markboth 决定。
+\end{enumerate}
+
+\begin{lstlisting}
+\pagestyle{empty} \thispagestyle{empty}
+\end{lstlisting}
+
+
+myheadings 中用 $\backslash$markright\{右页页眉\}
+$\backslash$markboth\{左页页眉\}\{右页页眉\}来指定内容，这些内容都保存在
+leftmark 和 rightmark 里
+
+\subsection{自定义页眉页脚}
+%%%%%%%%%%%%%%%%%% 索引 %%%%%%%%%%%%%%%%%%%%
+\index{宏包!fancyhdr}
+\index{命令!\verb$\fancyhf$}
+\index{命令!\verb$\fancyfoot$}
+\index{命令!\verb$\fancyhead$}
+用到 fancyhdr 宏包，book 文档 leftmark 代表章标题，rightmark
+代表节标题。
+\index{命令!\verb$\thispagestyle{}$}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+
+\usepackage{fancyhdr}
+\pagestyle{fancy} \thispagestyle{fancy}
+
+\fancyhf{} //`清空页眉页脚` \lhead{}//`左页眉内容` \rhead{} \lfoot{}
+\cfoot{} \rfoot{}
+
+\renewcommand{\headrulewidth}{0.6pt}//`上下线的粗细`
+\renewcommand{\footrulewidth}{0.6pt}
+\pagenumbering{Roman}//`页码格式`
+
+\fancyhead[L,O]{}//[]`内为L,C,R和O,E，左中右和奇偶页的组合`
+\fancyfoot[]{}
+
+\end{lstlisting}
+
+\subsection{格式切换}
+
+\index{命令!\verb$\backmatter$}
+\index{命令!\verb$\frontmatter$}
+\index{命令!\verb$\mainmatter$}
+
+通常是书籍类的正文，前，后三种不同的格式，
+主要是改变页码和章的计数。
+\begin{enumerate}
+  \item $\backslash$frontmatter : 把页码换成罗马数字格式，不对章进行自动编号，放在前言和目录前
+  \item $\backslash$mainmatter : 把页码换成阿拉拍数字，对章进行自动编号，放在正文前
+  \item $\backslash$backmatter : 不改变页码格式，不对章进行自动编号，放在参考文献前
+\end{enumerate}
+
+
+\subsection{文本格式shapepar}
+
+\index{命令!\verb$\heartpar$}
+\index{命令!\verb$\diamondpar$}
+\index{命令!\verb$\squarepar$}
+\index{命令!\verb$\nutpar$}
+
+可以将文本排成心形，钻石形，坚果形。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+
+\usepackage{shapepar}
+\heartpar{`内容`} \diamondpar{`内容`} \squarepar{`内容`}
+\nutpar{`内容`}
+\end{lstlisting}
+\color{red}
+\heartpar{
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我}
+~\\
+\diamondpar{我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我}
+
+~\\
+
+\nutpar{我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我
+我我我我我我我我我我我我我我我我我我我我我我我我我我我}
+\normalcolor
+
+
+\clearpage
+

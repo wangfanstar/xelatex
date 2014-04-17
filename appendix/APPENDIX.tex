@@ -1,0 +1,135 @@
+\bookmarksetup{bold,color=grass}
+\chapter{附\qquad 录}
+\bookmarksetup{bold=false,color={}}
+\thispagestyle{fancy}   \fancyhead[R]{\song\wuhao 附录}
+
+\section{常见参数}
+
+\subsection{位置参数}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\parbox`[位置参数]`{`长度`}{`内容`}
+\begin{figure(table)}[`位置参数`]
+\end{lstlisting}
+
+\fcolorbox{white}{lightgray}{parbox 位置参数有 t b s c 四种}
+
+\begin{tabular}{ll}
+
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  t & top 文本放置盒子顶部 \\
+  b & bottom 文本放置盒子底部 \\
+  s & spread 伸展行间距充满盒子 \\
+  c & center 盒子中间 \textcolor[rgb]{0.00,0.00,1.00}{默认属性} \\
+
+\end{tabular}
+
+\fcolorbox{white}{lightgray}{\parbox{12cm}{figure table 位置参数有 h
+t b p 四种，可同时写 4 种在括号内，确定优先顺序。}}
+
+\begin{tabular}{ll}
+
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  h & here 固定位置 \\
+  t & top 页顶 \\
+  b & bottom 页尾 \\
+  p & floatpage 单独的浮动页 \\
+\end{tabular}
+
+\subsection{表格参数}
+\fcolorbox{white}{lightgray}{tabularx 环境中可自定义表格宽度}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{tabularx}{14cm}{lrcxp{2cm}}
+%`分别是左右中等各种对齐方式，14cm为总长度`
+\end{lstlisting}
+\begin{tabular}{ll}
+
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+
+  l & left 左对齐\\
+  c & center 中对齐 \\
+  r & right 右对齐 \\
+  x & 根据总长度自动换行\\
+  p\{宽度\} & 指定表格宽度，超出可自动换行 \\
+
+\end{tabular}
+
+\subsection{居中环境}
+
+\rowcolors{1}{lightgray}{}
+\begin{tabularx}{14cm}{lp{4cm}X}
+  行居中 & \verb|\centerline{}| & 将一行文本居中并与上下文空出一行行距，常用于表格，图形 \\
+  所有对象居中 &  \verb|{\centering object}| & 将 centering 之后的对象全部居中\\
+  居中环境 & \verb|\begin{center}|\verb|\end{center}| &如在换行后加大行距，可使用\verb|\\[4mm]|换行符后的距离为可选参数。\\
+\end{tabularx}
+
+\section{$*$的区别}
+
+\begin{table}[H]
+  \centering
+  \caption{$*$的用法区别}\label{star_use}
+\rowcolors{1}{lightgray}{}
+\begin{tabularx}{14cm}{lp{6cm}X}
+  \toprule
+  文档属性 & \verb|\begin{CJK*}{}{}| & 带$*$会自动忽略汉字后的空格及换行，用 \~{} 来加入空隙\\
+抄录环境 & \verb|\begin{verbatim*}|、\verb|\verb*| &  带$*$ 会将空格以\verb*| |显示 \\
+公式环境 & \verb|\begin{equation*}| & 带$*$的不参加自动编号 \\
+表格环境 &\verb|\begin{longtable*}| & 表格计数器不加 1\\
+&\verb|\begin{tabluar*}| & 增加宽度参数，同 tabluarx ，但不能使用脚注\\
+系统命令 & \verb|\newcommand*|、\verb|\renewcommand*| & 带星号后命令不能含换行等参数\\
+超链接 & \verb|\ref*| & 带星号会注释掉超链接\\
+长度填充 & \verb|\hspace*{} \vspace*{}| & hspace 带星号的若在一行开始或结尾则系统删除空白，vspace 带星号若在新一页的开始或结尾则删除此空白\\
+缩放对象 & \verb|\resizebox*{}{}{}| & 不带星号第 2 个括号为高度，带星号为总高度\\
+  \bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+\section{listing 宏包可高亮关键字的程序语言}
+\includepdfmerge{body/language_list}
+
+\section{常用符号}
+\begin{description}
+  \item[省略号] cdots  ldots : $\cdots  \ldots$
+  \item[波浪号] nbs: \~{}
+  \item[引号] \`{},$'"$:` ' ``\,"
+\end{description}
+
+三个上下标后面都带括号。\\
+\begin{table}[!h]
+  \centering
+  \caption{特殊字符}\label{sym}
+  \begin{tabular}{ccccccccc}
+    \toprule
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    \# & \$ & \% & \{ & \} & \~{} & \^{} &\_ & $\backslash$ \\
+    $\backslash$\# & $\backslash$ \$ & $\backslash$ \% & $\backslash$\{ & $\backslash$\{
+    & $\backslash$\~{}\{\}  &  $\backslash$\^{}\{\} &  $\backslash$\_ & \$$\backslash$backslash\$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+
+\section{beamer 常用设置命令}
+
+\subsection{设置样式、颜色、字体}
+
+\begin{lstlisting}
+`样式设置`
+\setbeamertemplate{beamer`元素`}{`定义`}
+\setbeamertemplate{beamer`元素`}[`参数`]
+
+`颜色设置`
+\setbeamercolor{beamer`元素`}{fg=`字体颜色`，bg=`背景颜色`}
+
+`字体设置`
+\setbeamerfont{beamer `元素`}{`定义`}
+`定义有:`
+size=	 \small,\large `等字体尺寸`
+series=	 `默认`\mdseries,`可选`\mdseries
+shape=	 `默认`\upshape,`可选`\itshape,\scshape
+family=	 `默认`\sffamily,`可选`\rmfamily,\tffamily
+\end{lstlisting}
+
+\clearpage

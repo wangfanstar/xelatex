@@ -1,0 +1,75 @@
+\twocolumn
+
+\section{多栏排版}
+\index{命令!\verb$\onecolumn$}
+\index{命令!\verb$\twocolumn$}
+\subsection{onecolumn,twocolumn 选项}
+
+在  documentclass 的可选项中有 onecolumn 和 twocolumn 选项，twocolumn 的参数调节命令有
+\begin{cmd}[label= twocolumn 参数命令]
+1.栏间距
+\setlength{\columnsep}{宽度}
+2.分隔线（默认宽度为0，不显示）
+\setlength{columnseprule}{宽度}
+3.栏宽（类似于\textwidth，可使用）
+\columnwidth
+\end{cmd}
+
+\begin{enumerate}
+  \item 以上命令放在导言区，可作用于全文，放在正文中，只作用于局部
+  \item 只在部分页面中使用两栏格式，不用twocolumn选项，而应在正文中用\\ \verb|\twocolumn| 新起一页，遇到 \verb|\onecolumn| 恢复单栏。
+  \begin{cmd}
+    \twocolumn[通栏文本]
+    \onecolumn
+  \end{cmd}
+  \item 用 flushend 和 cuted 宏包可实现在页面左右栏平衡排版和一个页面中既有单栏又有双栏。
+\end{enumerate}
+
+\subsection{flushend，cuted 平衡双栏，调整双栏宏包}
+\index{宏包!flushend}
+\index{宏包!cuted}
+\index{环境!strip}
+\index{命令!\verb$\raggedend$}
+\index{命令!\verb$\flushend$}
+默认是左右栏等高处理，可用以下命令调整
+\begin{cmd}
+1.宏包
+\usepackage{flushend,cuted}
+2.先排满左栏，再排右栏（默认平衡排版）
+\raggedend
+3.恢复平衡双栏命令
+\flushend
+4.插入单栏内容
+\begin{strip}
+  单栏内容
+\end{strip}
+\end{cmd}
+\onecolumn
+\subsection{multicol 多栏排版宏包}
+\index{宏包!multicol}
+\index{环境!multicols}
+多栏输出，或分栏时不另起一页。
+\begin{lstlisting}
+\begin{multicols}{`分栏数字`}
+`文本`
+\end{multicols}
+\end{lstlisting}
+
+\begin{cmd}
+按章节内容分栏
+\begin{multicols}{3}[\section{The User Interface}]
+分栏前加入单独的长文本 This index contains...
+\begin{multicols}{3}[\section{Index}This index contains...][6cm]
+
+\columnsep 列间距
+分割线参数
+\columnseprule ：线宽 .4pt
+\columnseprulecolor ： 颜色，默认为 \normalcolor
+\raggedcolumns ： 底部对齐
+\flushcolumns ：默认对齐方式
+\columnbreak ：切换栏数
+\premulticols ：
+\postmulticols ：
+\unbalanced ：
+\end{cmd}
+

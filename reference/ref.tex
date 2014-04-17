@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  参考文献
+%格式样例
+%       plain 字母顺序列出 author year  title 这三种字母顺序比较
+%       unsrt  引用顺序列出
+%       abbrv   同 plain 但 firstname,month,title,journal 变成缩写
+%       alpha   引用处用作者年份代替数字
+%参考文献类型：专著［M］，论文集［C］，报纸文章［N］，期刊文章［J］，学位论文［D］，报告［R］，标准［S］，专利［P］，论文集中的析出文献［A］
+%电子文献类型：数据库［DB］，计算机［CP］，电子公告［EB］
+%电子文献的载体类型：互联网［OL］，光盘［CD］，磁带［MT］，磁盘［DK］
+%A：专著、论文集、学位论文、报告
+%［序号］主要责任者.文献题名［文献类型标识］.出版地：出版者，出版年:起止页码（可选）
+%［1］刘国钧，陈绍业.图书馆目录［M］.北京：高等教育出版社，1957.15-18.
+%
+%B:期刊文章
+%［序号］主要责任者.文献题名［J］.刊名，年，卷（期）：起止页码
+%［1］何龄修.读南明史［J］.中国史研究，1998,(3):167-173.
+%［2］OU J P，SOONG T T，et al.Recent advance in research on applications of passive energy dissipation systems［J］.Earthquack Eng,1997,38(3):358-361.
+%
+%C:论文集中的析出文献
+%［序号］析出文献主要责任者.析出文献题名［A］.原文献主要责任者（可选）.原文献题名［C］.出版地：出版者，出版年.起止页码
+%［7］钟文发.非线性规划在可燃毒物配置中的应用［A］.赵炜.运筹学的理论与应用——中国运筹学会第五届大会论文集［C］.西安：西安电子科技大学出版社，1996.468.
+%
+%D：报纸文章
+%［序号］主要责任者.文献题名［N］.报纸名，出版日期（版次）
+%［8］谢希德.创造学习的新思路［N］.人民日报，1998-12-25（10）.
+%
+%E：电子文献
+%[文献类型/载体类型标识]：[J/OL]网上期刊、[EB/OL]网上电子公告、
+%[M/CD]光盘图书、[DB/OL]网上数据库、[DB/MT]磁带数据库
+%［序号］主要责任者.电子文献题名［电子文献及载体类型标识］.电子文献的出版或获得地址，发表更新日期/引用日期
+%［12］王明亮.关于中国学术期刊标准化数据库系统工程的进展［EB/OL］.http://www.cajcd.edu.cn/pub/wml.html，1998-08-16/1998-10-01.
+%［8］万锦.中国大学学报文摘（1983-1993）.英文版［DB/CD］.北京：中国大百科全书出版社，1996
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{unsrt}
+%\bibliography{reference/REF}
+\xiaosi
+
+\begin{thebibliography}{99} %99为最多引用文献数目
+\setlength{\parskip}{0pt}  %段落之间的竖直距离
+
+\bibitem{latex} 陈志杰.LATEX 入门与提高第二版［M］北京：高等教育出版社 2006.5
+
+\bibitem{cjk} 李果正.大家来学 \LaTeX{} Version 1.0 [M/OL] 2004.3
+
+\bibitem{Art} HelinGai. The Art of \LaTeX [M/OL]  DukeUniversity
+
+\bibitem{Figure} 王磊译.  \LaTeX2e 插图指南 [M/OL]  2000.4.13
+
+\bibitem{note} AlphaHuang. \LaTeX Notes v1.20 [M/OL]  2008.7.26
+
+\bibitem{latex2e} 胡伟. \LaTeXe 完全学习手册 [M]  北京：清华大学出版社 2011.1
+
+\bibitem{asy_example}刘海洋. Asymptote 范例教程[M/OL] 2009.10
+
+\bibitem{asy_handbook}F.A.Zhang(cvgmt)译. Notes on asy 1-4章[M/OL] 2010.9.18
+
+\bibitem{asy_handbook2} Andy Hammerlindl,John Bowman,Tom Prince 著.刘海洋 译. Asymptote 1.91 3-6章[M/OL] 2010.1.1
+
+\bibitem{asy_direct}莫图.  asy 作图指南[M/OL] 2006.4
+
+\bibitem{beamer_guide} KiJooKim (a.k.a. Daisyweb). Beamer v3.0 Guide[M/OL] 2004.11.4
+
+\bibitem{beamer_handbook} Till Tantau. The beamer class User Guide for version3.20.[M/OL] 2012.06.01
+
+\bibitem{beamer_handbook2} Rouben Rostamian. A Beamer Quickstart[M/OL] 2004.12
+
+\end{thebibliography}
+\fancyhead[L]{\song\wuhao  }
+\fancyhead[R]{\song\wuhao 参考文献}
+\thispagestyle{fancy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{参考文献}        %加入参考文献到目录
+\clearpage

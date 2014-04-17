@@ -1,0 +1,132 @@
+\section{字体形式}
+\subsection{复制中文，符号。 ccmap Times 宏包}
+\color{red}
+在 PDFLaTeX 中，调用 ccmap 宏包可使中文字体可以复制，不调用则复制的中文会乱码。
+
+注意：有些字体从PDF中复制过去的代码其中单，双引号等英文中的引号形式复制到WORD中会变成中文格式的引号，注意替换。如~\verb|'|~会变成 ‘，~\verb|"|~  会变成 “ 。在 PDFLATEX 中 引用 Times 宏包可使引号复制正常，而在 \XeLaTeX 中，加入 Times 宏包则会使引号复制不正常。
+\normalcolor
+
+\subsection{PDFLaTeX 中的字体设置 zhmCJK 宏包}
+相比 CJK 宏包，zhmCJK 宏包有以下优点，zhmCJK 不在 TEXlive 中，需单独下载安装：
+\begin{itemize}
+  \item 编码可自定义为 GBK 或 UTF-8 ，CJK 的 GBK 编码生成的 PDF 目录标签需额外加上 gbk2uni 程序，否则会乱码
+  \item CJK 字体可调用的中文字体有限制，生成中文字体繁琐，zhmCJK 可直接调用系统的各种字体，更加便捷.
+  \item zhmCJK 语法命令更多，可控制字体的方式更多。
+\end{itemize}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+%% 编码可为 UTF8( 默认 ),BG5,GBK
+\usepackage[encoding=GBK]{zhmCJK}  
+%% 全局设置
+\setCJKmainfont[BoldFont=simhei.ttf,ItalicFont=simkai.ttf]{simsun.ttc}
+\setCJKsansfont[AutoFakeBold=0]{simhei.ttf}
+\setCJKmonofont[AutoFakeSlant]{simfang.ttf}
+\setCJKfamilyfont{xinwei}{STXINWEI.TTF}
+
+%% 以下可用系统的其他字体 { 调用名称 }{ 系统字体文件 }
+\setCJKfamilyfont{song}{simsun.ttc}
+\setCJKfamilyfont{hei}{simhei.ttf}
+\setCJKfamilyfont{kai}{simkai.ttf}
+\setCJKfamilyfont{li}{simli.ttf}
+\setCJKfamilyfont{you}{simyou.ttf}
+%% 设置后可用 \CJKfamily{song} 类似命令转换字体
+
+\newcommand{\song}{\CJKfamily{song}}
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\kai}{\CJKfamily{kai}}
+\newcommand{\fs}{\CJKfamily{fs}}
+\newcommand{\li}{\CJKfamily{li}}
+\newcommand{\you}{\CJKfamily{you}}
+\newcommand{\wei}{\CJKfamily{xinwei}}
+%% 设置后可用 \song 等命令简化字体调用命令
+\end{lstlisting}
+\subsection{XeLaTeX 中的字体设置}
+主要采用的是 XeCJK 宏包。其中用 CTEX 系列宏包可自动引用 XeCJK 宏包。
+
+\textbf{设置中文字体}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+%% 以上两行使中文能自动换行
+
+\newcommand{\song}{\songti}
+\newcommand{\fs}{\fangsong}
+\newcommand{\hei}{\heiti}
+\newcommand{\kai}{\kaishu}
+\newcommand{\li}{\lishu}
+\newcommand{\you}{\youyuan}
+%% 以上用于简化CTeX 宏包的字体命令。
+\setCJKmainfont[<fontfeatures>]{<fontname>}
+\setCJKsansfont[<fontfeatures>]{<fontname>}
+\setCJKmonofont[<fontfeatures>]{<fontname>}
+\setCJKfamilyfont{<familyname>}[<fontfeatures>]{<fontname>}
+\setCJKmainfont[BoldFont={AdobeHeitiStd},ItalicFont={AdobeKaitiStd}]
+{AdobeSongStd} %同时定义粗体斜体字体的定义
+\setCJKmainfont{SimSun}   % 设置默认中文字体
+\setCJKmonofont{SimSun}   % 设置等宽字体
+
+\end{lstlisting}
+
+
+\textbf{设置英文字体}
+
+\index{命令!\verb$\setmainfont$}
+\index{命令!\verb$\setsansfont$}
+\index{命令!\verb$\setmonofont$}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+%\setmainfont{Times New Roman}
+%设置默认英文字体。
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Adventor}
+\setmonofont{TeX Gyre Cursor}
+\end{lstlisting}
+\subsection{数字形式}
+
+\index{命令!\verb$\pagenumbering$}
+
+可用各种形式对页码的编号进行指定，共 5 种。
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\pagenumbering{Roman}//`页码格式`
+\end{lstlisting}
+\begin{enumerate}
+  \item arabic 阿拉伯数字 1 2
+  \item roman 小写罗马 i ii
+  \item Roman 大写罗马 I II
+  \item alph 小写拉丁 a b c d
+  \item Alph 大写拉丁 A B C D
+\end{enumerate}
+\subsection{英文字体}
+在新字体选择方案中，每种字体有 5 种属性，编码、族、形状、系列、尺寸，编码一般不涉及：\\
+\begin{enumerate}
+  \item 族（family）：概观样式， \textcolor[rgb]{0.50,0.00,1.00}{rmfamily sffamily ttfamily} 罗马，无衬线，打字机三种样式
+  \item 形状(shape): 倾斜和高矮, \textcolor[rgb]{0.50,0.00,1.00}{upshape itshape slshape scshape} 直立，意大利斜体，slanted 斜体，小体大写字体
+  \item 系列（serial): 宽度和黑度，\textcolor[rgb]{0.50,0.00,1.00}{mdseries bfseries} 中等，粗体
+  \item 尺寸：从小到大为 \textcolor[rgb]{0.50,0.00,1.00}{tiny scriptsize footnotesize small normalsize large Large LARGE huge Huge}
+\end{enumerate}
+
+
+\subsection{颜色}
+
+注意：box 内一般为单行文本，如要多行文本，要再加上 parbox 命令。\\
+
+\index{命令!\verb$\color$}
+\index{命令!\verb$\colorbox$}
+\index{命令!\verb$\fcolorbox$}
+
+\begin{center}
+\color{red} red \quad \color{green} green \quad\color{blue} blue\\
+\color{yellow} yellow \quad  \color{cyan} cyan \quad\color{magenta} magenta\\
+\color{black} black \quad \color{black} white \quad\color{orange} orange\\
+\color{violet} violet \quad \color{purple} purle \quad\color{brown} brown\\
+\color{pink} pink \quad \color{olive} olive \quad\color{darkgray} darkgray\\
+\color{gray} gray \quad\color{lightgray} lightgray\\
+\end{center}
+
+\normalcolor
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\usepackage{xcolor}
+\color{`色彩`} \textcolor{`色彩`}{`文本`} \pagecolor{`色彩`}{`文本`}
+\colorbox{`文本色彩`}{`文本`}
+\fcolorbox{`边框色彩`}{`背景色彩`}{`文本`} \normalcolor
+//`前言未尾所使用的颜色，一般为黑`
+\end{lstlisting}
+

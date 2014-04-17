@@ -1,0 +1,6 @@
+\@doanenote {1}
+macro:->尾注测试1
+\@endanenote
+\@doanenote {2}
+macro:->尾注测试2
+\@endanenote

@@ -1,0 +1,45 @@
+\chapter{版本修改记录}
+ \thispagestyle{fancy} \fancyhead[R]{\song\wuhao 版本修改记录}
+{
+\rowcolors{1}{lightgray}{}
+\begin{longtable}[H]{cp{8cm}c}
+%\caption{文档修改版本记录表} \label{change_version} \\
+\toprule \multicolumn{1}{c}{\textbf{时间 }} &
+\multicolumn{1}{l}{\textbf{修改记录 }} &
+\multicolumn{1}{c}{\textbf{修改人 }}
+
+\\ \midrule
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\kai \thetable{} 修改记录-~- 接上页}} \\
+\toprule \multicolumn{1}{c}{\textbf{时间}} &
+\multicolumn{1}{l}{\textbf{修改记录 }} &
+\multicolumn{1}{c}{\textbf{修改人}} \\
+\endhead
+ \multicolumn{3}{r}{{\kai 接下页}} \\ \bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+%%%%%%%%%%%%%%%% 第一版 %%%%%%%%%%%%%%%%%%%%%%
+ 2011.06.  & 第 1 版  & 王凡 \\
+
+%%%%%%%%%%%%%%%% 第二版 %%%%%%%%%%%%%%%%%%%%%%
+
+ 2012.02 & 第 2 版 去除circ宏包（tex自带的太丑）增加 pgf，lastpage宏包（可代替以上大部分宏包功能）&王凡\\
+
+
+ 2012.04 & 第 3 版 升级到  TEXLIVE 2011，用 zhmCJK 代替以前的 CJK 宏包。&王凡\\
+
+
+ 2012.05 & 第 4 版 升级到  TEXLIVE 2011 的 xelatex ，转换成 utf-8编码，用 attachfile2 宏包，解决以前粗细不一和字体太少的毛病。&王凡\\
+
+  2012.09 & 第 5 版 升级到  TEXLIVE 2012 ，改正了 pgf 宏包 xdvipdfmx 引擎有些图绘制不出，修改了一些错误，增加彩色书签等宏包。&王凡\\
+
+
+  2012.11 & 第 6 版 \par 1. 改正字体代码复制后引号格式不正常的问题，\par 2. diagbox 替代 slashbox 斜线表格宏包，\par 3. 增加pgf 宏包输出单独pdf,eps,png 格式图片，绘制树等各种图形内容，\par 4. beamer 输出notes，切换效果等内容，\par 5. 增加 asymptote 相关内容，字体设置内容，\par 6. mac os 系统兼容内容，\par 7. tabu 宏包，内容 。& 王凡\\
+
+    2013.03 & 第 7 版 \par 1. 改进 no room for write 的 bug \par 2. 增加 MAKEPDF.BAT文件，可一次编译出 PDF  \par 3.  增加 pgf 向外导出单独 PDF 格式的样例 tex 文件 \par 去除了冲突符号宏包 dingbat 和 marvosym & 王凡\\
+\end{longtable}
+}
